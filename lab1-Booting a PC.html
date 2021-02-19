@@ -1,0 +1,1392 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Lab1: Booting a PC · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-intopic-toc/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="lab2-Memory Management.html" />
+    
+    
+    <link rel="prev" href="preparation.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="preparation.html">
+            
+                <a href="preparation.html">
+            
+                    
+                    准备工作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="lab1-Booting a PC.html">
+            
+                <a href="lab1-Booting a PC.html">
+            
+                    
+                    Lab1: Booting a PC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="lab2-Memory Management.html">
+            
+                <a href="lab2-Memory Management.html">
+            
+                    
+                    lab2: Memory Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Lab3-User Environments.html">
+            
+                <a href="Lab3-User Environments.html">
+            
+                    
+                    Lab3: User Environments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="lab4-Preemptive Multitasking.html">
+            
+                <a href="lab4-Preemptive Multitasking.html">
+            
+                    
+                    lab4: Preemptive Multitasking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="lab5-File system, Spawn and Shell.html">
+            
+                <a href="lab5-File system, Spawn and Shell.html">
+            
+                    
+                    lab5: File system, Spawn and Shell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="lab6-Network Driver.html">
+            
+                <a href="lab6-Network Driver.html">
+            
+                    
+                    lab6: Network Driver
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Lab1: Booting a PC</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="lab-1-booting-a-pc">Lab 1: Booting a PC</h1>
+<p>&#x672C;&#x79D1;&#x7684;&#x65F6;&#x5019;&#x8001;&#x5E08;&#x62C9;&#x8DE8;&#x7684;&#x8BB2;&#x8BFE;&#x6C34;&#x5E73;&#xFF0C;&#x4F7F;&#x5F97;&#x6211;&#x5BF9;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x7406;&#x89E3;&#x4F9D;&#x65E7;&#x53EA;&#x4F1A;&#x5F00;&#x5173;&#x673A;&#x3002;&#x5E76;&#x4E14;&#xFF0C;&#x6211;&#x5BF9;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x77E5;&#x8BC6;&#x975E;&#x5E38;&#x7684;&#x611F;&#x5174;&#x8DA3;&#xFF0C;&#x56E0;&#x6B64;&#x60F3;&#x8981;&#x6DF1;&#x5165;&#x7684;&#x8FDB;&#x884C;&#x5B66;&#x4E60;&#x3002;&#x7F51;&#x4E0A;&#x641C;&#x7D22;&#xFF0C;&#x53D1;&#x73B0;&#x975E;&#x5E38;&#x591A;&#x7684;&#x8BE5;&#x8BFE;&#x7A0B;&#x7684;&#x653B;&#x7565;&#x3002;&#x5982;&#x4F55;&#x4F7F;&#x5F97;&#x81EA;&#x5DF1;&#x7684;<strong>&#x653B;&#x7565;&#x4E0E;&#x4F17;&#x4E0D;&#x540C;</strong>&#x5462;&#xFF1F;&#x540C;&#x65F6;&#x5982;&#x4F55;&#x8BA9;&#x81EA;&#x5DF1;&#x66F4;&#x597D;&#x7684;&#x638C;&#x63E1;&#x67D0;&#x9879;&#x77E5;&#x8BC6;&#xFF0C;&#x6700;&#x597D;&#x7684;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x8BB2;&#x7ED9;&#x522B;&#x4EBA;&#x542C;&#x3002;&#x4E8E;&#x662F;&#xFF0C;&#x5728;&#x4E00;&#x4E2A;&#x6708;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x5728;&#x4E00;&#x4E2A;&#x591C;&#x9ED1;&#x98CE;&#x9AD8;&#x7684;&#x665A;&#x4E0A;&#xFF0C;&#x5F55;&#x5236;&#x4E86;&#x8BB2;&#x89E3;&#x7684;&#x89C6;&#x9891;&#xFF0C;&#x94FE;&#x63A5;&#x5982;&#x4E0B;&#x3002;</p>
+<p><a href="https://www.bilibili.com/video/BV1rz4y1C7YY" target="_blank">MIT 6.828 lab1</a></p>
+<p>&#x7531;&#x4E8E;&#x5F55;&#x5236;&#x7684;&#x5C4F;&#x5E55;&#x9002;&#x914D;&#x6027;&#xFF0C;&#x6240;&#x4EE5;&#x7F3A;&#x5C11;&#x4E86;&#x53F3;&#x8FB9;&#x548C;&#x4E0B;&#x8FB9;&#x7684;&#x90E8;&#x5206;&#x5C4F;&#x5E55;&#x5185;&#x5BB9;&#xFF0C;&#x4F46;&#x662F;&#x5E76;&#x4E0D;&#x5F71;&#x54CD;&#x89C2;&#x770B;&#x3002;</p>
+<p>&#x5F55;&#x5B8C;&#x8BE5;&#x89C6;&#x9891;&#x540E;&#xFF0C;&#x6211;&#x53CD;&#x590D;&#x770B;&#x4E86;&#x8FD9;&#x4E2A;&#x89C6;&#x9891;&#xFF0C;&#x53D1;&#x73B0;&#x6709;&#x5F88;&#x5927;&#x7684;&#x95EE;&#x9898;&#x2014;&#x2014;&#x867D;&#x7136;&#x81EA;&#x5DF1;&#x80FD;&#x591F;&#x7406;&#x89E3;&#xFF0C;&#x4F46;&#x662F;&#x8BB2;&#x7684;&#x4E0D;&#x6E05;&#x695A;&#x3002;&#x8BB2;&#x7684;&#x4E0D;&#x6210;&#x4F53;&#x7CFB;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x77E5;&#x8BC6;&#x70B9;&#x975E;&#x5E38;&#x7684;&#x96F6;&#x6563;&#xFF0C;&#x5E76;&#x4E14;&#x662F;&#x53C2;&#x8003;&#x5B98;&#x65B9;&#x7684;tutorial&#x8BB2;&#x89E3;&#x7684;&#xFF0C;&#x5176;&#x4E2D;&#x9057;&#x6F0F;&#x4E86;&#x5F88;&#x591A;&#x7684;&#x7EC6;&#x8282;&#x3002;&#x6211;&#x4E2A;&#x4EBA;&#x89C9;&#x5F97;&#x6211;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x540C;&#x597D;&#x4E0E;&#x6211;battle&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x80FD;&#x80FD;&#x591F;&#x66F4;&#x597D;&#x7684;&#x8BA9;&#x6211;&#x77E5;&#x9053;&#x600E;&#x4E48;&#x8BB2;&#x66F4;&#x5408;&#x9002;&#x3002;</p>
+<p>&#x4E8E;&#x662F;&#xFF0C;&#x6211;&#x6682;&#x7F13;&#x4E86;&#x5F55;&#x89C6;&#x9891;&#xFF0C;&#x5F00;&#x59CB;&#x505A;&#x5176;&#x4ED6;&#x7684;lab&#x3002;</p>
+<p>&#x6700;&#x8FD1;&#xFF0C;&#x6211;&#x5F00;&#x59CB;&#x91CD;&#x62FE;&#x4E86;&#x8BE5;&#x6559;&#x7A0B;&#xFF0C;&#x76EE;&#x7684;&#x5C31;&#x662F;&#x505A;&#x5230;&#x4E0E;&#x4F17;&#x4E0D;&#x540C;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x6211;&#x53D1;&#x73B0;&#x771F;&#x7684;&#x5F88;&#x96BE;&#x3002;&#x4E0E;&#x6B64;&#x540C;&#x65F6;&#xFF0C;&#x6211;&#x5C3D;&#x53EF;&#x80FD;&#x591A;&#x7684;&#x53BB;&#x6536;&#x96C6;&#x4E86;&#x4E00;&#x4E9B;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x4E00;&#x4E9B;&#x66F4;&#x6DF1;&#x5C42;&#x6B21;&#x7684;&#x8BBE;&#x8BA1;&#x539F;&#x7406;&#xFF0C;&#x4F7F;&#x6211;&#x5BF9;&#x5176;&#x6709;&#x66F4;&#x6DF1;&#x7684;&#x7406;&#x89E3;&#x3002;&#x5982;BIOS&#x4E3A;&#x4EC0;&#x4E48;&#x4ECE;<code>0x7c00</code>&#x8FDB;&#x884C;&#x542F;&#x52A8;&#xFF0C;&#x5176;&#x80CC;&#x540E;&#x5C45;&#x7136;&#x6709;&#x4E00;&#x6BB5;&#x5386;&#x53F2;&#x539F;&#x56E0;&#x3010;4&#x3011;&#x3002;&#x52A0;&#x5165;&#x4E86;&#x66F4;&#x591A;&#x7684;&#x57FA;&#x7840;&#x7684;&#x8BB2;&#x89E3;&#xFF0C;&#x5982;&#x6C47;&#x7F16;&#x8BED;&#x8A00;&#x3001;&#x5185;&#x8054;&#x6C47;&#x7F16;&#x3001;&#x56FE;&#x89E3;ELF&#xFF0C;stack&#x7B49;&#x7B49;&#x3002;lab1&#x8BB2;&#x89E3;&#x653B;&#x7565;&#x914D;&#x6709;18&#x5F20;&#x56FE;&#xFF0C;&#x603B;&#x5B57;&#x6570;&#x7EA6;&#x4E3A;&#x4E00;&#x4E07;&#x5B57;&#x3002;</p>
+<p>&#x5199;&#x8FD9;&#x4E2A;&#x653B;&#x7565;&#x524D;&#x6211;&#x5DF2;&#x7ECF;&#x5145;&#x5206;&#x719F;&#x6089;lab1&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x4F9D;&#x65E7;&#x82B1;&#x4E86;&#x6211;&#x56DB;&#x5929;&#x5185;&#x6240;&#x6709;&#x7684;&#x7A7A;&#x95F2;&#x65F6;&#x95F4;&#x3002;</p>
+<p>&#x8BFE;&#x7A0B;&#x4EE3;&#x7801;GitHub&#x94FE;&#x63A5;&#xFF1A;</p>
+<p><a href="https://github.com/baolintian/6.828" target="_blank">github &#x4EE3;&#x7801;&#x94FE;&#x63A5;</a></p>
+<p>&#x8BE5;&#x6587;&#x6863;&#x7684;&#x96C6;&#x5408;&#x94FE;&#x63A5;&#xFF1A;</p>
+<p><a href="">&#x6587;&#x6863;github&#x94FE;&#x63A5;</a></p>
+<p>&#x5982;&#x679C;&#x4F60;&#x89C9;&#x5F97;&#x8FD9;&#x4E2A;&#x653B;&#x7565;&#x5BF9;&#x4F60;&#x6709;&#x5E2E;&#x52A9;&#xFF0C;&#x6B22;&#x8FCE;&#x5728;githhub&#x4E0A;star&#x8BBE;&#x7F6E;follow&#x3002;</p>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x53D1;&#x73B0;&#x672C;&#x6587;&#x672C;&#x6709;&#x903B;&#x8F91;&#x4E0A;&#x7684;&#x9519;&#x8BEF;&#xFF0C;&#x6B22;&#x8FCE;&#x63D0;issue or pull request&#x3002;</p>
+<h3 id="&#x601D;&#x7EF4;&#x5BFC;&#x56FE;">&#x601D;&#x7EF4;&#x5BFC;&#x56FE;</h3>
+<p><img src="https://pic4.zhimg.com/80/v2-9094a20556a52151f5d12fb7ead19eff.png" alt=""></p>
+<h3 id="part-1-pc-bootstrap">Part 1: PC Bootstrap</h3>
+<h4 id="exercise-1-&#x719F;&#x6089;&#x6C47;&#x7F16;&#x8BED;&#x8A00;">exercise 1 &#x719F;&#x6089;&#x6C47;&#x7F16;&#x8BED;&#x8A00;</h4>
+<blockquote>
+<p>&#x719F;&#x6089;&#x6C47;&#x7F16;&#x8BED;&#x8A00;&#xFF0C;&#x5176;&#x4E2D;&#x53EF;&#x4EE5;&#x7279;&#x522B;&#x9700;&#x8981;&#x9605;&#x8BFB;&#x6750;&#x6599;<a href="http://www.delorie.com/djgpp/doc/brennan/brennan_att_inline_djgpp.html" target="_blank">Brennan&apos;s Guide to Inline Assembly</a>&#x3002;&#x8FD9;&#x4E2A;&#x94FE;&#x63A5;&#x4E2D;&#x5F88;&#x597D;&#x7684;&#x8BF4;&#x660E;&#x4E86;&#x672C;&#x5B9E;&#x9A8C;&#x4F7F;&#x7528;&#x7684;&#x6C47;&#x7F16;&#x8BED;&#x8A00;&#x7248;&#x672C;AT&amp;T&#x4E0E;Intel&#x7248;&#x672C;&#x7684;&#x533A;&#x522B;&#xFF0C;&#x5E76;&#x4E14;&#x6709;&#x6709;&#x5173;&#x5185;&#x8054;&#x6C47;&#x7F16;&#x6BD4;&#x8F83;&#x7B80;&#x6D01;&#x591F;&#x7528;&#x7684;&#x8BED;&#x6CD5;&#x4ECB;&#x7ECD;&#x3002;</p>
+</blockquote>
+<h4 id="simulating-the-x86">Simulating the x86</h4>
+<p>&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x662F;&#x771F;&#x5B9E;&#x7684;&#x8FD0;&#x884C;&#x5728;&#x786C;&#x4EF6;&#x4E4B;&#x4E0A;&#x7684;&#x3002;&#x672C;&#x8BFE;&#x7A0B;&#x4E3A;&#x4E86;&#x8C03;&#x8BD5;&#x7684;&#x7B80;&#x4FBF;&#x6027;&#xFF0C;&#x4F7F;&#x7528;&#x4E86;QEMU&#xFF0C;&#x8BE5;&#x5DE5;&#x5177;&#x80FD;&#x591F;&#x865A;&#x62DF;&#x5404;&#x79CD;&#x786C;&#x4EF6;&#x8BBE;&#x5907;&#xFF0C;&#x4F9B;&#x672C;&#x5B9E;&#x9A8C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;JOS&#x8FDB;&#x884C;&#x8C03;&#x7528;&#xFF0C;&#x5E76;&#x4E14;JOS&#x662F;&#x8FD0;&#x884C;&#x5728;QEMU&#x4E4B;&#x4E0A;&#x3002;</p>
+<pre><code class="lang-shell">cd lab
+make qemu # &#x7F16;&#x8BD1;&#x8FD0;&#x884C;JOS
+make qemu-nox # &#x4E0D;&#x4F7F;&#x7528;&#x865A;&#x62DF;&#x5316;&#x7684;VGA&#x7A97;&#x53E3;
+make qemu-gdb # &#x5F00;&#x542F;gdb&#x8C03;&#x8BD5;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x9700;&#x8981;&#x5728;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x547D;&#x4EE4;&#x884C;&#x4F7F;&#x7528;make gdb
+make qemu-nox-gdb #
+</code></pre>
+<p>&#x5982;&#x679C;&#x60F3;&#x8981;&#x63A8;&#x51FA;qemu&#xFF0C;&#x4F7F;&#x7528;<code>Ctrl+a -&gt; x</code>&#x3002;</p>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x8981;&#x5C06;&#x8BE5;&#x7CFB;&#x7EDF;&#x8FD0;&#x884C;&#x5230;&#x771F;&#x662F;&#x7684;&#x786C;&#x4EF6;&#x8BBE;&#x5907;&#x4E0A;&#xFF0C;&#x90A3;&#x4E48;&#x9700;&#x8981;&#x5C06;<code>obj/kern/kernel.img</code>&#x70E7;&#x5F55;&#x5230;&#x786C;&#x76D8;&#x6247;&#x533A;&#x6700;&#x5F00;&#x59CB;&#x7684;&#x5730;&#x65B9;&#x3002;</p>
+<h4 id="the-pcs-physical-address-space">The PC&apos;s Physical Address Space</h4>
+<pre><code>+------------------+  &lt;- 0xFFFFFFFF (4GB)
+|      32-bit      |
+|  memory mapped   |
+|     devices      |
+|                  |
+/\/\/\/\/\/\/\/\/\/\
+
+/\/\/\/\/\/\/\/\/\/\
+|                  |
+|      Unused      |
+|                  |
++------------------+  &lt;- depends on amount of RAM
+|                  |
+|                  |
+| Extended Memory  |
+|                  |
+|                  |
++------------------+  &lt;- 0x00100000 (1MB)
+|     BIOS ROM     |
++------------------+  &lt;- 0x000F0000 (960KB)
+|  16-bit devices, |
+|  expansion ROMs  |
++------------------+  &lt;- 0x000C0000 (768KB)
+|   VGA Display    |
++------------------+  &lt;- 0x000A0000 (640KB)
+|                  |
+|    Low Memory    |
+|                  |
++------------------+  &lt;- 0x00000000
+</code></pre><p>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x4E3B;&#x673A;&#x7684;&#x7269;&#x7406;&#x5185;&#x5B58;&#x7684;&#x5206;&#x5E03;&#x60C5;&#x51B5;&#x3002;</p>
+<p>&#x4E00;&#x5F00;&#x59CB;&#x7684;8088&#x5904;&#x7406;&#x5668;&#x53EA;&#x80FD;&#x5BFB;16&#x4F4D;&#x5730;&#x5740;&#xFF0C;&#x80FD;&#x591F;&#x7BA1;&#x7406;1MB&#x7684;&#x7269;&#x7406;&#x5185;&#x5B58;&#x3002;&#x4E4B;&#x6240;&#x4EE5;16&#x4F4D;&#x5730;&#x5740;&#x80FD;&#x591F;&#x7BA1;&#x7406;1MB&#x7684;&#x7269;&#x7406;&#x5185;&#x5B58;&#x5730;&#x5740;&#x662F;&#x56E0;&#x4E3A;&#x91C7;&#x7528;(CS:IP)&#x7684;&#x5BFB;&#x5740;&#x65B9;&#x5F0F;&#xFF0C;<code>physical address = 16*segment + offset</code>&#x3002;</p>
+<p>&#x4F60;&#x95EE;&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x91C7;&#x7528;<code>physical address = (segment&lt;&lt;16) + offset</code>&#xFF0C;&#x8FD9;&#x6837;&#x6709;4GB&#x7684;&#x5185;&#x5B58;&#x53EF;&#x4EE5;&#x5BFB;&#x5740;&#x554A;&#xFF0C;&#x5E76;&#x4E14;&#x662F;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x4E2A;&#x4EBA;&#x731C;&#x60F3;&#x53EF;&#x80FD;&#x548C;&#x5F53;&#x65F6;&#x7684;&#x786C;&#x4EF6;&#x53D1;&#x5C55;&#x6709;&#x5173;&#x3002;</p>
+<p>BIOS(basic input output system)&#x7684;&#x521D;&#x59CB;&#x5316;&#x7A0B;&#x5E8F;&#x4E00;&#x5F00;&#x59CB;&#x5728;&#x4E0D;&#x53EF;&#x64E6;&#x9664;&#x7684;flash&#x4E2D;&#x4FDD;&#x5B58;&#xFF0C;&#x968F;&#x7740;&#x5185;&#x5B58;&#x7684;&#x53D1;&#x5C55;&#x76EE;&#x524D;&#x5B58;&#x653E;&#x5728;&#x975E;&#x6613;&#x5931;&#x53EF;&#x64E6;&#x5199;&#x7684;&#x5185;&#x5B58;&#x4E2D;&#x3002;</p>
+<p>&#x4E00;&#x822C;&#x8D85;&#x8FC7;32&#x4F4D;&#x5730;&#x5740;&#x90FD;&#x662F;&#x7528;&#x4E8E;PCI&#x8BBE;&#x5907;&#x5BFB;&#x5740;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x53C8;&#x7531;&#x4E8E;&#x73B0;&#x5728;&#x6709;&#x4E9B;&#x8BBE;&#x5907;&#x652F;&#x6301;&#x8D85;&#x8FC7;4GB&#x7684;&#x5185;&#x5B58;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;BIOS&#x9700;&#x8981;&#x4E3A;&#x54EA;&#x4E9B;PCI&#x8BBE;&#x5907;&#x9884;&#x7559;&#x4E00;&#x4E9B;&#x7A7A;&#x95F4;&#xFF0C;&#x63D0;&#x4F9B;&#x8BBF;&#x95EE;&#xFF0C;&#x5373;&#x54EA;&#x6015;&#x4F60;&#x7684;&#x7269;&#x7406;&#x5185;&#x5B58;&#x8D85;&#x8FC7;&#x4E86;4GB&#xFF0C;&#x6709;&#x4E9B;&#x90E8;&#x5206;&#x4F9D;&#x65E7;&#x662F;&#x4E0D;&#x80FD;&#x8BBF;&#x95EE;&#x7684;&#xFF0C;&#x9700;&#x8981;&#x9884;&#x7559;&#x7ED9;&#x7269;&#x7406;&#x8BBE;&#x5907;&#x3002;</p>
+<h4 id="the-rom-bios">The ROM BIOS</h4>
+<pre><code class="lang-c">Type <span class="hljs-string">&quot;apropos word&quot;</span> to search <span class="hljs-keyword">for</span> commands related to <span class="hljs-string">&quot;word&quot;</span>.
++ target remote localhost:<span class="hljs-number">26000</span>
+warning: A handler <span class="hljs-keyword">for</span> the OS ABI <span class="hljs-string">&quot;GNU/Linux&quot;</span> is not built into <span class="hljs-keyword">this</span> configurati
+on
+of GDB.  Attempting to <span class="hljs-keyword">continue</span> with the <span class="hljs-keyword">default</span> i8086 settings.
+
+The target architecture is assumed to be i8086
+[f000:fff0]    <span class="hljs-number">0xffff0</span>: ljmp   $<span class="hljs-number">0xf000</span>,$<span class="hljs-number">0xe05b</span>
+<span class="hljs-number">0x0000fff0</span> in ?? ()
++ symbol-file obj/kern/kernel
+</code></pre>
+<p>IBM PC BIOS&#x7B2C;&#x4E00;&#x6761;&#x6307;&#x4EE4;&#x6267;&#x884C;&#x5730;&#x5740;&#x5728;0xffff0&#x3002;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5728;BIOS&#x5206;&#x914D;&#x7684;&#x533A;&#x57DF;&#x975E;&#x5E38;&#x4E0A;&#x9762;&#xFF0C;&#x56E0;&#x6B64;&#x540E;&#x9762;&#x7B2C;&#x4E00;&#x6761;&#x6307;&#x4EE4;&#x5C31;&#x662F;&#x8DF3;&#x5230;&#x76F8;&#x5BF9;&#x4F4E;&#x7684;&#x5730;&#x5740;&#x8FDB;&#x884C;&#x6307;&#x4EE4;&#x7684;&#x6267;&#x884C;&#x3002;</p>
+<h4 id="exercise-2-&#x67E5;&#x770B;bios&#x6267;&#x884C;&#x7684;&#x6307;&#x4EE4;">exercise 2 &#x67E5;&#x770B;BIOS&#x6267;&#x884C;&#x7684;&#x6307;&#x4EE4;</h4>
+<blockquote>
+<p>&#x770B;&#x770B;BIOS&#x5F00;&#x59CB;&#x7684;&#x9636;&#x6BB5;&#x90FD;&#x5E72;&#x5565;&#x4E86;&#xFF1F;</p>
+</blockquote>
+<p>&#x5177;&#x4F53;&#x6307;&#x4EE4;&#x7684;&#x6C47;&#x603B;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-number">1</span> <span class="hljs-number">0xffff0</span>: ljmp $<span class="hljs-number">0xf000</span>, $<span class="hljs-number">0xe05b</span>    <span class="hljs-meta">#&#x8DF3;&#x8F6C;&#x5230;0xfe05b</span>
+<span class="hljs-number">2</span> <span class="hljs-number">0xfe05b</span>: cmpl $<span class="hljs-number">0x0</span>, $cs:<span class="hljs-number">0x6ac8</span>    <span class="hljs-meta">#&#x6839;&#x636E;cs:0x6ac8&#x662F;&#x5426;&#x4E3A;0&#xFF0C;&#x8FDB;&#x884C;&#x8DF3;&#x8F6C;</span>
+<span class="hljs-number">3</span> <span class="hljs-number">0xfe062</span>: jne <span class="hljs-number">0xfd2e1</span>                <span class="hljs-meta">#&#x65E0;&#x8DF3;&#x8F6C;</span>
+<span class="hljs-number">4</span> <span class="hljs-number">0xfe066</span>: xor %dx, %dx                <span class="hljs-meta">#%dx&#x6E05;&#x96F6;</span>
+<span class="hljs-number">5</span> <span class="hljs-number">0xfe068</span>: mov %dx, %ss                <span class="hljs-meta">#%ss&#x7F6E;&#x96F6;</span>
+<span class="hljs-number">6</span> <span class="hljs-number">0xfe06a</span>: mov $<span class="hljs-number">0x7000</span>, %esp
+<span class="hljs-number">7</span> <span class="hljs-number">0xfe070</span>: mov $<span class="hljs-number">0xf34d2</span>,%edx
+<span class="hljs-number">8</span> <span class="hljs-number">0xfe076</span>: jmp <span class="hljs-number">0xfd15c</span>
+<span class="hljs-number">9</span> <span class="hljs-number">0xfd15c</span>: mov %eax, %ecx
+<span class="hljs-number">10</span> <span class="hljs-number">0xfd15f</span>: cli                        <span class="hljs-meta">#BIOS&#x7684;&#x542F;&#x52A8;&#x4E0D;&#x5141;&#x8BB8;&#x4E2D;&#x65AD;&#xFF0C;&#x5173;&#x95ED;&#x4E2D;&#x65AD;</span>
+<span class="hljs-number">11</span> <span class="hljs-number">0xfd160</span>: cld                        <span class="hljs-meta">#&#x8BBE;&#x7F6E;&#x6307;&#x4EE4;&#x589E;&#x957F;&#x7684;&#x65B9;&#x5411;</span>
+<span class="hljs-number">12</span> <span class="hljs-number">0xfd161</span>: mov $<span class="hljs-number">0x8f</span>, %eax
+<span class="hljs-number">13</span> <span class="hljs-number">0xfd167</span>: out %al, $<span class="hljs-number">0x70</span>            <span class="hljs-meta">#0x70&#x548C;0x71&#x662F;&#x7528;&#x4E8E;&#x64CD;&#x4F5C;CMOS &#x7684;&#x7AEF;&#x53E3;</span>
+<span class="hljs-number">14</span> <span class="hljs-number">0xfd169</span>: in $<span class="hljs-number">0x71</span>, %al            <span class="hljs-meta">#12-14&#x4E09;&#x6761;&#x6307;&#x4EE4;&#x662F;&#x7528;&#x4E8E;&#x5173;&#x95ED;&#x4E0D;&#x53EF;&#x5C4F;&#x853D;&#x4E2D;&#x65AD;</span>
+<span class="hljs-number">15</span> <span class="hljs-number">0xfd16b</span>: in $<span class="hljs-number">0x92</span>, %al
+<span class="hljs-number">16</span> <span class="hljs-number">0xfd16d</span>: or $<span class="hljs-number">0x2</span>, %al
+<span class="hljs-number">17</span> <span class="hljs-number">0xfd16f</span>: out %al, $<span class="hljs-number">0x92</span>
+<span class="hljs-number">18</span> <span class="hljs-number">0xfd171</span>: lidtw %cs:<span class="hljs-number">0x6ab8</span>        <span class="hljs-meta">#&#x5C06;0xf6ab8&#x5904;&#x7684;&#x6570;&#x636E;&#x8BFB;&#x5165;&#x5230;&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#x8868;&#x5BC4;&#x5B58;(IDTR)</span>
+<span class="hljs-number">19</span> <span class="hljs-number">0xfd177</span>: lgdtw %cs:<span class="hljs-number">0x6a74</span>        <span class="hljs-meta">#&#x5E76;&#x5C06;0xf6a74&#x7684;&#x6570;&#x636E;&#x8BFB;&#x5165;&#x5230;&#x5168;&#x5C40;&#x63CF;&#x8FF0;&#x7B26;&#x8868;&#x683C;&#x5BC4;&#x5B58;&#x5668;(GDTR)&#x4E2D;</span>
+<span class="hljs-number">20</span> <span class="hljs-number">0xfd17d</span>: mov %cr0, %eax
+<span class="hljs-number">21</span> <span class="hljs-number">0xfd180</span>: or $<span class="hljs-number">0x1</span>, %eax
+<span class="hljs-number">22</span> <span class="hljs-number">0xfd184</span>: mov %eax, %cr0            <span class="hljs-meta">#CR0&#x672B;&#x4F4D;&#x7F6E;1&#xFF0C;&#x8FDB;&#x5165;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;</span>
+<span class="hljs-number">23</span> <span class="hljs-number">0xfd187</span>: ljmpl $<span class="hljs-number">0x8</span>, $<span class="hljs-number">0xfd18f</span>
+<span class="hljs-number">24</span> <span class="hljs-number">0xfd18f</span>: mov $<span class="hljs-number">0x10</span>, %eax
+<span class="hljs-number">25</span> <span class="hljs-number">0xfd194</span>: mov %eax, %ds
+<span class="hljs-number">26</span> <span class="hljs-number">0xfd196</span>: mov %eax, %es
+<span class="hljs-number">27</span> <span class="hljs-number">0xfd198</span>: mov %eax, %ss
+<span class="hljs-number">28</span> <span class="hljs-number">0xfd19a</span>: mov %eax, %fs
+<span class="hljs-number">29</span> <span class="hljs-number">0xfd19c</span>: mov %eax, %gs
+<span class="hljs-number">30</span> <span class="hljs-number">0xfd19e</span>: mov %ecx, %eax            <span class="hljs-meta">#&#x7B2C;23~29 &#x6B65;&#x7528;&#x4E8E;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x6BB5;&#x5BC4;&#x5B58;&#x5668;&#xFF0C;&#x5728;&#x52A0;&#x8F7D;&#x5B8C;GDTR &#x5BC4;&#x5B58;&#x5668;&#x540E;&#x9700;&#x8981;                                        #&#x5237;&#x65B0;&#x6240;&#x6709;&#x7684;&#x6BB5;&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x503C;</span>
+</code></pre>
+<p>&#x5176;&#x4E2D;&#x6709;&#x4E00;&#x6BB5;&#x9700;&#x8981;&#x7279;&#x6B8A;&#x89E3;&#x91CA;&#xFF0C;&#x5C31;&#x662F;&#x52A0;&#x8F7D;GDT(Global Descriptor Table )&#x7684;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#xFF0C;&#x5177;&#x4F53;&#x7684;&#x89E3;&#x91CA;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x3010;1&#x3011;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-number">23</span> <span class="hljs-number">0xfd187</span>: ljmpl $<span class="hljs-number">0x8</span>, $<span class="hljs-number">0xfd18f</span>
+<span class="hljs-number">24</span> <span class="hljs-number">0xfd18f</span>: mov $<span class="hljs-number">0x10</span>, %eax
+<span class="hljs-number">25</span> <span class="hljs-number">0xfd194</span>: mov %eax, %ds
+<span class="hljs-number">26</span> <span class="hljs-number">0xfd196</span>: mov %eax, %es
+<span class="hljs-number">27</span> <span class="hljs-number">0xfd198</span>: mov %eax, %ss
+<span class="hljs-number">28</span> <span class="hljs-number">0xfd19a</span>: mov %eax, %fs
+<span class="hljs-number">29</span> <span class="hljs-number">0xfd19c</span>: mov %eax, %gs
+<span class="hljs-number">30</span> <span class="hljs-number">0xfd19e</span>: mov %ecx, %eax
+</code></pre>
+<p>GDT&#x957F;&#x5EA6;&#x4E3A;48B&#xFF0C;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-c">|LIMIT|----BASE----|
+&#x4F4E;                  &#x9AD8;
+</code></pre>
+<p>&#x9AD8;32&#x4F4D;&#x8868;&#x793A;&#x8FD9;&#x4E2A;&#x8868;&#x6240;&#x5728;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x4F4E;16&#x4F4D;&#x8868;&#x793A;&#x8868;&#x7684;&#x5927;&#x5C0F;&#x3002;</p>
+<p><code>ljmp</code>&#x80FD;&#x591F;&#x8DF3;&#x8F6C;&#x7684;&#x8303;&#x56F4;&#x662F;(1&lt;&lt;16)&#xFF0C;&#x5360;&#x7528;&#x7684;&#x5B57;&#x8282;&#x6570;&#x4E3A;3B&#xFF0C;<code>jmp</code>&#x80FD;&#x591F;&#x8DF3;&#x8F6C;&#x7684;&#x8303;&#x56F4;&#x4E3A;<code>-127+128</code>&#xFF0C;&#x5360;&#x7528;&#x6307;&#x4EE4;&#x5927;&#x5C0F;&#x4E3A;1B&#x3002;</p>
+<p>&#x5E76;&#x4E14;&#x4E0A;&#x9762;&#x7684;ljmp&#x8DF3;&#x8F6C;&#x7528;&#x6CD5;&#x4E3A;&#xFF1A;</p>
+<pre><code>Long jump, use 0xfebc for the CS register and 0x12345678 for the EIP register:
+# &#x5E76;&#x4E14;CS&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x503C;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;mov&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x4F46;&#x662F;&#x4E0B;&#x9762;&#x7684;&#x6307;&#x4EE4;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;CS&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x503C;&#x4E3A;0xfebc
+ljmp $0xfebc, $0x12345678
+</code></pre><p>&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5C06;&#x6240;&#x6709;&#x4E0E;&#x6BB5;&#x5BC4;&#x5B58;&#x6709;&#x5173;&#x7684;&#x5BC4;&#x5B58;&#x5668;&#x90FD;&#x7F6E;&#x4E3A;<code>0x10</code>&#x3002;</p>
+<p>&#x8FD9;&#x662F;&#x6BB5;&#x5BC4;&#x5B58;&#x5668;&#x7ED3;&#x6784;:</p>
+<p><img src="https://pic4.zhimg.com/80/v2-7a9b313a4bb30076ecfb260673ecad2b.png" alt=""></p>
+<p>0x10 = 00010000 = 000010 0 00</p>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x4F18;&#x5148;&#x7EA7;&#x662F;&#x6700;&#x9AD8;&#x7684;&#xFF0C;&#x9009;&#x62E9;&#x7684;&#x8868;&#x662F;GDT&#xFF0C;segment index = 2&#x3002;</p>
+<p>Q&#xFF1A;&#x4E3A;&#x4EC0;&#x4E48;&#x52A0;&#x8F7D;GDT&#x9700;&#x8981;&#x5237;&#x65B0;&#x6BB5;&#x5BC4;&#x5B58;&#x5668;&#x5462;&#xFF1F;</p>
+<p>&#x56E0;&#x4E3A;GDT&#x521D;&#x59CB;&#x5316;&#x4E86;&#x8868;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x5269;&#x4E0B;&#x7684;&#x7D22;&#x5F15;&#x9700;&#x8981;&#x4F9D;&#x9760;&#x6BB5;&#x5BC4;&#x5B58;&#x5668;&#xFF0C;&#x8FDB;&#x884C;&#x504F;&#x79FB;&#x7D22;&#x5F15;&#x3002;</p>
+<p>&#x6700;&#x540E;&#x603B;&#x7ED3;BIOS&#x505A;&#x7684;&#x4E8B;&#x60C5;&#xFF1A;</p>
+<ol>
+<li>&#x521D;&#x59CB;&#x5316;IDT&#x548C;GDT</li>
+<li>&#x521D;&#x59CB;&#x5316;VGA&#x8BBE;&#x5907;&#xFF0C;PCI bus&#x6302;&#x8F7D;&#x7684;&#x5404;&#x7C7B;&#x8BBE;&#x5907;</li>
+<li>&#x627E;&#x5230;&#x7269;&#x7406;&#x5B58;&#x50A8;&#x8BBE;&#x5907;&#xFF0C;&#x5E76;&#x4E14;&#x627E;&#x5230;&#x4E00;&#x4E2A;bootable disk&#xFF0C;&#x5C06;&#x8FD0;&#x884C;&#x7684;&#x6743;&#x5229;&#x8F6C;&#x79FB;&#x5230;disk&#x3002;</li>
+</ol>
+<h3 id="part-2-the-boot-loader">Part 2: The Boot Loader</h3>
+<p>&#x78C1;&#x76D8;&#x88AB;&#x5206;&#x5272;&#x4E3A;sector&#x7684;&#x6700;&#x5C0F;&#x57FA;&#x672C;&#x5355;&#x4F4D;&#xFF0C;1 sector=512B&#x3002;</p>
+<p>&#x540E;&#x6765;&#x968F;&#x7740;&#x786C;&#x4EF6;&#x7684;&#x53D1;&#x5C55;&#xFF0C;PC&#x4E3B;&#x8981;&#x4E5F;&#x9700;&#x8981;&#x80FD;&#x591F;&#x4ECE;CD&#x4E2D;&#x542F;&#x52A8;&#xFF0C;&#x800C;CD&#x4E2D;&#x5206;&#x5272;&#x7684;&#x57FA;&#x672C;&#x5355;&#x4F4D;&#x4E3A;1 sector = 2048B&#x3002;&#x65B9;&#x5F0F;&#x7565;&#x6709;&#x4E0D;&#x540C;&#xFF0C;&#x5177;&#x4F53;&#x4E0D;&#x540C;&#x9700;&#x8981;&#x53C2;&#x8003;&#x5176;&#x4ED6;&#x7684;&#x8D44;&#x6599;&#x3002;</p>
+<p>boot loader&#x4E3B;&#x8981;&#x505A;&#x7684;&#x4E24;&#x4EF6;&#x4E8B;&#x60C5;&#xFF1A;</p>
+<ol>
+<li>&#x4ECE;16-bit&#x7684;&#x5B9E;&#x6A21;&#x5F0F;&#x8F6C;&#x5316;&#x5230;32-bit&#x7684;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x3002;&#x8F6C;&#x6362;&#x5230;32&#x4F4D;&#x7684;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x6709;&#x8BF8;&#x591A;&#x7684;&#x597D;&#x5904;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x4E4B;&#x540E;&#x8F6C;&#x6362;&#x989D;&#x8FC7;&#x7A0B;&#x4E2D;&#x8FDB;&#x884C;&#x5177;&#x4F53;&#x7684;&#x8BA8;&#x8BBA;&#x3002;</li>
+<li>&#x7B2C;&#x4E8C;&#x70B9;&#x662F;&#x5C06;kernel&#x4EE3;&#x7801;&#x4ECE;&#x786C;&#x76D8;&#x4E2D;&#x8BFB;&#x53D6;&#x51FA;&#x6765;&#x3002;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x6D89;&#x53CA;&#x5230;&#x7279;&#x6B8A;&#x7684;I/O&#x6307;&#x4EE4;&#x3002;&#x5BF9;&#x7406;&#x89E3;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x6574;&#x4F53;&#x7684;&#x6846;&#x67B6;&#x6765;&#x8BF4;&#xFF0C;&#x8FD9;&#x5E76;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x70B9;&#x3002;</li>
+</ol>
+<h4 id="exercise-3">exercise 3</h4>
+<blockquote>
+<p>&#x719F;&#x6089;GDB&#x7684;&#x8C03;&#x8BD5;&#x6307;&#x4EE4;&#x3002;</p>
+<p>&#x4F7F;&#x7528;GDB&#x5355;&#x6B65;&#x8FDB;&#x884C;&#x8C03;&#x8BD5;&#xFF0C;&#x8C03;&#x8BD5;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x53C2;&#x8003;<code>obj/boot/boot.asm</code>&#x8FD9;&#x4E2A;&#x53CD;&#x6C47;&#x7F16;&#x4E2D;&#x7684;&#x6307;&#x4EE4;&#xFF0C;&#x56E0;&#x4E3A;CPU&#x5C31;&#x662F;&#x6309;&#x7167;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x91CC;&#x9762;&#x7684;&#x6307;&#x4EE4;&#x8FDB;&#x884C;&#x7684;&#x3002;</p>
+<p>readsect()&#x91CC;&#x9762;&#x8C03;&#x7528;&#x7684;&#x6307;&#x4EE4;&#x548C;&#x8BFB;&#x53D6;&#x5B8C;&#x4E86;&#x6267;&#x884C;&#x4E86;&#x4EC0;&#x4E48;&#x6307;&#x4EE4;&#x3002;</p>
+</blockquote>
+<p>&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x4E3B;&#x8981;&#x662F;&#x719F;&#x6089;&#x4F7F;&#x7528;GDB&#x7ED3;&#x5408;<code>.asm</code>&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x8C03;&#x8BD5;&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x7684;&#x8C03;&#x8BD5;&#x73AF;&#x5883;&#x662F;cgdb&#xFF0C;&#x56E0;&#x6B64;&#x80FD;&#x591F;&#x5B9E;&#x65F6;&#x7684;&#x770B;&#x5230;&#x53CD;&#x6C47;&#x7F16;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x5F53;&#x7136;&#x8C03;&#x8BD5;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x9700;&#x8981;&#x5BF9;&#x6574;&#x4F53;&#x6709;&#x4E00;&#x4E2A;&#x7406;&#x89E3;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x56E0;&#x6B64;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x9700;&#x8981;&#x501F;&#x9274;<code>.asm</code>&#x3002;</p>
+<p>Q1&#xFF1A; &#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x5904;&#x7406;&#x5668;&#x5F00;&#x59CB;&#x6267;&#x884C;32&#x4F4D;&#x7684;&#x4EE3;&#x7801;&#xFF1F;&#x4EC0;&#x4E48;&#x5F15;&#x8D77;&#x4E86;&#x4ECE;16-&#x8F6C;&#x6362;&#x5230;&#x4E86;32-bit&#xFF1F;</p>
+<pre><code class="lang-assembly">ljmp    $PROT_MODE_CSEG, $protcseg
+</code></pre>
+<p><img src="https://pic4.zhimg.com/80/v2-fab5e355c49871afb1a3a7a6053b8b68.png" alt=""></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5728;&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x6307;&#x4EE4;&#x4E4B;&#x524D;&#xFF0C;&#x5730;&#x5740;&#x7684;&#x5BFB;&#x5740;&#x65B9;&#x5F0F;&#x4E3A;<code>[0:7c2d]</code>&#xFF0C;&#x4E00;&#x65E6;&#x6267;&#x884C;&#x5B8C;&#x8FD9;&#x6761;&#x8BED;&#x53E5;&#xFF0C;&#x5BFB;&#x5740;&#x65B9;&#x5F0F;&#x53D8;&#x4E3A;0x7c32&#x3002;</p>
+<p>Q2: bootloader&#x6267;&#x884C;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8BED;&#x53E5;&#xFF1F;kernel&#x6267;&#x884C;&#x7684;&#x7B2C;&#x4E00;&#x6761;&#x8BED;&#x53E5;&#x4E3A;&#xFF1F;</p>
+<pre><code class="lang-c">movw    $<span class="hljs-number">0x1234</span>,<span class="hljs-number">0x472</span>            <span class="hljs-meta"># warm boot</span>
+</code></pre>
+<p>Q3: kernel&#x6267;&#x884C;&#x7684;&#x7B2C;&#x4E00;&#x6761;&#x6307;&#x4EE4;&#xFF1F;</p>
+<p>&#x540C;Q2&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x7B54;&#x6848;&#x3002;</p>
+<pre><code>movw    $0x1234,0x472            # warm boot
+</code></pre><p>Q4: boot loader&#x662F;&#x600E;&#x4E48;&#x77E5;&#x9053;&#x8BFB;&#x53D6;&#x591A;&#x5C11;&#x4E2A;sectors&#x5230;&#x5185;&#x5B58;&#x7684;&#xFF1F;</p>
+<p>&#x8FD9;&#x4E9B;&#x4FE1;&#x606F;&#x4FDD;&#x5B58;&#x5230;ELF header&#x4E2D;&#xFF0C;&#x5728;&#x7F16;&#x8BD1;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x5DF2;&#x7ECF;&#x51B3;&#x5B9A;&#x4E86;&#x3002;</p>
+<p>&#x5173;&#x4E8E;&#x7A0B;&#x5E8F;&#x662F;&#x600E;&#x4E48;&#x52A0;&#x8F7D;&#x5230;&#x5185;&#x5B58;&#x4E2D;&#x5E76;&#x4E14;&#x8FDB;&#x884C;&#x8FD0;&#x884C;&#x7684;&#xFF0C;&#x4E3B;&#x8981;&#x770B;&#x4E24;&#x5F20;&#x56FE;&#x8FDB;&#x884C;&#x7406;&#x89E3;&#xFF1A;</p>
+<p><img src="https://pic4.zhimg.com/80/v2-f69aca48b1db982fb17c966953a8c72f.png" alt=""></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x53EF;&#x4EE5;&#x4ECE;ELF header&#x8BFB;&#x53D6;&#x5230;Program header table&#x548C;Section header table&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x4E4B;&#x540E;&#x80FD;&#x591F;&#x4ECE;&#x8FD9;&#x4E24;&#x4E2A;&#x8868;&#x4E2D;&#x8BFB;&#x53D6;&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684;&#x56FE;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x77E5;&#x9053;ELF&#x8FD0;&#x4F5C;&#x66F4;&#x591A;&#x7684;&#x7EC6;&#x8282;&#xFF1A;</p>
+<p><img src="https://pic4.zhimg.com/80/v2-771e20e86d65a9b4266bf3fc620af91b.png" alt=""></p>
+<p>&#x8FD9;&#x5F20;&#x56FE;&#x4E0A;&#x4F20;&#x540E;&#x538B;&#x7F29;&#x80AF;&#x5B9A;&#x770B;&#x4E0D;&#x6E05;&#x4E86;&#xFF0C;&#x5EFA;&#x8BAE;&#x76F4;&#x63A5;&#x4E0B;&#x8F7D;&#x770B;&#x539F;&#x56FE;:<a href="https://github.com/baolintian/6.828/blob/master/elf.pdf" target="_blank">&#x539F;&#x56FE;&#x94FE;&#x63A5;</a></p>
+<p>&#x5728;ELF header&#x4E2D;&#x8BB0;&#x5F55;&#x7740;program header table&#x7684;&#x4E2A;&#x6570;&#xFF0C;&#x6BCF;&#x4E2A;entry&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x504F;&#x79FB;&#x91CF;&#x3002;&#x800C;program header table&#x4E2D;&#x6BCF;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x4FE1;&#x606F;&#x90FD;&#x80FD;&#x591F;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x5C06;&#x5177;&#x4F53;&#x7684;&#x6307;&#x4EE4;&#xFF0C;&#x6570;&#x636E;&#x8BFB;&#x5165;&#x5230;&#x5185;&#x5B58;&#x4E2D;&#x3002;</p>
+<p>section header table&#x5728;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x8FDB;&#x5185;&#x5B58;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x7528;&#x3002;</p>
+<p>&#x771F;&#x6B63;&#x8D77;&#x5230;&#x5C06;&#x6570;&#x636E;&#x8BFB;&#x5230;&#x5185;&#x5B58;&#x7684;&#x6D41;&#x7A0B;&#x5C31;&#x662F;ELF header -&gt; &#x67E5;&#x627E; program header table -&gt; &#x5177;&#x4F53;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<h4 id="loading-the-kernel">Loading the Kernel</h4>
+<h4 id="exercise-4">exercise 4</h4>
+<blockquote>
+<p>&#x9996;&#x5148;&#x719F;&#x6089;C&#x8BED;&#x8A00;&#x7684;&#x6307;&#x9488;&#x3002;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x7B80;&#x77ED;&#x7684;<a href="https://pdos.csail.mit.edu/6.828/2018/readings/pointers.pdf" target="_blank">&#x6559;&#x6750;</a>&#x3002;</p>
+<p>&#x89E3;&#x91CA;&#x4E0B;&#x9762;&#x7684;&#x7A0B;&#x5E8F;&#x8F93;&#x51FA;&#x5185;&#x5BB9;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span>
+<span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    <span class="hljs-keyword">int</span> a[<span class="hljs-number">4</span>];
+    <span class="hljs-keyword">int</span> *b = <span class="hljs-built_in">malloc</span>(<span class="hljs-number">16</span>);
+    <span class="hljs-keyword">int</span> *c;
+    <span class="hljs-keyword">int</span> i;
+
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;1: a = %p, b = %p, c = %p\n&quot;</span>, a, b, c);
+
+    c = a;
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++)
+        a[i] = <span class="hljs-number">100</span> + i;
+    c[<span class="hljs-number">0</span>] = <span class="hljs-number">200</span>;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;2: a[0] = %d, a[1] = %d, a[2] = %d, a[3] = %d\n&quot;</span>,
+       a[<span class="hljs-number">0</span>], a[<span class="hljs-number">1</span>], a[<span class="hljs-number">2</span>], a[<span class="hljs-number">3</span>]);
+
+    c[<span class="hljs-number">1</span>] = <span class="hljs-number">300</span>;
+    *(c + <span class="hljs-number">2</span>) = <span class="hljs-number">301</span>;
+    <span class="hljs-number">3</span>[c] = <span class="hljs-number">302</span>;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;3: a[0] = %d, a[1] = %d, a[2] = %d, a[3] = %d\n&quot;</span>,
+       a[<span class="hljs-number">0</span>], a[<span class="hljs-number">1</span>], a[<span class="hljs-number">2</span>], a[<span class="hljs-number">3</span>]);
+
+    c = c + <span class="hljs-number">1</span>;<span class="hljs-comment">//&#x5B9E;&#x9645;&#x4E0A;&#x504F;&#x79FB;&#x4E86;4B</span>
+    *c = <span class="hljs-number">400</span>;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;4: a[0] = %d, a[1] = %d, a[2] = %d, a[3] = %d\n&quot;</span>,
+       a[<span class="hljs-number">0</span>], a[<span class="hljs-number">1</span>], a[<span class="hljs-number">2</span>], a[<span class="hljs-number">3</span>]);
+
+    c = (<span class="hljs-keyword">int</span> *) ((<span class="hljs-keyword">char</span> *) c + <span class="hljs-number">1</span>);
+    *c = <span class="hljs-number">500</span>;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;5: a[0] = %d, a[1] = %d, a[2] = %d, a[3] = %d\n&quot;</span>,
+       a[<span class="hljs-number">0</span>], a[<span class="hljs-number">1</span>], a[<span class="hljs-number">2</span>], a[<span class="hljs-number">3</span>]);
+
+    b = (<span class="hljs-keyword">int</span> *) a + <span class="hljs-number">1</span>;
+    c = (<span class="hljs-keyword">int</span> *) ((<span class="hljs-keyword">char</span> *) a + <span class="hljs-number">1</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;6: a = %p, b = %p, c = %p\n&quot;</span>, a, b, c);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span>
+<span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> ac, <span class="hljs-keyword">char</span> **av)</span>
+</span>{
+    f();
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p><code>pinter.c</code>&#x7684;&#x8F93;&#x51FA;&#x5185;&#x5BB9;&#x4E3A;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-number">1</span>: a = <span class="hljs-number">0x7ffec83ade20</span>, b = <span class="hljs-number">0x13e3010</span>, c = <span class="hljs-number">0xf0b6ff</span>
+<span class="hljs-number">2</span>: a[<span class="hljs-number">0</span>] = <span class="hljs-number">200</span>, a[<span class="hljs-number">1</span>] = <span class="hljs-number">101</span>, a[<span class="hljs-number">2</span>] = <span class="hljs-number">102</span>, a[<span class="hljs-number">3</span>] = <span class="hljs-number">103</span>
+<span class="hljs-number">3</span>: a[<span class="hljs-number">0</span>] = <span class="hljs-number">200</span>, a[<span class="hljs-number">1</span>] = <span class="hljs-number">300</span>, a[<span class="hljs-number">2</span>] = <span class="hljs-number">301</span>, a[<span class="hljs-number">3</span>] = <span class="hljs-number">302</span>
+<span class="hljs-number">4</span>: a[<span class="hljs-number">0</span>] = <span class="hljs-number">200</span>, a[<span class="hljs-number">1</span>] = <span class="hljs-number">400</span>, a[<span class="hljs-number">2</span>] = <span class="hljs-number">301</span>, a[<span class="hljs-number">3</span>] = <span class="hljs-number">302</span>
+<span class="hljs-number">5</span>: a[<span class="hljs-number">0</span>] = <span class="hljs-number">200</span>, a[<span class="hljs-number">1</span>] = <span class="hljs-number">128144</span>, a[<span class="hljs-number">2</span>] = <span class="hljs-number">256</span>, a[<span class="hljs-number">3</span>] = <span class="hljs-number">302</span>
+<span class="hljs-number">6</span>: a = <span class="hljs-number">0x7ffec83ade20</span>, b = <span class="hljs-number">0x7ffec83ade24</span>, c = <span class="hljs-number">0x7ffec83ade21</span>
+</code></pre>
+<p>&#x5176;&#x4ED6;&#x7684;&#x8F93;&#x51FA;&#x539F;&#x56E0;&#x6BD4;&#x8F83;&#x7684;&#x7B80;&#x5355;&#xFF0C;&#x6211;&#x4EEC;&#x4EC5;&#x4EC5;&#x5206;&#x6790;&#x7B2C;5&#x6761;&#x7684;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-c">&#x4FEE;&#x6539;&#x524D;a&#x5185;&#x5B58;&#x7684;&#x5206;&#x5E03;
+<span class="hljs-number">0000</span> <span class="hljs-number">0000</span> &#x9AD8;&#x5730;&#x5740;
+<span class="hljs-number">0000</span> <span class="hljs-number">0000</span>
+<span class="hljs-number">0000</span> <span class="hljs-number">0001</span>
+<span class="hljs-number">0010</span> <span class="hljs-number">1101</span>
+<span class="hljs-number">0000</span> <span class="hljs-number">0000</span>
+<span class="hljs-number">0000</span> <span class="hljs-number">0000</span>
+<span class="hljs-number">0000</span> <span class="hljs-number">0001</span>
+<span class="hljs-number">1001</span> <span class="hljs-number">0000</span> &#x4F4E;&#x5730;&#x5740; a+<span class="hljs-number">1</span>
+
+
+&#x4FEE;&#x6539;&#x540E;a&#x5185;&#x5B58;&#x7684;&#x5206;&#x5E03;
+<span class="hljs-number">0000</span> <span class="hljs-number">0000</span> &#x9AD8;&#x5730;&#x5740;
+<span class="hljs-number">0000</span> <span class="hljs-number">0000</span>
+<span class="hljs-number">0000</span> <span class="hljs-number">0001</span>
+---------
+<span class="hljs-number">0000</span> <span class="hljs-number">0000</span>
+<span class="hljs-number">0000</span> <span class="hljs-number">0000</span>
+<span class="hljs-number">0000</span> <span class="hljs-number">0001</span>
+<span class="hljs-number">1111</span> <span class="hljs-number">0100</span>
+---------
+<span class="hljs-number">1001</span> <span class="hljs-number">0000</span> &#x4F4E;&#x5730;&#x5740; a+<span class="hljs-number">1</span>
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E5F;&#x8BC1;&#x660E;&#x8BE5;PC&#x7684;&#x5185;&#x5B58;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x5C0F;&#x7AEF;&#x6CD5;&#xFF0C;&#x5373;&#x6570;&#x5B57;&#x7684;&#x4F4E;&#x4F4D;&#x4FDD;&#x5B58;&#x5728;&#x4F4E;&#x5730;&#x5740;&#x3002;</p>
+<p>&#x8BE5;&#x5B9E;&#x9A8C;&#x4E3B;&#x8981;&#x60F3;&#x8981;&#x8BC1;&#x660E;&#x7684;&#x662F;&#xFF0C;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x504F;&#x79FB;&#x91CF;&#x662F;&#x4E0D;&#x540C;&#x7684;&#xFF0C;&#x548C;&#x53D8;&#x91CF;&#x7684;&#x7C7B;&#x578B;&#x6709;&#x5173;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x4E00;&#x90E8;&#x5206;&#x662F;&#x719F;&#x6089;ELF(Executable and Linkable Format)&#x3002;</p>
+<p>&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x6709;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x957F;&#x5EA6;&#x7684;ELF header&#xFF0C;&#x7D27;&#x968F;&#x5176;&#x540E;&#x7684;&#x662F;&#x53EF;&#x53D8;&#x957F;&#x7684;program header&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B;&#x7740;&#x9700;&#x8981;&#x88AB;&#x8BFB;&#x53D6;&#x5230;&#x5185;&#x5B58;&#x4E2D;&#x7684;program section&#x3002;</p>
+<p>&#x5176;&#x4E2D;&#x9700;&#x8981;&#x7279;&#x522B;&#x7559;&#x610F;&#x51E0;&#x4E2A;&#x5E38;&#x7528;&#x7684;section&#xFF1A;</p>
+<ul>
+<li>.text: &#x8FD9;&#x4E2A;&#x7A0B;&#x5E8F;&#x4E2D;&#x53EF;&#x6267;&#x884C;&#x7684;&#x6307;&#x4EE4;&#x3002;</li>
+<li>.rodata: &#x53EA;&#x8BFB;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4E00;&#x822C;&#x662F;C&#x8BED;&#x8A00;&#x7684;&#x5E38;&#x91CF;&#xFF0C;&#x6BD4;&#x5982;printf&#x4E2D;&#x4FDD;&#x5B58;&#x7684;&#x503C;&#x3002;</li>
+<li><p>.data: &#x7A0B;&#x5E8F;&#x4E2D;&#x521D;&#x59CB;&#x5316;&#x4E86;&#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x3002;</p>
+</li>
+<li><p>.bss: &#x7A0B;&#x5E8F;&#x4E2D;&#x672A;&#x521D;&#x59CB;&#x5316;&#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x7D27;&#x8DDF;&#x5728;.data&#x540E;&#x9762;&#x3002;&#x7531;&#x4E8E;&#x8FD9;&#x4E9B;&#x503C;&#x5728;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x7684;&#x65F6;&#x5019;&#x90FD;&#x662F;0&#xFF0C;&#x56E0;&#x6B64;&#x5728;ELF&#x8BB0;&#x5F55;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4EC5;&#x9700;&#x8981;&#x8BB0;&#x5F55;&#x8FD9;&#x4E00;&#x6BB5;&#x7684;&#x8D77;&#x59CB;&#x5730;&#x5740;&#x548C;&#x5927;&#x5C0F;&#x3002;&#x7B49;&#x52A0;&#x8F7D;(program loader)&#x65F6;&#xFF0C;&#x518D;&#x5C06;&#x5BF9;&#x5E94;&#x7684;&#x7A7A;&#x95F4;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x3002;</p>
+</li>
+</ul>
+<p>&#x8F93;&#x5165;&#xFF1A;</p>
+<pre><code>tbl@ubuntu:~/6.828/lab$ objdump -h obj/kern/kernel
+</code></pre><p>&#x8F93;&#x51FA;</p>
+<pre><code class="lang-c">tbl@ubuntu:~/<span class="hljs-number">6.828</span>/lab$ objdump -h obj/kern/kernel
+
+obj/kern/kernel:     file format elf32-i386
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  <span class="hljs-number">0</span> .text         <span class="hljs-number">00001941</span>  f0100000  <span class="hljs-number">00100000</span>  <span class="hljs-number">00001000</span>  <span class="hljs-number">2</span>**<span class="hljs-number">4</span>
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  <span class="hljs-number">1</span> .rodata       <span class="hljs-number">0000079</span>c  f0101960  <span class="hljs-number">00101960</span>  <span class="hljs-number">00002960</span>  <span class="hljs-number">2</span>**<span class="hljs-number">5</span>
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  <span class="hljs-number">2</span> .stab         <span class="hljs-number">00003</span>b89  f01020fc  <span class="hljs-number">001020f</span>c  <span class="hljs-number">000030f</span>c  <span class="hljs-number">2</span>**<span class="hljs-number">2</span>
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  <span class="hljs-number">3</span> .stabstr      <span class="hljs-number">0000197f</span>  f0105c85  <span class="hljs-number">00105</span>c85  <span class="hljs-number">00006</span>c85  <span class="hljs-number">2</span>**<span class="hljs-number">0</span>
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  <span class="hljs-number">4</span> .data         <span class="hljs-number">0000</span>a300  f0108000  <span class="hljs-number">00108000</span>  <span class="hljs-number">00009000</span>  <span class="hljs-number">2</span>**<span class="hljs-number">12</span>
+                  CONTENTS, ALLOC, LOAD, DATA
+  <span class="hljs-number">5</span> .bss          <span class="hljs-number">00000648</span>  f0112300  <span class="hljs-number">00112300</span>  <span class="hljs-number">00013300</span>  <span class="hljs-number">2</span>**<span class="hljs-number">5</span>
+                  CONTENTS, ALLOC, LOAD, DATA
+  <span class="hljs-number">6</span> .comment      <span class="hljs-number">00000035</span>  <span class="hljs-number">00000000</span>  <span class="hljs-number">00000000</span>  <span class="hljs-number">00013948</span>  <span class="hljs-number">2</span>**<span class="hljs-number">0</span>
+                  CONTENTS, READONLY
+</code></pre>
+<p>&#x9700;&#x8981;&#x7279;&#x522B;&#x6CE8;&#x610F;<code>VMA=link address=vaddr(&#x865A;&#x62DF;&#x5730;&#x5740;)</code>&#xFF0C; <code>LMA=load address=paddr(&#x7269;&#x7406;&#x5730;&#x5740;)</code>&#x3002;</p>
+<blockquote>
+<p>The load address of a section is the memory address at which that section should be loaded into memory.</p>
+<p>The link address   of a section is the memory address from which the section expects to execute.</p>
+</blockquote>
+<p>&#x4E00;&#x822C;link&#x548C;load&#x5730;&#x5740;&#x90FD;&#x662F;&#x76F8;&#x540C;&#x7684;&#xFF0C;&#x5982;&#x4E0B;&#x4F8B;&#xFF1A;</p>
+<pre><code>tbl@ubuntu:~/6.828/lab$ objdump -h obj/boot/boot.out
+
+obj/boot/boot.out:     file format elf32-i386
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000186  00007c00  00007c00  00000074  2**2
+                  CONTENTS, ALLOC, LOAD, CODE
+  1 .eh_frame     000000a8  00007d88  00007d88  000001fc  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  2 .stab         00000720  00000000  00000000  000002a4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  3 .stabstr      0000088f  00000000  00000000  000009c4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .comment      00000035  00000000  00000000  00001253  2**0
+                  CONTENTS, READONLY
+</code></pre><p>&#x6211;&#x4EEC;&#x5BF9;&#x4E0B;&#x9762;&#x7684;</p>
+<pre><code class="lang-assembly">tbl@ubuntu:~/6.828/lab$ objdump -x obj/kern/kernel
+
+obj/kern/kernel:     file format elf32-i386
+obj/kern/kernel
+architecture: i386, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x0010000c
+
+Program Header:
+    LOAD off    0x00001000 vaddr 0xf0100000 paddr 0x00100000 align 2**12
+         filesz 0x00007604 memsz 0x00007604 flags r-x
+    LOAD off    0x00009000 vaddr 0xf0108000 paddr 0x00108000 align 2**12
+         filesz 0x0000a948 memsz 0x0000a948 flags rw-
+   STACK off    0x00000000 vaddr 0x00000000 paddr 0x00000000 align 2**4
+         filesz 0x00000000 memsz 0x00000000 flags rwx
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00001941  f0100000  00100000  00001000  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .rodata       0000079c  f0101960  00101960  00002960  2**5
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  2 .stab         00003b89  f01020fc  001020fc  000030fc  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  3 .stabstr      0000197f  f0105c85  00105c85  00006c85  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  4 .data         0000a300  f0108000  00108000  00009000  2**12
+                  CONTENTS, ALLOC, LOAD, DATA
+  5 .bss          00000648  f0112300  00112300  00013300  2**5
+                  CONTENTS, ALLOC, LOAD, DATA
+  6 .comment      00000035  00000000  00000000  00013948  2**0
+                  CONTENTS, READONLY
+SYMBOL TABLE:
+f0100000 l    d  .text  00000000 .text
+f0101960 l    d  .rodata        00000000 .rodata
+</code></pre>
+<p>Program Header&#x4E2D;<code>LOAD</code>&#x8868;&#x793A;&#x4F1A;&#x52A0;&#x8F7D;&#x5230;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x4ECE;filesz&#x548C;vaddr&#x63A8;&#x65AD;&#xFF1A;<code>.text</code>,<code>.rodata</code>...<code>stabstr</code>&#x8FD9;&#x4E9B;&#x90E8;&#x5206;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;<code>LOAD</code>&#x90E8;&#x5206;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x6240;&#x6709;sections&#x90FD;&#x5728;&#x7B2C;&#x4E8C;&#x4E2A;<code>LOAD</code>&#x4E2D;&#x3002;</p>
+<h4 id="exercise-5">exercise 5</h4>
+<blockquote>
+<p>&#x4FEE;&#x6539;boot loader&#x7684;&#x5730;&#x5740;&#xFF0C;&#x7136;&#x540E;&#x770B;&#x770B;&#x4F1A;&#x53D1;&#x751F;&#x4EC0;&#x4E48;&#x9519;&#x8BEF;&#x3002;</p>
+</blockquote>
+<p>BIOS&#x4ECE;0x7c00&#x8FD9;&#x4E2A;&#x5730;&#x5740;&#x5F00;&#x59CB;&#x6267;&#x884C;boot loader&#x4E2D;&#x7684;&#x7A0B;&#x5E8F;&#xFF0C;&#x56E0;&#x6B64;&#x8FD9;&#x4E2A;&#x5730;&#x5740;&#x662F;&#x8FD9;&#x4E2A;sector&#x7684;load address&#x3002;&#x5E76;&#x4E14;&#x8FD9;&#x4E2A;&#x5730;&#x5740;&#x53EF;&#x4EE5;&#x5728;<code>boot/Makefrag</code>&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#x3002;</p>
+<p>&#x5C06;&#x539F;&#x6765;&#x7684;&#x503C;&#x4FEE;&#x6539;&#x4E3A;<code>0x8c00</code>&#xFF0C;&#x6211;&#x4EEC;&#x91CD;&#x65B0;&#x5728;<code>0x7c00</code>&#x8FD9;&#x4E2A;&#x5730;&#x5740;&#x6253;&#x4E0A;&#x65AD;&#x70B9;&#xFF0C;&#x53D1;&#x73B0;&#x8FD8;&#x662F;&#x5728;&#x80FD;&#x591F;&#x8FDB;&#x5165;boot loader&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x4F3C;&#x4E4E;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x53D8;&#x5316;&#x3002;&#x6211;&#x4EEC;<code>si</code>&#x5355;&#x6B65;&#x6267;&#x884C;&#x4E0B;&#x53BB;&#xFF0C;&#x53D1;&#x73B0;&#x5728;&#x8FD9;&#x6837;&#x7684;&#x8BED;&#x53E5;&#x51FA;&#x73B0;&#x4E86;&#x9519;&#x8BEF;&#xFF1A;</p>
+<pre><code class="lang-c">ljmp $<span class="hljs-number">0x8</span>, $<span class="hljs-number">0x8c32</span>
+</code></pre>
+<p>&#x7B2C;&#x4E8C;&#x4E2A;&#x503C;&#x539F;&#x6765;&#x662F;<code>0x7c32</code>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x662F;&#x8FD9;&#x91CC;&#x4EA7;&#x751F;&#x4E86;&#x6539;&#x53D8;&#x3002;</p>
+<p><img src="https://pic4.zhimg.com/80/v2-5bd45d77ebb33b30b65cf736a026c2bf.png" alt=""></p>
+<p>&#x5E76;&#x4E14;&#x4E3A;&#x4EC0;&#x4E48;&#x6211;&#x4EEC;&#x4FEE;&#x6539;&#x4E86;&#x8FD9;&#x4E2A;&#x52A0;&#x8F7D;&#x7684;&#x5730;&#x5740;&#xFF0C;BIOS&#x542F;&#x52A8;&#x6267;&#x884C;&#x7684;&#x7B2C;&#x4E00;&#x6761;&#x6307;&#x4EE4;&#x7684;&#x5730;&#x5740;&#x4F9D;&#x65E7;&#x662F;<code>0x7c00</code>&#x5462;&#xFF1F;&#x8FD9;&#x4E2A;&#x5176;&#x5B9E;&#x6709;&#x4E00;&#x4E2A;&#x5178;&#x6545;&#xFF0C;&#x548C;&#x65E9;&#x671F;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x7684;&#x8BBE;&#x8BA1;&#x662F;&#x6709;&#x5173;&#x7CFB;&#x7684;&#x3010;3&#x3011;&#x3002;&#x5386;&#x53F2;&#x4E0A;&#x6709;&#x4E00;&#x79CD;&#x673A;&#x5668;&#x7684;&#x5185;&#x5B58;&#x4E3A;32KB&#xFF0C;0x7C00-0x7DFF&#x4E2D;&#x524D;512B&#x5B58;&#x653E;&#x786C;&#x76D8;&#x7684;&#x5F15;&#x5BFC;&#x7A0B;&#x5E8F;&#xFF0C;&#x540E;512B&#x5B58;&#x653E;&#x5176;&#x4E2D;&#x4EA7;&#x751F;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;boot loader&#x7684;load address&#x548C;link address&#x662F;&#x4E00;&#x81F4;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5728;kernel&#x90E8;&#x5206;&#x5E76;&#x4E0D;&#x662F;&#x4E00;&#x81F4;&#x7684;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;kernel&#x5E0C;&#x671B;boot loader&#x80FD;&#x591F;&#x5728;&#x4F4E;&#x5730;&#x5740;&#x52A0;&#x8F7D;&#x81EA;&#x5DF1;&#xFF0C;&#x5728;&#x9AD8;&#x5730;&#x5740;(0xf0000...)&#x6267;&#x884C;&#x81EA;&#x5DF1;&#x3002;&#x8FD9;&#x4E2A;&#x600E;&#x4E48;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x540E;&#x9762;&#x4F1A;&#x8BE6;&#x7EC6;&#x7684;&#x8BA8;&#x8BBA;&#x3002;</p>
+<p>&#x67E5;&#x770B;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x7684;&#x5F00;&#x59CB;&#x5730;&#x5740;&#xFF1A;</p>
+<pre><code>tbl@ubuntu:~/6.828/lab$ objdump -f obj/kern/kernel
+
+obj/kern/kernel:     file format elf32-i386
+architecture: i386, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x0010000c
+</code></pre><h4 id="exercise-6">exercise 6</h4>
+<blockquote>
+<p>&#x4F7F;&#x7528;x/Nx address&#x67E5;&#x770B;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x5185;&#x5BB9;</p>
+<p>&#x5F53;&#x4ECE;BIOS&#x8FDB;&#x5165;&#x5230;boot loader&#x65F6;&#x5728;&#x5730;&#x5740;0x00100000&#x7684;&#x5185;&#x5B58;&#x5B58;&#x50A8;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<p>&#x8FDB;&#x5165;&#x5230;kernel 0x00100000&#x5B58;&#x7684;&#x503C;&#x3002;</p>
+<p>&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;1 word = 2 Bytes</p>
+</blockquote>
+<p>&#x4E24;&#x5904;&#x5185;&#x5B58;&#x7684;&#x503C;&#x5206;&#x522B;&#x4E3A;&#xFF1A;</p>
+<p><img src="https://pic4.zhimg.com/80/v2-124b9efae4ec788ccc8c395c1920ab79.png" alt=""></p>
+<p><img src="https://pic4.zhimg.com/80/v2-883b7344983b7c86de895c8e93fe9563.png" alt=""></p>
+<p>&#x6211;&#x4EEC;&#x518D;&#x67E5;&#x770B;<code>obj/kern/kernel.asm</code>&#x4E2D;&#x6307;&#x4EE4;&#xFF1A;</p>
+<pre><code>entry:
+    movw    $0x1234,0x472            # warm boot
+f0100000:    02 b0 ad 1b 00 00        add    0x1bad(%eax),%dh
+f0100006:    00 00                    add    %al,(%eax)
+f0100008:    fe 4f 52                 decb   0x52(%edi)
+f010000b:    e4                       .byte 0xe4
+
+f010000c &lt;entry&gt;:
+f010000c:    66 c7 05 72 04 00 00     movw   $0x1234,0x472
+f0100013:    34 12
+</code></pre><p>&#x4ECE;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x7247;&#x6BB5;&#xFF0C;&#x6211;&#x4EEC;&#x77E5;&#x9053;0x34&#x5B58;&#x5728;&#x5730;&#x5740;0xf0100013, 0x12&#x5B58;&#x5230;&#x4E86;0xf0100014&#xFF0C;&#x4F46;&#x662F;&#x5728;GDB&#x5C55;&#x793A;&#x7684;&#x65F6;&#x5019;&#x662F;&#x9006;&#x8FC7;&#x6765;&#x7684;&#xFF0C;&#x8BF4;&#x660E;&#x5185;&#x90E8;&#x662F;&#x5012;&#x5E8F;&#x7684;&#x3002;</p>
+<pre><code class="lang-c">f010000c:    <span class="hljs-number">66</span> c7 <span class="hljs-number">05</span> <span class="hljs-number">72</span> <span class="hljs-number">04</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span>     movw   $<span class="hljs-number">0x1234</span>,<span class="hljs-number">0x472</span>
+f0100013:    <span class="hljs-number">34</span> <span class="hljs-number">12</span>
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x53D1;&#x73B0;&#xFF0C;GDB&#x4E00;&#x4E2A;32&#x4F4D;&#x7684;&#x503C;&#x7684;&#x5C55;&#x793A;&#xFF0C;&#x5730;&#x5740;&#x662F;&#x4ECE;&#x9AD8;-&gt;&#x4F4E;&#x7684;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x548C;&#x4E0A;&#x9762;&#x56FE;&#x7247;&#x6240;&#x5C55;&#x793A;&#x7684;&#x5185;&#x5BB9;&#x4E00;&#x81F4;&#x3002;</p>
+<h3 id="part-3-the-kernel">Part 3: The Kernel</h3>
+<p>&#x4ECE;&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x5F00;&#x59CB;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x8981;&#x5F00;&#x59CB;&#x5199;&#x4E00;&#x4E9B;&#x4EE3;&#x7801;&#x4E86;&#xFF01;</p>
+<h4 id="using-virtual-memory-to-work-around-position-dependence">Using virtual memory to work around position dependence</h4>
+<p>&#x6211;&#x4EEC;&#x5728;&#x505A;&#x4E4B;&#x524D;&#x7684;<a href="####%20exercise%205">&#x7EC3;&#x4E60;5</a>&#x7684;&#x65F6;&#x5019;&#x53D1;&#x73B0;&#xFF0C;kernel&#x7684;link address&#x548C;load address&#x662F;&#x4E0D;&#x76F8;&#x540C;&#x7684;&#xFF0C;&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x6211;&#x4EEC;&#x5C31;&#x8BE6;&#x7EC6;&#x7684;&#x8FDB;&#x884C;&#x63A2;&#x7D22;&#x3002;</p>
+<p>&#x8BBE;&#x7F6E;kernel&#x7684;link address&#x5728;<code>/kern/kernle.ld</code>&#x4E2D;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#xFF0C;&#x53EF;&#x4EE5;&#x660E;&#x663E;&#x7684;&#x770B;&#x5230;&#x8FD9;&#x6837;&#x7684;&#x4E00;&#x4E2A;&#x8BED;&#x53E5;&#xFF1A;</p>
+<pre><code>    /* Link the kernel at this address: &quot;.&quot; means the current address */
+    . = 0xF0100000;
+</code></pre><p>&#x7CFB;&#x7EDF;&#x7684;&#x5185;&#x6838;&#x4E00;&#x822C;&#x662F;&#x5C06;&#x5185;&#x6838;&#x7A0B;&#x5E8F;&#x653E;&#x5230;&#x975E;&#x5E38;&#x9AD8;&#x7684;&#x865A;&#x62DF;&#x7A7A;&#x95F4;&#x8FDB;&#x884C;&#x6267;&#x884C;&#xFF0C;&#x4F4E;&#x4E00;&#x4E9B;&#x7684;&#x7A7A;&#x95F4;&#x7559;&#x7ED9;&#x7528;&#x6237;&#x6267;&#x884C;&#x7A0B;&#x5E8F;&#x3002;&#x5C3D;&#x7BA1;&#x5185;&#x6838;&#x8FD0;&#x884C;&#x5728;&#x8F83;&#x9AD8;&#x7684;&#x865A;&#x62DF;&#x5730;&#x5740;&#x4E2D;&#xFF0C;&#x4F46;&#x662F;&#x5B9E;&#x9645;&#x4FDD;&#x5B58;&#x7684;&#x7269;&#x7406;&#x5730;&#x5740;&#x4F9D;&#x65E7;&#x662F;1MB&#x4E4B;&#x4E0A;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5728;BIOS&#x4E4B;&#x4E0A;&#x3002;</p>
+<p>&#x5728;&#x672C;&#x5B9E;&#x9A8C;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4EC5;&#x4EC5;&#x4F1A;&#x4F7F;&#x7528;&#x5230;<code>0xf0000000-0xf0400000</code>&#x8FD9;&#x4E00;&#x6BB5;&#x7684;&#x865A;&#x62DF;&#x5730;&#x5740;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x5176;&#x6620;&#x5C04;&#x5230;<code>0x00000000-0x00400000</code> &#x3002;&#x5E76;&#x4E14;&#x6211;&#x4EEC;&#x4E5F;&#x5C06;<code>0x00000000-0x00400000</code>&#x6620;&#x5C04;&#x5230;&#x540C;&#x6837;&#x4E00;&#x5757;&#x7269;&#x7406;&#x5730;&#x5740;&#x3002;&#x76EE;&#x524D;&#x4EC5;&#x4F7F;&#x7528;&#x4E86;4MB&#x5927;&#x5C0F;&#x7684;&#x5185;&#x5B58;&#x3002;</p>
+<p>&#x5173;&#x4E8E;&#x76EE;&#x524D;&#x7684;&#x8FD9;&#x4E2A;&#x7CFB;&#x7EDF;&#x662F;&#x600E;&#x4E48;&#x8FDB;&#x884C;&#x5185;&#x5B58;&#x7684;&#x6620;&#x5C04;&#x7684;&#xFF0C;&#x4E3B;&#x8981;&#x4F7F;&#x7528;&#x4E86;cr3&#x548C;cr0&#x3002;</p>
+<p>&#x5E76;&#x4E14;&#x5BFB;&#x5740;&#x65B9;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="https://pic4.zhimg.com/80/v2-77108b4ef7e14952b01f089ae415edfe.png" alt=""></p>
+<p>&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;&#x76EE;&#x524D;lab1&#x4EC5;&#x4EC5;&#x521D;&#x59CB;&#x5316;&#x4E86;page directory&#x4E2D;&#x7684;&#x4E24;&#x6761;&#x6570;&#x636E;&#xFF0C;&#x548C;page table&#x4E2D;&#x6240;&#x6709;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x7EA2;&#x6846;&#x6807;&#x6CE8;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="https://pic4.zhimg.com/80/v2-152557f86ba7bb6074f1ca3f8f52ff6c.png" alt=""></p>
+<p>cr3&#x5BC4;&#x5B58;&#x5668;&#x786E;&#x5B9A;&#x4E86;&#x8FD9;&#x5F20;&#x8868;&#x7684;&#x57FA;&#x5730;&#x5740;</p>
+<pre><code class="lang-c"><span class="hljs-meta"># Load the physical address of entry_pgdir into cr3.  entry_pgdir</span>
+<span class="hljs-meta"># is defined in entrypgdir.c.</span>
+movl    $(RELOC(entry_pgdir)), %eax
+movl    %eax, %cr3
+</code></pre>
+<h4 id="exercise-7">exercise 7</h4>
+<blockquote>
+<p>&#x5728;<code>movl %eax, %cr0</code>&#x8BED;&#x53E5;&#x505C;&#x6B62;&#x6267;&#x884C;&#xFF0C;&#x89C2;&#x5BDF;&#x524D;&#x540E;&#x5730;&#x5740;<code>0x00100000</code>&#x548C;<code>0xf0100000</code>&#x5185;&#x5BB9;&#x7684;&#x53D8;&#x5316;&#x3002;</p>
+<p>&#x5C06;&#x4E0A;&#x9762;&#x8FD9;&#x53E5;&#x6CE8;&#x91CA;&#x4E86;&#xFF0C;&#x67E5;&#x770B;&#x4F1A;&#x53D1;&#x751F;&#x4EC0;&#x4E48;&#xFF1F;&#x7B2C;&#x4E00;&#x6761;&#x5D29;&#x6E83;&#x7684;&#x6307;&#x4EE4;</p>
+</blockquote>
+<p>&#x6211;&#x4EEC;&#x5728;<code>0x10000c</code>&#x6253;&#x4E0A;&#x65AD;&#x70B9;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x8BE5;&#x8BED;&#x53E5;&#x524D;&#x540E;&#x67E5;&#x770B;&#x6B64;&#x65F6;&#x4E24;&#x4E2A;&#x5730;&#x5740;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#xFF1A;</p>
+<p><img src="https://pic4.zhimg.com/80/v2-88025b5b54098aecd66fc0180262343c.png" alt=""></p>
+<p>&#x6B64;&#x65F6;&#x4E24;&#x4E2A;&#x5730;&#x5740;&#x5185;&#x5BB9;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x3002;</p>
+<p>&#x4E00;&#x65E6;&#x6267;&#x884C;&#x4E86;&#x8BE5;&#x8BED;&#x53E5;&#xFF1A;
+<img src="https://pic4.zhimg.com/80/v2-340ec0d356eddbd81510eb5228646da2.png" alt=""></p>
+<p>&#x4E24;&#x4E2A;&#x5730;&#x5740;&#x6307;&#x5411;&#x4E86;&#x540C;&#x6837;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<p>&#x540E;&#x6765;&#x6211;&#x4EEC;&#x5C06;&#x8FD9;&#x4E2A;&#x8BED;&#x53E5;&#x8FDB;&#x884C;&#x6CE8;&#x91CA;&#xFF0C;&#x91CD;&#x65B0;&#x6267;&#x884C;&#xFF0C;&#x53D1;&#x73B0;&#x5728;&#x8FD9;&#x4E2A;&#x8BED;&#x53E5;&#x53D1;&#x751F;&#x5D29;&#x6E83;&#xFF1A;</p>
+<pre><code class="lang-c">mov    $relocated, %eax
+f0100028:    b8 <span class="hljs-number">2f</span> <span class="hljs-number">00</span> <span class="hljs-number">10</span> f0           mov    $<span class="hljs-number">0xf010002f</span>,%eax
+    jmp    *%eax
+f010002d:    ff e0                    jmp    *%eax
+</code></pre>
+<p>&#x539F;&#x56E0;&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#xFF0C;<code>0xf010002f</code>&#x8FD9;&#x4E2A;&#x5730;&#x5740;&#x5E76;&#x6CA1;&#x6709;&#x88AB;&#x6620;&#x5C04;&#xFF0C;&#x56E0;&#x6B64;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#xFF0C;&#x4EA7;&#x751F;&#x9519;&#x8BEF;&#x3002;</p>
+<h4 id="formatted-printing-to-the-console">Formatted Printing to the Console</h4>
+<p>&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x5C31;&#x662F;&#x6559;&#x6211;&#x4EEC;printf&#x7684;&#x5E95;&#x5C42;&#x539F;&#x7406;&#x662F;&#x4EC0;&#x4E48;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x624B;&#x5199;printf&#x3002;</p>
+<h4 id="exercise-8">exercise 8</h4>
+<blockquote>
+<p>&#x627E;&#x5230;cprintf(&quot;6828 decimal is %o octal!\n&quot;, 6828);&#x4F7F;&#x4E4B;&#x80FD;&#x591F;&#x8F93;&#x51FA;&#x8FDB;&#x5236;&#x4E3A;8&#x3002;</p>
+</blockquote>
+<p>&#x627E;&#x5230;&#x76F8;&#x5E94;&#x7684;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x7684;&#x90E8;&#x5206;&#x5728;<code>printfmt.c</code>,&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">// (unsigned) octal</span>
+        <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;o&apos;</span>:
+            <span class="hljs-comment">// Replace this with your code.</span>
+            num = getuint(&amp;ap, lflag);
+            base = <span class="hljs-number">8</span>;
+            <span class="hljs-keyword">goto</span> number;
+            <span class="hljs-keyword">break</span>;
+</code></pre>
+<p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;c&#x8BED;&#x8A00;&#x4E2D;&#x7684;&#x53D8;&#x957F;&#x53C2;&#x6570;&#x673A;&#x5236;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x9A8C;&#x8BC1;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;&#x538B;&#x6808;&#x673A;&#x5236;&#xFF0C;&#x8FD0;&#x884C;&#x5982;&#x4E0B;&#x7684;&#x7A0B;&#x5E8F;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">//  gcc -m32 -o test ./test.c </span>
+<span class="hljs-comment">// &#x6CE8;&#x610F;&#x662F;32&#x4F4D;&#x7684;&#x7F16;&#x8BD1;&#x5668;&#x8FDB;&#x884C;&#x7F16;&#x8BD1;</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b,<span class="hljs-keyword">int</span> c,<span class="hljs-keyword">int</span> d,<span class="hljs-keyword">int</span> e,<span class="hljs-keyword">int</span> f,<span class="hljs-keyword">int</span> g,<span class="hljs-keyword">int</span> h)</span>
+</span>{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%p\n%p\n%p\n%p\n%p\n%p\n%p\n%p\n&quot;</span>,&amp;a,&amp;b,&amp;c,&amp;d,&amp;e,&amp;f,&amp;g,&amp;h);
+}
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc,<span class="hljs-keyword">char</span> *argv[])</span>
+</span>{
+    <span class="hljs-keyword">int</span> a = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">int</span> b = <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">int</span> c = <span class="hljs-number">3</span>;
+    <span class="hljs-keyword">int</span> d = <span class="hljs-number">4</span>;
+    <span class="hljs-keyword">int</span> e = <span class="hljs-number">5</span>;
+    <span class="hljs-keyword">int</span> f = <span class="hljs-number">6</span>;
+    <span class="hljs-keyword">int</span> g = <span class="hljs-number">7</span>;
+    <span class="hljs-keyword">int</span> h = <span class="hljs-number">8</span>;
+    test(a,b,c,d,e,f,g,h);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E3A;&#xFF1A;</p>
+<pre><code>0xff842030
+0xff842034
+0xff842038
+0xff84203c
+0xff842040
+0xff842044
+0xff842048
+0xff84204c
+</code></pre><p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x6808;&#x7A7A;&#x95F4;&#x5E94;&#x8BE5;&#x662F;&#x4ECE;&#x9AD8;&#x5730;&#x5740;&#x5411;&#x4F4E;&#x5730;&#x5740;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x538B;&#x6808;&#x7684;&#x987A;&#x5E8F;&#x662F;&#x4ECE;&#x53F3;&#x5F80;&#x5DE6;&#x3002;</p>
+<p>&#x7F16;&#x8BD1;&#x5668;&#x6709;&#x4E09;&#x4E2A;&#x5B8F;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<blockquote>
+<p>va_list &#xFF1A;&#x5B58;&#x50A8;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x578B;&#x4FE1;&#x606F;&#xFF0C;32&#x4F4D;&#x548C;64&#x4F4D;&#x5B9E;&#x73B0;&#x4E0D;&#x4E00;&#x6837;&#x3002;
+void va_start ( va_list ap, paramN );
+&#x53C2;&#x6570;&#xFF1A;
+ap: &#x53EF;&#x53D8;&#x53C2;&#x6570;&#x5217;&#x8868;&#x5730;&#x5740; 
+paramN: &#x786E;&#x5B9A;&#x7684;&#x53C2;&#x6570;
+&#x529F;&#x80FD;&#xFF1A;&#x521D;&#x59CB;&#x5316;&#x53EF;&#x53D8;&#x53C2;&#x6570;&#x5217;&#x8868;&#xFF0C;&#x4F1A;&#x628A;paraN&#x4E4B;&#x540E;&#x7684;&#x53C2;&#x6570;&#x653E;&#x5165;ap&#x4E2D;</p>
+<p>type va_arg ( va_list ap, type );
+&#x529F;&#x80FD;&#xFF1A;&#x8FD4;&#x56DE;&#x4E0B;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x503C;&#x3002;</p>
+<p>void va_end ( va_list ap );
+&#x529F;&#x80FD;&#xFF1A;&#x5B8C;&#x6210;&#x6E05;&#x7406;&#x5DE5;&#x4F5C;&#x3002;</p>
+</blockquote>
+<p>&#x53EF;&#x53D8;&#x53C2;&#x6570;&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x7684;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;:</p>
+<ul>
+<li>&#xFF11;.&#x5728;&#x51FD;&#x6570;&#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;va_list&#x7C7B;&#x578B;&#x53D8;&#x91CF;</li>
+<li>&#xFF12;.&#x4F7F;&#x7528;va_start&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;</li>
+<li>&#xFF13;.&#x4F7F;&#x7528;va_arg&#x8BBF;&#x95EE;&#x53C2;&#x6570;&#x503C;</li>
+<li>&#xFF14;.&#x4F7F;&#x7528;va_end&#x5B8C;&#x6210;&#x6E05;&#x7406;&#x5DE5;&#x4F5C;</li>
+</ul>
+<p>&#x7ED3;&#x5408;&#x5177;&#x4F53;&#x7684;&#x4F8B;&#x5B50;&#x6765;&#x770B;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">//&#x6765;&#x6E90;&#xFF1A;&#x516C;&#x4F17;&#x53F7;&#x3010;&#x7F16;&#x7A0B;&#x73E0;&#x7391;&#x3011;</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-comment">/*&#x8981;&#x4F7F;&#x7528;&#x53D8;&#x957F;&#x53C2;&#x6570;&#x7684;&#x5B8F;&#xFF0C;&#x9700;&#x8981;&#x5305;&#x542B;&#x4E0B;&#x9762;&#x7684;&#x5934;&#x6587;&#x4EF6;*/</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdarg.h&gt;</span></span>
+<span class="hljs-comment">/*
+ * getSum&#xFF1A;&#x7528;&#x4E8E;&#x8BA1;&#x7B97;&#x4E00;&#x7EC4;&#x6574;&#x6570;&#x7684;&#x548C;
+ * num&#xFF1A;&#x6574;&#x6570;&#x7684;&#x6570;&#x91CF;
+ *
+ * */</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getSum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num,...)</span>
+</span>{
+    va_list ap;<span class="hljs-comment">//&#x5B9A;&#x4E49;&#x53C2;&#x6570;&#x5217;&#x8868;&#x53D8;&#x91CF;</span>
+    <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> loop = <span class="hljs-number">0</span>;
+    va_start(ap,num);
+    <span class="hljs-comment">/*&#x904D;&#x5386;&#x53C2;&#x6570;&#x503C;*/</span>
+    <span class="hljs-keyword">for</span>(;loop &lt; num ; loop++)
+    {
+        <span class="hljs-comment">/*&#x53D6;&#x51FA;&#x5E76;&#x52A0;&#x4E0A;&#x4E0B;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x503C;*/</span>
+        sum += va_arg(ap,<span class="hljs-keyword">int</span>);
+    }
+    va_end(ap);
+    <span class="hljs-keyword">return</span> sum;
+}
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc,<span class="hljs-keyword">char</span> *argv[])</span>
+</span>{
+    <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;
+    sum = getSum(<span class="hljs-number">5</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,sum);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5F53;&#x8C03;&#x7528;&#x53D8;&#x957F;&#x51FD;&#x6570;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5DE6;&#x8FB9;&#x7684;&#x53C2;&#x6570;&#x5FC5;&#x987B;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x53D8;&#x957F;&#x53C2;&#x6570;&#x5217;&#x8868;&#x5E94;&#x8BE5;&#x548C;&#x56FA;&#x5B9A;&#x53C2;&#x6570;&#x4E2D;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#x3002;</p>
+<p>&#x8FD9;&#x4E0B;&#x5176;&#x5B9E;&#x6211;&#x4EEC;&#x5C31;&#x80FD;&#x591F;&#x7406;&#x89E3;&#x5176;&#x4E2D;&#x7684;&#x539F;&#x7406;&#x4E86;&#x3002;</p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x8FDB;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x5B9E;&#x9A8C;&#xFF0C;&#x67E5;&#x770B;&#x5404;&#x7C7B;&#x6253;&#x5370;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x5173;&#x7CFB;&#x3002;</p>
+<p><code>kern/printf.c</code>, <code>lib/printfmt.c</code>, and <code>kern/console.c</code></p>
+<p>&#x4ECE;&#x5DE6;&#x5F80;&#x53F3;&#xFF0C;&#x8D8A;&#x6765;&#x8D8A;&#x5E95;&#x5C42;&#x3002;&#x5176;&#x4E2D;<code>printf.c</code>&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x7684;&#x4F9B;&#x7528;&#x6237;&#x4F7F;&#x7528;&#x7684;&#x62BD;&#x8C61;&#x51FD;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x53D8;&#x957F;&#x53C2;&#x6570;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;&#x539F;&#x7406;&#x540E;&#xFF0C;&#x5C31;&#x80FD;&#x591F;&#x660E;&#x767D;<code>printfmt.c</code>&#x662F;&#x5728;&#x89E3;&#x6790;&#x56FA;&#x5B9A;&#x7684;&#x90A3;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x6309;&#x7167;&#x89C4;&#x5B9A;&#x7684;&#x683C;&#x5F0F;&#x8BFB;&#x51FA;&#x53D8;&#x957F;&#x53C2;&#x6570;&#x3002;&#x6700;&#x540E;&#x901A;&#x8FC7;&#x6700;&#x4E3A;&#x5E95;&#x5C42;&#x7684;<code>console.c</code>&#x4E0E;&#x5E95;&#x5C42;&#x7684;&#x786C;&#x4EF6;&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#x3002;</p>
+<p>Q1&#xFF1A;<code>printf.c</code>&#x662F;&#x600E;&#x4E48;&#x53BB;&#x8C03;&#x7528;<code>console.c</code>&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x7684;&#xFF1F;</p>
+<p><code>printf.c</code> &#x8C03;&#x7528;<code>console.c</code>&#x4E2D;&#x7684;<code>cputchar</code> &#x51FD;&#x6570;&#x8FDB;&#x884C;&#x663E;&#x793A;&#x8F93;&#x51FA;&#x3002;</p>
+<p>Q2&#xFF1A;&#x89E3;&#x91CA;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x662F;&#x5E72;&#x4EC0;&#x4E48;&#x7684;&#xFF1F;</p>
+<pre><code class="lang-c"><span class="hljs-number">1</span>      <span class="hljs-keyword">if</span> (crt_pos &gt;= CRT_SIZE) {
+<span class="hljs-number">2</span>              <span class="hljs-keyword">int</span> i;
+<span class="hljs-number">3</span>              memmove(crt_buf, crt_buf + CRT_COLS, (CRT_SIZE - CRT_COLS) * <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">uint16_t</span>)); <span class="hljs-comment">//memmove(void *dst, const void *src, size_t len)</span>
+<span class="hljs-number">4</span>              <span class="hljs-keyword">for</span> (i = CRT_SIZE - CRT_COLS; i &lt; CRT_SIZE; i++)
+<span class="hljs-number">5</span>                      crt_buf[i] = <span class="hljs-number">0x0700</span> | <span class="hljs-string">&apos; &apos;</span>;
+<span class="hljs-number">6</span>              crt_pos -= CRT_COLS;
+<span class="hljs-number">7</span>      }
+</code></pre>
+<p>&#x5F53;&#x663E;&#x793A;&#x5668;&#x663E;&#x793A;&#x7684;&#x5B57;&#x7B26;&#x6570;&#x91CF;&#x8D85;&#x8FC7;&#x9650;&#x5236;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9996;&#x5148;&#x662F;&#x5C06;crt_buf + CRT_COLS&#x5F00;&#x59CB;&#x5230;&#x7ED3;&#x675F;&#x7684;&#x5B57;&#x7B26;&#x79FB;&#x5230;&#x6700;&#x5F00;&#x59CB;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x672B;&#x5C3E;&#x7684; CRT_COLS&#x4E2A;&#x663E;&#x793A;&#x4F4D;&#x7F6E;&#x7A7A;&#x51FA;&#x6765;&#x4E86;&#xFF0C;&#x5E76;&#x4E14;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5C06;&#x5176;&#x7F6E;&#x4E3A;&#x7A7A;&#x683C;&#x3002;</p>
+<p>Q3:  &#x5355;&#x6B65;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x8BED;&#x53E5;</p>
+<pre><code>int x = 1, y = 3, z = 4;
+cprintf(&quot;x %d, y %x, z %d\n&quot;, x, y, z);
+</code></pre><p>&#x6211;&#x4EEC;&#x5C06;&#x5176;&#x63D2;&#x5165;&#x5230;<code>init.c</code>&#x4E2D;&#x3002;</p>
+<p>&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x5E38;&#x7528;&#x7684;&#x51E0;&#x6761;&#x547D;&#x4EE4;&#xFF1A;</p>
+<p><code>n</code>: &#x6267;&#x884C;&#x5355;&#x6761;c&#x8BED;&#x8A00;&#x8BED;&#x53E5;&#xFF0C;&#x4E0D;&#x8FDB;&#x5165;&#x5230;&#x5177;&#x4F53;&#x7684;&#x51FD;&#x6570;&#x4E2D;&#x3002;</p>
+<p><code>s(tep)</code>: &#x8FDB;&#x5165;&#x5230;&#x5177;&#x4F53;&#x7684;&#x51FD;&#x6570;&#x4E2D;&#x3002;</p>
+<p><code>bt(backtrace)</code>: &#x6253;&#x5370;&#x51FA;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x6808;&#x3002;</p>
+<p>&#x5F97;&#x5230;&#x5982;&#x4E0B;&#x7684;&#x7ED3;&#x679C;&#xFF1A;</p>
+<p><img src="https://pic4.zhimg.com/80/v2-cbcae90264dd4c762969c9c5bc5bda8c.png" alt=""></p>
+<p>&#x4F7F;&#x7528;<code>x/s fmt</code>&#x6253;&#x5370;&#x51FA;&#x4E86;&#x5E38;&#x91CF;&#x5B57;&#x7B26;&#x4E32;</p>
+<p><code>x/3wx</code>&#x6253;&#x5370;&#x51FA;&#x6765;&#x4E86;&#x53EF;&#x53D8;&#x53C2;&#x6570;&#x5185;&#x5BB9;</p>
+<p>&#x8BFE;&#x7A0B;&#x6559;&#x7A0B;&#x4E2D;&#x8BA9;&#x6211;&#x4EEC;&#x5728;<code>cons_putc</code>, <code>va_arg</code>&#x548C;<code>vcprintf</code>&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x7684;&#x53C2;&#x6570;&#x53D8;&#x5316;&#x3002;</p>
+<p>&#x5176;&#x4E2D;va_arg&#x7531;&#x4E8E;&#x662F;&#x4E00;&#x4E2A;&#x5B8F;&#x5B9A;&#x4E49;&#xFF0C;&#x6211;&#x4EEC;&#x6362;&#x6210;&#x5176;&#x4ED6;&#x7684;&#x51FD;&#x6570;<code>getuint</code>&#x6253;&#x65AD;&#x70B9;&#xFF0C;&#x5E76;&#x4E14;&#x80FD;&#x591F;&#x89C2;&#x5BDF;ap(&#x53EF;&#x53D8;&#x53C2;&#x6570;)&#x7684;&#x53D8;&#x5316;&#x3002;</p>
+<p><code>cons_putc</code>&#x51FD;&#x6570;&#x662F;&#x6BCF;&#x6B21;&#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5206;&#x522B;&#x5728;&#x4E09;&#x4E2A;&#x51FD;&#x6570;&#x4E0A;&#x6253;&#x4E0A;&#x65AD;&#x70B9;&#xFF0C;&#x89C2;&#x5BDF;&#x5B83;&#x4EEC;&#x7684;&#x53D8;&#x5316;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">&#x51FD;&#x6570;</th>
+<th style="text-align:center">&#x503C;</th>
+<th style="text-align:center">&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">vcprintf</td>
+<td style="text-align:center">fmt=&#x201C;x %d, y %x, z %d \n&#x201D;, ap=1,3,4</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">cons_putc</td>
+<td style="text-align:center">c=120</td>
+<td style="text-align:center">&apos;x&apos;</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">cons_putc</td>
+<td style="text-align:center">c=32</td>
+<td style="text-align:center">&apos; &apos;</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">va_arg</td>
+<td style="text-align:center">&#x8C03;&#x7528;&#x524D;ap=1,3,4 &#x8C03;&#x7528;&#x540E;ap=3,4</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">cons_putc</td>
+<td style="text-align:center">49</td>
+<td style="text-align:center">&apos;1&apos;</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">cons_putc</td>
+<td style="text-align:center">44</td>
+<td style="text-align:center">&apos;,&apos;</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">cons_putc</td>
+<td style="text-align:center">32</td>
+<td style="text-align:center">&apos; &apos;</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">cons_putc</td>
+<td style="text-align:center">121</td>
+<td style="text-align:center">&apos;y&apos;</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">cons_putc</td>
+<td style="text-align:center">32</td>
+<td style="text-align:center">&apos; &apos;</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">va_arg</td>
+<td style="text-align:center">&#x8C03;&#x7528;&#x524D;ap=3,4 &#x8C03;&#x7528;&#x540E;ap=4</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">cons_putc</td>
+<td style="text-align:center">51</td>
+<td style="text-align:center">&apos;3&apos;</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">cons_putc</td>
+<td style="text-align:center">44</td>
+<td style="text-align:center">&apos;,&apos;</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">cons_putc</td>
+<td style="text-align:center">32</td>
+<td style="text-align:center">&apos; &apos;</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center">cons_putc</td>
+<td style="text-align:center">122</td>
+<td style="text-align:center">&apos;z&apos;</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">cons_putc</td>
+<td style="text-align:center">32</td>
+<td style="text-align:center">&apos; &apos;</td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:center">va_arg</td>
+<td style="text-align:center">&#x8C03;&#x7528;&#x524D;ap=4 &#x8C03;&#x7528;&#x540E;ap &#x4E3A;&#x7A7A;</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:center">cons_putc</td>
+<td style="text-align:center">52</td>
+<td style="text-align:center">&apos;4&apos;</td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:center">cons_putc</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">&apos;\n&apos;</td>
+</tr>
+</tbody>
+</table>
+<p>Q4: &#x8FD0;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5E76;&#x4E14;&#x89E3;&#x91CA;&#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x8FD9;&#x6837;&#x7684;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x3002;</p>
+<pre><code class="lang-C"><span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> i = <span class="hljs-number">0x00646c72</span>;
+cprintf(<span class="hljs-string">&quot;H%x Wo%s&quot;</span>, <span class="hljs-number">57616</span>, &amp;i);
+</code></pre>
+<p>&#x8F93;&#x51FA;<code>He110 World</code></p>
+<p>$(57616)<em>{10} = (e110)</em>{16}$</p>
+<p>&#x7531;&#x4E8E;&#x662F;&#x5C0F;&#x7AEF;&#x5B58;&#x50A8;&#xFF0C;&#x5728;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x5185;&#xFF0C;&#x6700;&#x5F00;&#x59CB;&#x7684;&#x5730;&#x65B9;&#x662F;&#x5730;&#x4F4D;&#xFF0C;&#x5E76;&#x4E14;&#x6211;&#x4EEC;&#x627E;&#x5230;&#x53CD;&#x6C47;&#x7F16;&#x8BED;&#x8A00;&#x7684;&#x5730;&#x65B9;&#xFF1A;</p>
+<pre><code class="lang-c">    <span class="hljs-comment">//cprintf(&quot;x %d, y %x, z %d\n&quot;, x, y, z);</span>
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> i = <span class="hljs-number">0x00646c72</span>;
+    <span class="hljs-comment">//&#x5730;&#x5740;   c8 c9 ca cb cc cd ce</span>
+f01000c8:    c7 <span class="hljs-number">45</span> f4 <span class="hljs-number">72</span> <span class="hljs-number">6</span>c <span class="hljs-number">64</span> <span class="hljs-number">00</span>     movl   $<span class="hljs-number">0x646c72</span>,<span class="hljs-number">-0xc</span>(%ebp)
+        cprintf(<span class="hljs-string">&quot;H%x Wo%s&quot;</span>, <span class="hljs-number">57616</span>, &amp;i);
+f01000cf:    <span class="hljs-number">83</span> c4 <span class="hljs-number">0</span>c                 add    $<span class="hljs-number">0xc</span>,%esp
+</code></pre>
+<p><img src="https://pic4.zhimg.com/80/v2-5d4661c6059174981b79d481dfe613ed.png" alt=""></p>
+<p>&#x6211;&#x4EEC;&#x6309;&#x7167;&#x5730;&#x5740;&#x589E;&#x7684;&#x987A;&#x5E8F;&#x6253;&#x5370;&#x4E86;&#x5185;&#x5BB9;&#xFF0C;&#x8FDB;&#x4E00;&#x6B65;&#x9A8C;&#x8BC1;&#x4E86;&#x5C0F;&#x7AEF;&#x6CD5;&#x7684;&#x4FDD;&#x5B58;&#x65B9;&#x5F0F;&#x3002;</p>
+<p>&#x5E76;&#x4E14;ASCII&#x7801;<code>0x72=&apos;r&apos;, 0x6c=&apos;l&apos;,0x64=&apos;d&apos;,0x00=&apos;\0&apos;(null)</code></p>
+<p>Q5: &#x8FD0;&#x884C;<code>cprintf(&quot;x=%d y=%d&quot;, 3);</code>&#x5E76;&#x4E14;&#x89E3;&#x91CA;&#x8F93;&#x51FA;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x9996;&#x5148;&#x67E5;&#x770B;&#x8FD9;&#x4E2A;&#x90E8;&#x5206;&#x7684;&#x53CD;&#x6C47;&#x7F16;&#x90E8;&#x5206;</p>
+<pre><code class="lang-c">    cprintf(<span class="hljs-string">&quot;x=%d y=%d&quot;</span>, <span class="hljs-number">3</span>);
+f01000c8:    <span class="hljs-number">83</span> c4 <span class="hljs-number">08</span>                 add    $<span class="hljs-number">0x8</span>,%esp
+f01000cb:    <span class="hljs-number">6</span>a <span class="hljs-number">03</span>                    push   $<span class="hljs-number">0x3</span>
+f01000cd:    <span class="hljs-number">68</span> b2 <span class="hljs-number">19</span> <span class="hljs-number">10</span> f0           push   $<span class="hljs-number">0xf01019b2</span>
+f01000d2:    e8 d5 <span class="hljs-number">08</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span>           call   f01009ac &lt;cprintf&gt;
+</code></pre>
+<p>&#x7136;&#x540E;&#x89C2;&#x5BDF;&#x6808;&#x7A7A;&#x95F4;&#x7684;&#x53D8;&#x5316;&#xFF1A;</p>
+<p><img src="https://pic4.zhimg.com/80/v2-732f43eefc0eb8ce242eca5729983a8b.png" alt=""></p>
+<p>&#x53D1;&#x73B0;&#x6808;&#x4E2D;&#x4F9D;&#x6B21;&#x538B;&#x5165;&#x4E86;<code>0x3</code>, <code>0xf01019b2</code>&#x786E;&#x5B9E;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x663E;&#x793A;&#x4E86;&#x3002;</p>
+<p><img src="https://pic4.zhimg.com/80/v2-453cd5fc40ef74139f5fa3b42a2271b7.png" alt=""></p>
+<p>&#x6700;&#x540E;&#x8F93;&#x51FA;&#x7684;&#x7ED3;&#x679C;&#x4E3A;1600&#x3002;&#x5728;&#x6808;&#x7A7A;&#x95F4;&#x4E2D;&#xFF0C;0x3&#x5BF9;&#x5E94;&#x7684;&#x540E;&#x9762;&#x4E00;&#x4E2A;&#x7A7A;&#x95F4;&#x5B58;&#x653E;&#x7684;&#x662F;<code>0x00000640 = 1600</code>&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x867D;&#x7136;&#xFF0C;&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x9700;&#x8981;&#x8F93;&#x51FA;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x4F46;&#x662F;&#x7A0B;&#x5E8F;&#x8FD8;&#x662F;&#x4F1A;&#x4ECE;&#x8BE5;&#x53D8;&#x91CF;&#x7684;&#x540E;&#x9762;&#x8BFB;&#x53D6;&#x76F8;&#x5E94;&#x7684;&#x5185;&#x5B58;&#x5E76;&#x4E14;&#x8F93;&#x51FA;&#x3002;</p>
+<p>Q6: &#x5982;&#x4F55;&#x51FD;&#x6570;&#x538B;&#x6808;&#x7684;&#x987A;&#x5E8F;&#x4E3A;&#x4ECE;&#x5DE6;&#x5230;&#x53F3;&#xFF0C;&#x90A3;&#x4E48;cprintf&#x5E94;&#x8BE5;&#x600E;&#x4E48;&#x4FEE;&#x6539;&#xFF0C;&#x4F7F;&#x5F97;&#x5176;&#x80FD;&#x591F;&#x6B63;&#x786E;&#x7684;&#x8F93;&#x51FA;&#xFF1F;</p>
+<p>&#x8FD9;&#x4E2A;&#x7B54;&#x6848;&#x6211;&#x4E0D;&#x786E;&#x5B9A;&#xFF0C;&#x611F;&#x89C9;&#x662F;va_arg&#x9996;&#x5148;&#x901A;&#x8FC7;fmt&#x786E;&#x5B9A;&#x6574;&#x4E2A;&#x8F93;&#x51FA;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x7136;&#x540E;&#x627E;&#x5230;&#x5934;&#xFF0C;&#x79FB;&#x52A8;&#x65B9;&#x5411;&#x4E0E;&#x539F;&#x6765;&#x76F8;&#x53CD;&#x3002;</p>
+<p>&#x6709;&#x7684;&#x7B54;&#x6848;&#x8BF4;&#x7684;&#x662F;<code>int cprintf(..., const char *fmt)</code>&#x611F;&#x89C9;&#x4E0D;&#x5BF9;&#x3002;&#xFF08;&#x6B22;&#x8FCE;&#x5927;&#x4F6C;&#x6765;&#x8BA8;&#x8BBA;&#xFF09;</p>
+<h4 id="the-stack">The Stack</h4>
+<h4 id="exercise-9">exercise 9</h4>
+<blockquote>
+<p>&#x627E;&#x5230;kernel&#x521D;&#x59CB;&#x5316;&#x6808;&#x7684;&#x5730;&#x65B9;&#x3002;</p>
+<p>kernel&#x662F;&#x5982;&#x4F55;&#x4E3A;&#x6808;&#x4FDD;&#x7559;&#x7A7A;&#x95F4;&#x7684;</p>
+<p>&#x8FD9;&#x6BB5;&#x521D;&#x59CB;&#x7A0B;&#x5E8F;&#x6700;&#x540E;&#x6808;&#x7684;&#x7A7A;&#x95F4;&#x5206;&#x5E03;</p>
+</blockquote>
+<p>&#x5728;<code>entry.S</code>&#x4E2D;&#x6709;&#x8FD9;&#x6837;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-meta">#part 1</span>
+movl    $<span class="hljs-number">0x0</span>,%ebp            <span class="hljs-meta"># nuke frame pointer</span>
+                            <span class="hljs-meta"># exercise 11&#x63D0;&#x793A;&#x770B;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#xFF0C;&#x53D1;&#x73B0;&#x5E94;&#x8BE5;&#x662F;&#x8FD9;&#x4E2A;&#x5730;&#x65B9;&#x6697;&#x793A;&#x7740;&#x6808;&#x7684;&#x7ED3;&#x675F;&#x3002;</span>
+<span class="hljs-meta"># Set the stack pointer</span>
+movl    $(bootstacktop),%esp
+
+<span class="hljs-meta"># part 2</span>
+
+bootstack:
+    .space        KSTKSIZE
+    .globl        bootstacktop   
+
+<span class="hljs-meta"># part 3</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> KSTKSIZE    (8*PGSIZE)</span>
+</code></pre>
+<p>&#x5728;&#x5B9E;&#x9645;&#x8FD0;&#x884C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FDB;&#x884C;&#x4E86;&#x8FD9;&#x6837;&#x7684;&#x521D;&#x59CB;&#x5316;&#xFF1A;</p>
+<pre><code class="lang-c">  <span class="hljs-number">9</span>&#x2502;    <span class="hljs-number">0x10002f</span>:    mov    $<span class="hljs-number">0x0</span>,%ebp
+ <span class="hljs-number">10</span>&#x2502;    <span class="hljs-number">0x100034</span>:    mov    $<span class="hljs-number">0xf0110000</span>,%esp
+</code></pre>
+<p>1 PGSIZE=4096&#xFF0C;&#x901A;&#x8FC7;&#x8BA1;&#x7B97;&#xFF0C;&#x865A;&#x62DF;&#x5730;&#x5740;&#x4E3A;<code>0xf010f000~0xf0117000</code>, &#x5BF9;&#x7528;&#x7269;&#x7406;&#x5730;&#x5740;<code>0xf010f000~0x00117000</code>&#xFF0C;&#x5E76;&#x4E14;&#x6808;&#x7A7A;&#x95F4;&#x5927;&#x5C0F;&#x4E3A;32KB&#x3002;</p>
+<p>&#x56E0;&#x4E3A;&#x6808;&#x662F;&#x4ECE;&#x9AD8;&#x5730;&#x5740;&#x5411;&#x4F4E;&#x5730;&#x5740;&#x53D8;&#x5316;&#x7684;&#xFF0C;<code>esp</code>&#x662F;&#x6808;&#x7684;&#x6700;&#x4F4E;&#x7684;&#x5730;&#x5740;&#x3002;</p>
+<p><code>ebp</code>&#x662F;&#x6808;&#x5E95;&#xFF0C;&#x9AD8;&#x5730;&#x5740;&#x4F4D;&#x3002;</p>
+<p>&#x4E00;&#x822C;&#x4EA7;&#x751F;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x4F1A;&#x6709;&#x4EE5;&#x4E0B;&#x7684;&#x6A21;&#x5F0F;&#x5957;&#x8DEF;&#xFF1A;</p>
+<pre><code>push $ebp
+mov $esp $ebp
+</code></pre><p>&#x6709;&#x4E86;&#x8FD9;&#x6837;&#x7684;&#x6A21;&#x5F0F;&#x4E4B;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x80FD;&#x94FE;&#x5F0F;&#x7684;&#x8FDB;&#x884C;&#x6EAF;&#x6E90;&#xFF0C;&#x67E5;&#x770B;&#x8C03;&#x7528;&#x7684;&#x5173;&#x7CFB;&#x3002;</p>
+<p>&#x6700;&#x540E;&#x6211;&#x4EEC;&#x8FDB;&#x884C;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E00;&#x822C;&#x6B65;&#x9AA4;&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x6CE8;&#x610F;&#x987A;&#x5E8F;&#xFF01;</p>
+<ul>
+<li><p>&#x4ECE;&#x53F3;&#x5F80;&#x5DE6;&#x538B;&#x5165;&#x53D8;&#x91CF;&#x53C2;&#x6570;</p>
+</li>
+<li><p>&#x538B;&#x5165;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x5730;&#x5740;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8C03;&#x7528;&#x7684;&#x5730;&#x65B9;&#x5730;&#x5740;&#x540E;&#x9762;&#x3002;</p>
+</li>
+<li>&#x538B;&#x5165;ebp&#xFF0C;&#x5C06;esp&#x8D4B;&#x503C;&#x7ED9;ebp</li>
+<li>&#x4FDD;&#x5B58;&#x5BC4;&#x5B58;&#x5668;&#x503C;&#xFF0C;&#x5C40;&#x90E8;&#x53D8;&#x91CF;</li>
+</ul>
+<p>&#x6700;&#x7EC8;&#x5F97;&#x5230;&#x8FD9;&#x6837;&#x7684;&#x7ED3;&#x6784;&#x56FE;&#xFF0C;&#x7EA2;&#x6846;&#x8868;&#x793A;&#x4E00;&#x6B21;&#x5B8C;&#x6574;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#xFF1A;</p>
+<p><img src="https://pic4.zhimg.com/80/v2-88c6f207393b2d475335ebe11a32994b.png" alt=""></p>
+<p>&#x8FD9;&#x6837;&#x7684;&#x4E00;&#x4E2A;&#x6808;&#x7684;&#x7A7A;&#x95F4;&#x5206;&#x5E03;&#x5176;&#x5B9E;&#x662F;&#x975E;&#x5E38;&#x6709;&#x7528;&#x7684;&#xFF0C;&#x8FD9;&#x6837;&#x5F53;&#x67D0;&#x4E2A;&#x51FD;&#x6570;&#x8FD0;&#x884C;&#x5D29;&#x6E83;&#x4E4B;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4E0D;&#x65AD;&#x7684;&#x56DE;&#x6EAF;<code>ebp</code>&#x7684;&#x503C;&#xFF0C;&#x5E76;&#x4E14;&#x8BFB;&#x53D6;&#x6808;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x503C;&#xFF0C;&#x5C31;&#x80FD;&#x591F;&#x627E;&#x5230;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x5173;&#x7CFB;&#x548C;&#xFF0C;&#x6700;&#x7EC8;&#x80FD;&#x591F;&#x627E;&#x5230;&#x95EE;&#x9898;&#x7684;&#x6E90;&#x5934;&#x3002;</p>
+<h4 id="exercise-10">exercise 10</h4>
+<blockquote>
+<p>&#x5728;test_backtrace&#x51FD;&#x6570;&#x6253;&#x4E0A;&#x65AD;&#x70B9;&#xFF0C;&#x89C2;&#x5BDF;&#x6BCF;&#x6B21;&#x9012;&#x5F52;&#x65F6;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x5728;&#x6808;&#x4E2D;&#x7684;&#x53D8;&#x5316;&#x3002;</p>
+</blockquote>
+<p>&#x540C;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5C06;&#x8BE5;&#x529F;&#x80FD;hook&#x5230;monitor&#x4E2D;&#x8FDB;&#x884C;&#x8C03;&#x7528;&#x3002;</p>
+<p>&#x4EC0;&#x4E48;&#x662F;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#xFF0C;&#x5C31;&#x662F;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x666E;&#x904D;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x5F53;&#x9700;&#x8981;&#x8C03;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x51FD;&#x6570;&#x529F;&#x80FD;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5F80;&#x4E0A;&#x6DFB;&#x52A0;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#xFF0C;&#x4E00;&#x822C;&#x7684;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">// &#x5B9A;&#x4E49;&#x94A9;&#x5B50;&#x51FD;&#x6570;</span>
+<span class="hljs-keyword">struct</span> Command {
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *name;
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *desc;
+    <span class="hljs-comment">// return -1 to force monitor to exit</span>
+    <span class="hljs-keyword">int</span> (*func)(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>** argv, <span class="hljs-keyword">struct</span> Trapframe* tf);
+};
+
+<span class="hljs-comment">//&#x5B9E;&#x4F8B;&#x5316;</span>
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">struct</span> Command commands[] = {
+    { <span class="hljs-string">&quot;help&quot;</span>, <span class="hljs-string">&quot;Display this list of commands&quot;</span>, mon_help },
+    { <span class="hljs-string">&quot;kerninfo&quot;</span>, <span class="hljs-string">&quot;Display information about the kernel&quot;</span>, mon_kerninfo },
+    {<span class="hljs-string">&quot;traceback&quot;</span>, <span class="hljs-string">&quot;traceback info&quot;</span>, mon_kerninfo},
+};
+
+<span class="hljs-comment">//&#x5177;&#x4F53;&#x7684;&#x9700;&#x8981;&#x6302;&#x8F7D;&#x5230;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x4E0A;&#x7684;&#x5B9E;&#x9645;&#x51FD;&#x6570;</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span>
+<span class="hljs-title">mon_kerninfo</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> **argv, <span class="hljs-keyword">struct</span> Trapframe *tf)</span>
+</span>{
+    <span class="hljs-keyword">extern</span> <span class="hljs-keyword">char</span> _start[], entry[], etext[], edata[], end[];
+
+    cprintf(<span class="hljs-string">&quot;Special kernel symbols:\n&quot;</span>);
+    cprintf(<span class="hljs-string">&quot;  _start                  %08x (phys)\n&quot;</span>, _start);
+    cprintf(<span class="hljs-string">&quot;  entry  %08x (virt)  %08x (phys)\n&quot;</span>, entry, entry - KERNBASE);
+    cprintf(<span class="hljs-string">&quot;  etext  %08x (virt)  %08x (phys)\n&quot;</span>, etext, etext - KERNBASE);
+    cprintf(<span class="hljs-string">&quot;  edata  %08x (virt)  %08x (phys)\n&quot;</span>, edata, edata - KERNBASE);
+    cprintf(<span class="hljs-string">&quot;  end    %08x (virt)  %08x (phys)\n&quot;</span>, end, end - KERNBASE);
+    cprintf(<span class="hljs-string">&quot;Kernel executable memory footprint: %dKB\n&quot;</span>,
+        ROUNDUP(end - entry, <span class="hljs-number">1024</span>) / <span class="hljs-number">1024</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-comment">//&#x8C03;&#x7528;</span>
+<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; ARRAY_SIZE(commands); i++) {
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strcmp</span>(argv[<span class="hljs-number">0</span>], commands[i].name) == <span class="hljs-number">0</span>)
+            <span class="hljs-keyword">return</span> commands[i].func(argc, argv, tf);
+}
+</code></pre>
+<h4 id="exercise-11">exercise 11</h4>
+<blockquote>
+<p>&#x5B8C;&#x6210;mon_backtrace()&#x51FD;&#x6570;&#xFF0C;&#x4F7F;&#x5F97;&#x8BE5;&#x51FD;&#x6570;&#x80FD;&#x591F;&#x5C55;&#x793A;&#x8C03;&#x7528;&#x65F6;&#x523B;&#x7684;<code>ebp</code>, &#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x65F6;&#x6267;&#x884C;&#x7684;&#x6307;&#x4EE4;&#x5730;&#x5740;<code>eip</code>(&#x5B9E;&#x9645;&#x4E0A;eip&#x6307;&#x7684;&#x662F;&#x5F53;&#x524D;&#x6267;&#x884C;&#x6307;&#x4EE4;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x8FD9;&#x91CC;&#x7684;&#x542B;&#x4E49;&#x4E0D;&#x4E00;&#x6837;),&#x548C;5&#x4E2A;&#x53D8;&#x91CF;arg&#x3002;</p>
+</blockquote>
+<p>&#x5C31;&#x662F;&#x9012;&#x5F52;&#x7684;&#x67E5;&#x770B;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x8F93;&#x51FA;&#x6808;&#x7A7A;&#x95F4;&#x7684;&#x53D8;&#x5316;&#xFF1A;</p>
+<pre><code class="lang-c">Stack backtrace:
+  ebp f0109e58  eip f0100a62  args <span class="hljs-number">00000001</span> f0109e80 f0109e98 f0100ed2 <span class="hljs-number">00000031</span>
+  ebp f0109ed8  eip f01000d6  args <span class="hljs-number">00000000</span> <span class="hljs-number">00000000</span> f0100058 f0109f28 <span class="hljs-number">00000061</span>
+  ...
+</code></pre>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x70B9;&#x5C31;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x524D;&#x9762;&#x77E5;&#x9053;ebp&#x521D;&#x59CB;&#x5316;&#x4E3A;0&#xFF0C;&#x56E0;&#x6B64;&#x7EC8;&#x6B62;&#x7684;&#x6761;&#x4EF6;&#x5C31;&#x662F;0&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x89C2;&#x5BDF;&#x6808;&#x7A7A;&#x95F4;&#x5206;&#x5E03;&#xFF0C;&#x8FD4;&#x56DE;&#x5730;&#x5740;&#x5C31;&#x662F;ebp+1&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x53C2;&#x6570;&#x662F;&#x76F8;&#x5BF9;&#x56FA;&#x5B9A;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x8F93;&#x51FA;5&#x4E2A;&#x53C2;&#x6570;&#x3002;</p>
+<p>&#x5B9E;&#x73B0;&#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-c">cprintf(<span class="hljs-string">&quot;Stack backtrace:\n&quot;</span>);
+    <span class="hljs-keyword">uint32_t</span> ebp, eip;
+    <span class="hljs-keyword">for</span>(ebp=read_ebp(); ebp!=<span class="hljs-number">0</span>; ebp=*((<span class="hljs-keyword">uint32_t</span> *)ebp)){
+        eip = *((<span class="hljs-keyword">uint32_t</span> *)ebp+<span class="hljs-number">1</span>);
+        cprintf(<span class="hljs-string">&quot;  ebp %08x  eip %08x  args %08x %08x %08x %08x %08x\n&quot;</span>,
+                    ebp, eip, *((<span class="hljs-keyword">uint32_t</span> *)ebp+<span class="hljs-number">2</span>), *((<span class="hljs-keyword">uint32_t</span> *)ebp+<span class="hljs-number">3</span>), 
+                    *((<span class="hljs-keyword">uint32_t</span> *)ebp+<span class="hljs-number">4</span>), *((<span class="hljs-keyword">uint32_t</span> *)ebp+<span class="hljs-number">5</span>), *((<span class="hljs-keyword">uint32_t</span> *)ebp+<span class="hljs-number">5</span>), 
+                    *((<span class="hljs-keyword">uint32_t</span> *)ebp+<span class="hljs-number">6</span>));
+    }
+</code></pre>
+<h4 id="exercise-12">exercise 12</h4>
+<blockquote>
+<p>&#x5B8C;&#x5584;debuginfo_eip(eip),&#x4F7F;&#x5F97;&#x8C03;&#x7528;&#x8BE5;&#x51FD;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x80FD;&#x591F;&#x5F97;&#x5230;&#x4E0B;&#x9762;&#x7684;&#x4FE1;&#x606F;&#xFF1A;</p>
+<ul>
+<li>&#x6587;&#x4EF6;&#x540D;&#x79F0;</li>
+<li>&#x4EE3;&#x7801;&#x884C;&#x53F7;</li>
+<li>eip&#x5728;&#x51FD;&#x6570;&#x5185;&#x5B57;&#x8282;&#x6570;&#x7684;&#x504F;&#x79FB;</li>
+</ul>
+<p>&#x5E76;&#x4E14;&#x6309;&#x7167;&#x4E0B;&#x9762;&#x7684;&#x683C;&#x5F0F;&#x8FDB;&#x884C;&#x8F93;&#x51FA;&#xFF1A;(&#x6709;&#x7528;&#x7684;&#x51FD;&#x6570;printf(&quot;%.*s&quot;, length, string)&#xFF0C;&#x8BE5;&#x8F93;&#x51FA;&#x8868;&#x793A;&#x6700;&#x591A;&#x5C55;&#x793A;length&#x7684;&#x5B57;&#x7B26;&#x4E2A;&#x6570;&#xFF0C;&#x82E5;&#x5C0F;&#x4E8E;&#x8BE5;&#x503C;&#x5219;&#x5168;&#x90E8;&#x8F93;&#x51FA;)</p>
+<pre><code class="lang-c">ebp f010ff78  eip f01008ae  args <span class="hljs-number">00000001</span> f010ff8c <span class="hljs-number">00000000</span> f0110580 <span class="hljs-number">00000000</span>
+         kern/monitor.c:<span class="hljs-number">143</span>: monitor+<span class="hljs-number">106</span>
+</code></pre>
+</blockquote>
+<p>&#x9996;&#x5148;&#x770B;&#x770B;&#x6211;&#x4EEC;&#x80FD;&#x591F;&#x62FF;&#x5230;&#x4EC0;&#x4E48;&#x4FE1;&#x606F;&#x7528;&#x6765;&#x5206;&#x6790;&#xFF0C;&#x4F7F;&#x7528;&#x547D;&#x4EE4;<code>objdump -G obj/kern/kernel</code>&#xFF0C;&#x5F97;&#x5230;&#x5982;&#x4E0B;&#x7684;&#x90E8;&#x5206;&#x8F93;&#x51FA;&#xFF1A;</p>
+<pre><code class="lang-shell">tbl@ubuntu:~/6.828/lab$ objdump -G obj/kern/kernel | head -n 100
+
+obj/kern/kernel:     file format elf32-i386
+
+Contents of .stab section:
+
+Symnum n_type n_othr n_desc n_value  n_strx String
+1      2      3      4      5        6      7 //&#x6539;&#x884C;&#x662F;&#x6211;&#x81EA;&#x5DF1;&#x52A0;&#x7684;
+-1     HdrSym 0      1269   0000197e 1     
+0      SO     0      0      f0100000 1      {standard input}
+1      SOL    0      0      f010000c 18     kern/entry.S
+2      SLINE  0      44     f010000c 0      
+3      SLINE  0      57     f0100015 0      
+4      SLINE  0      58     f010001a 0      
+5      SLINE  0      60     f010001d 0      
+6      SLINE  0      61     f0100020 0      
+7      SLINE  0      62     f0100025 0      
+8      SLINE  0      67     f0100028 0      
+9      SLINE  0      68     f010002d 0      
+10     SLINE  0      74     f010002f 0      
+11     SLINE  0      78     f0100034 0      
+12     SLINE  0      81     f0100039 0      
+13     SLINE  0      84     f010003e 0      
+14     SO     0      2      f0100040 31     kern/entrypgdir.c
+15     OPT    0      0      00000000 49     gcc2_compiled.
+16     LSYM   0      0      00000000 64     int:t(0,1)=r(0,1);-2147483648;2147483647;
+17     LSYM   0      0      00000000 106    char:t(0,2)=r(0,2);0;127;
+</code></pre>
+<p>&#x53C2;&#x8003;Stab&#x7684;&#x7ED3;&#x6784;&#x4F53;&#xFF0C;&#x5BF9;&#x5E94;2-6&#x5217;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-keyword">struct</span> Stab {
+    <span class="hljs-keyword">uint32_t</span> n_strx;    <span class="hljs-comment">// index into string table of name</span>
+    <span class="hljs-keyword">uint8_t</span> n_type;         <span class="hljs-comment">// type of symbol</span>
+    <span class="hljs-keyword">uint8_t</span> n_other;        <span class="hljs-comment">// misc info (usually empty)</span>
+    <span class="hljs-keyword">uint16_t</span> n_desc;        <span class="hljs-comment">// description field</span>
+    <span class="hljs-keyword">uintptr_t</span> n_value;    <span class="hljs-comment">// value of symbol&#xFF0C;&#x5C31;&#x662F;&#x6267;&#x884C;&#x7684;&#x5730;&#x5740;</span>
+};
+</code></pre>
+<p>&#x7B2C;&#x4E03;&#x5217;&#x662F;stabstr&#x3002;</p>
+<p>&#x4E0A;&#x9762;&#x7684;&#x5185;&#x5BB9;&#x8FD8;&#x662F;&#x5F88;&#x6742;&#x4E71;&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x5230;&#x4E8C;&#x5206;&#x641C;&#x7D22;&#x7684;&#x4E3B;&#x8981;&#x7C7B;&#x578B;&#x6709;<code>N_SO(&#x6E90;&#x6587;&#x4EF6;&#x540D;&#x79F0;)</code>&#xFF0C;<code>N_FUN(&#x51FD;&#x6570;&#x540D;&#x79F0;)</code>&#x7B49;&#x7B49;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x4E0A;&#x9762;&#x7684;&#x5185;&#x5BB9;&#x8F93;&#x51FA;&#x6765;&#x770B;&#x770B;&#xFF1A;</p>
+<pre><code>objdump -G obj/kern/kernel | grep &quot;SOL&quot;
+1      SOL    0      0      f010000c 18     kern/entry.S
+176    SOL    0      0      f0100189 2985   ./inc/x86.h
+178    SOL    0      0      f010018f 2970   kern/console.c
+180    SOL    0      0      f0100193 2985   ./inc/x86.h
+182    SOL    0      0      f0100199 2970   kern/console.c
+201    SOL    0      0      f01001e8 2985   ./inc/x86.h
+203    SOL    0      0      f01001ee 2970   kern/console.c
+206    SOL    0      0      f01001fe 2985   ./inc/x86.h
+208    SOL    0      0      f0100206 2970   kern/console.c
+230    SOL    0      0      f01002dc 2985   ./inc/x86.h
+232    SOL    0      0      f01002ea 2970   kern/console.c
+248    SOL    0      0      f0100311 2985   ./inc/x86.h
+250    SOL    0      0      f0100323 2970   kern/console.c
+252    SOL    0      0      f0100326 2985   ./inc/x86.h
+254    SOL    0      0      f0100329 2970   kern/console.c
+256    SOL    0      0      f010033a 2985   ./inc/x86.h
+258    SOL    0      0      f0100340 2970   kern/console.c
+260    SOL    0      0      f0100345 2985   ./inc/x86.h
+262    SOL    0      0      f0100357 2970   kern/console.c
+264    SOL    0      0      f010035a 2985   ./inc/x86.h
+266    SOL    0      0      f010035d 2970   kern/console.c
+268    SOL    0      0      f0100369 2985   ./inc/x86.h
+270    SOL    0      0      f0100384 2970   kern/console.c
+291    SOL    0      0      f01004ba 2985   ./inc/x86.h
+293    SOL    0      0      f01004c2 2970   kern/console.c
+295    SOL    0      0      f01004cc 2985   ./inc/x86.h
+297    SOL    0      0      f01004e2 2970   kern/console.c
+340    SOL    0      0      f01005b5 2985   ./inc/x86.h
+342    SOL    0      0      f01005bd 2970   kern/console.c
+344    SOL    0      0      f01005c0 2985   ./inc/x86.h
+</code></pre><pre><code>objdump -G obj/kern/kernel | grep &quot;FUN&quot;
+8     FUN    0      0      f0100040 2796   test_backtrace:F(0,20)
+108    FUN    0      0      f0100094 2837   i386_init:F(0,20)
+116    FUN    0      0      f01000f5 2855   _panic:F(0,20)
+131    FUN    0      0      f010014c 2926   _warn:F(0,20)
+174    FUN    0      0      f0100186 3012   serial_proc_data:f(0,1)
+186    FUN    0      0      f01001a5 3036   cons_intr:f(0,20)
+199    FUN    0      0      f01001e8 3091   kbd_proc_data:f(0,1)
+244    FUN    0      0      f0100301 3137   cons_putc:f(0,20)
+305    FUN    0      0      f01004ea 3173   serial_intr:F(0,20)
+311    FUN    0      0      f0100506 3193   kbd_intr:F(0,20)
+315    FUN    0      0      f0100518 3210   cons_getc:F(0,1)
+329    FUN    0      0      f0100562 3227   cons_init:F(0,20)
+369    FUN    0      0      f010066a 3274   cputchar:F(0,20)
+374    FUN    0      0      f010067a 3300   getchar:F(0,1)
+381    FUN    0      0      f010068b 3315   iscons:F(0,1)
+429    FUN    0      0      f0100695 3981   mon_help:F(0,1)
+436    FUN    0      0      f01006e4 4061   mon_kerninfo:F(0,1)
+453    FUN    0      0      f0100794 4116   mon_backtrace:F(0,1)
+477    FUN    0      0      f0100811 4170   monitor:F(0,20)
+536    FUN    0      0      f0100945 4303   mc146818_read:F(0,4)
+546    FUN    0      0      f010095c 4346   mc146818_write:F(0,20)
+582    FUN    0      0      f0100973 4409   putch:f(0,20)
+588    FUN    0      0      f0100986 4452   vcprintf:F(0,1)
+598    FUN    0      0      f01009ac 4507   cprintf:F(0,1)
+640    FUN    0      0      f01009c0 4684   stab_binsearch:f(0,20)
+678    FUN    0      0      f0100ab6 4813   debuginfo_eip:F(0,1)
+768    FUN    0      0      f0100d31 5135   printnum:f(0,20)
+782    FUN    0      0      f0100de0 5253   getuint:f(0,9)
+792    FUN    0      0      f0100e1a 5299   sprintputch:f(0,20)
+802    FUN    0      0      f0100e37 5357   printfmt:F(0,20)
+810    FUN    0      0      f0100e54 5422   vprintfmt:F(0,20)
+918    FUN    0      0      f0101201 5529   vsnprintf:F(0,1)
+936    FUN    0      0      f010124f 5595   snprintf:F(0,1)
+974    FUN    0      0      f0101269 5699   readline:F(2,2)
+1030   FUN    0      0      f0101342 5836   strlen:F(0,1)
+1041   FUN    0      0      f010135a 5877   strnlen:F(0,1)
+1051   FUN    0      0      f010137b 5915   strcpy:F(0,22)=*(0,2)
+1060   FUN    0      0      f010139b 5985   strcat:F(0,22)
+1071   FUN    0      0      f01013bd 6011   strncpy:F(0,22)
+1083   FUN    0      0      f01013ea 6027   strlcpy:F(2,16)
+1098   FUN    0      0      f0101425 6056   strcmp:F(0,1)
+1110   FUN    0      0      f010144b 6110   strncmp:F(0,1)
+1125   FUN    0      0      f0101483 6135   strchr:F(0,22)
+</code></pre><p>&#x8FD8;&#x662F;&#x80FD;&#x591F;&#x53D1;&#x73B0;&#x5F88;&#x591A;&#x6574;&#x9F50;&#x7684;&#x7528;&#x4E8E;&#x8C03;&#x8BD5;&#x7684;&#x4FE1;&#x606F;&#x7684;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x5206;&#x6790;&#x8FD9;&#x4E2A;&#x4E8C;&#x5206;&#x7684;&#x7279;&#x70B9;&#xFF1A;</p>
+<p>&#x5BF9;&#x67D0;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x8BB0;&#x5F55;(&#x7B2C;&#x4E8C;&#x5217;)&#x8FDB;&#x884C;&#x67E5;&#x627E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5185;&#x90E8;&#x6709;&#x5F88;&#x591A;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x8BB0;&#x5F55;&#xFF0C;&#x4F46;&#x662F;&#x76F8;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x5730;&#x5740;<code>n_value</code>&#x662F;&#x5355;&#x8C03;&#x589E;&#x7684;&#x3002;</p>
+<p>&#x5C3D;&#x7BA1;&#x5B9E;&#x9A8C;&#x5BF9;&#x4E8C;&#x5206;&#x7684;&#x5B9E;&#x73B0;&#x6CA1;&#x6709;&#x8981;&#x6C42;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6982;&#x62EC;&#x4ECB;&#x7ECD;&#xFF1A;</p>
+<p>&#x9996;&#x5148;&#x521D;&#x59CB;&#x5316;l=0, r=&#x8BB0;&#x5F55;&#x6761;&#x6570;&#x3002;</p>
+<p>&#x6BCF;&#x6B21;$mid = \frac{l+r}{2}$&#xFF0C;&#x5E76;&#x4E14;&#x627E;&#x5230;&#x662F;&#x8FD9;&#x4E2A;&#x7C7B;&#x578B;&#x7684;&#x8BB0;&#x5F55;&#xFF0C;&#x56E0;&#x4E3A;&#x4E2D;&#x95F4;&#x6DF7;&#x6742;&#x7740;&#x5F88;&#x591A;&#x4E0D;&#x662F;&#x8BE5;&#x7C7B;&#x578B;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x4E0D;&#x65AD;<code>mid--</code>&#x3002;</p>
+<p>&#x7136;&#x540E;<code>l.n_value</code>&#x548C;<code>r.n_value</code>&#x5BF9;&#x6BD4;<code>mid.n_value</code>&#x8FDB;&#x884C;&#x5E38;&#x89C4;&#x7684;&#x653E;&#x7F29;&#x3002;</p>
+<p>&#x6700;&#x540E;&#x6211;&#x4EEC;&#x5DE6;&#x7AEF;&#x4E00;&#x5B9A;&#x662F;&#x8FD9;&#x4E2A;&#x7C7B;&#x578B;&#xFF0C;&#x5730;&#x5740;&#x4E5F;&#x662F;&#x8FD9;&#x4E2A;&#x6570;&#x503C;&#x7684;&#x8BB0;&#x5F55;&#xFF0C;&#x53F3;&#x7AEF;&#x4E0D;&#x4E00;&#x5B9A;&#x3002;</p>
+<p>&#x6700;&#x540E;&#x7ED9;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x8FDB;&#x884C;&#x7406;&#x89E3;&#x3002;</p>
+<pre><code class="lang-c"><span class="hljs-comment">//    For example, given these N_SO stabs:</span>
+<span class="hljs-comment">//        Index  Type   Address</span>
+<span class="hljs-comment">//        0      SO     f0100000</span>
+<span class="hljs-comment">//        13     SO     f0100040</span>
+<span class="hljs-comment">//        117    SO     f0100176</span>
+<span class="hljs-comment">//        118    SO     f0100178</span>
+<span class="hljs-comment">//        555    SO     f0100652</span>
+<span class="hljs-comment">//        556    SO     f0100654</span>
+<span class="hljs-comment">//        657    SO     f0100849</span>
+<span class="hljs-comment">//    this code:</span>
+<span class="hljs-comment">//        left = 0, right = 657;</span>
+<span class="hljs-comment">//        stab_binsearch(stabs, &amp;left, &amp;right, N_SO, 0xf0100184);</span>
+<span class="hljs-comment">//    will exit setting left = 118, right = 554.</span>
+<span class="hljs-comment">//</span>
+</code></pre>
+<p>&#x6700;&#x7EC8;&#x7684;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<p>&#x5728;<code>kdebug.c</code>&#x4E2D;&#xFF1A;</p>
+<pre><code class="lang-c">stab_binsearch(stabs, &amp;lline, &amp;rline, N_SLINE, addr);
+    info-&gt;eip_line = lline &gt; rline ? <span class="hljs-number">-1</span> : stabs[rline].n_desc;
+</code></pre>
+<p><code>monitor.c</code>&#x4E2D;&#xFF1A;</p>
+<pre><code>cprintf(&quot;Stack backtrace:\n&quot;);
+    uint32_t ebp, eip;
+    struct Eipdebuginfo info;
+    //&#x6307;&#x9488;&#x5B66;&#x4E60;
+    //+1&#x5B9E;&#x9645;&#x4E0A;&#x504F;&#x79FB;&#x7684;&#x662F;4bytes
+    for(ebp=read_ebp(); ebp!=0; ebp=*((uint32_t *)ebp)){
+        eip = *((uint32_t *)ebp+1);
+        debuginfo_eip(eip, &amp;info);
+        cprintf(&quot;  ebp %08x  eip %08x  args %08x %08x %08x %08x %08x\n&quot;,
+                    ebp, eip, *((uint32_t *)ebp+2), *((uint32_t *)ebp+3), 
+                    *((uint32_t *)ebp+4), *((uint32_t *)ebp+5), *((uint32_t *)ebp+5), 
+                    *((uint32_t *)ebp+6));
+                    //.&#x6709;&#x622A;&#x65AD;&#x7684;&#x80FD;&#x529B;&#xFF0C;*&#x80FD;&#x591F;&#x8BA9;eip_fn_namelen&#x9636;&#x6BB5;&#x5B57;&#x7B26;&#x4E32;
+        cprintf(&quot;         %s:%d: %.*s+%d\n&quot;, info.eip_file, info.eip_line, 
+                            info.eip_fn_namelen, info.eip_fn_name, eip-info.eip_fn_addr);
+}
+</code></pre><p>&#x6700;&#x540E;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#xFF1A;
+<img src="https://pic4.zhimg.com/80/v2-d805ab049bbf1bcc2d1526e93f3ae45f.png" alt=""></p>
+<h3 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h3>
+<ol>
+<li><a href="http://www.delorie.com/djgpp/doc/brennan/brennan_att_inline_djgpp.html" target="_blank">AT&amp;T interl&#x6C47;&#x7F16;&#x8BED;&#x8A00;&#x533A;&#x522B;/&#x5185;&#x8054;&#x6C47;&#x7F16;</a></li>
+<li><a href="https://stackoverflow.com/questions/23978486/far-jump-in-gdt-in-bootloader" target="_blank">Far jump in GDT in bootloader</a></li>
+<li><a href="https://www.cnblogs.com/LexMoon/p/antz05.html" target="_blank">&#x5982;&#x4F55;&#x4ECE;16&#x4F4D;&#x5207;&#x6362;&#x5230;32&#x4F4D;&#x7CFB;&#x7EDF;</a></li>
+<li><a href="https://www.zhihu.com/question/340358237/answer/790674187" target="_blank">&#x4E3A;&#x4EC0;&#x4E48;&#x8BA1;&#x7B97;&#x673A;BIOS&#x4ECE;0x7c00&#x542F;&#x52A8;boot loader</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Control_register" target="_blank">Control register</a></li>
+<li><a href="https://blog.csdn.net/hyb612/article/details/102598233" target="_blank">printf&#x53D8;&#x957F;&#x53C2;&#x6570;&#x5B9E;&#x73B0;&#x7684;&#x539F;&#x7406;</a></li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="preparation.html" class="navigation navigation-prev " aria-label="Previous page: 准备工作">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="lab2-Memory Management.html" class="navigation navigation-next " aria-label="Next page: lab2: Memory Management">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Lab1: Booting a PC","level":"1.3","depth":1,"next":{"title":"lab2: Memory Management","level":"1.4","depth":1,"path":"lab2-Memory Management.md","ref":"./lab2-Memory Management.md","articles":[]},"previous":{"title":"准备工作","level":"1.2","depth":1,"path":"preparation.md","ref":"preparation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["callouts@git+https://github.com/Simran-B/gitbook-plugin-callouts.git","intopic-toc","theme-comscore","-lunr","-search","search-pro","github","splitter","-sharing","mathjax-pro"],"pluginsConfig":{"callouts":{"showTypeInHeader":true},"github":{"url":"https://github.com/KnowledgeHive/ddia"},"intopic-toc":{"isCollapsed":false,"isScrollspyActive":true,"label":{"de":"导航","en":"导航","ch":"导航"},"maxDepth":6,"mode":"nested","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4, .markdown-section h5, .markdown-section h6","visible":true},"splitter":{},"search-pro":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"mathjax-pro":{"forceSVG":false,"version":"2.7.7"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"lab1-Booting a PC.md","mtime":"2021-02-19T16:30:12.722Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-19T16:39:19.156Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-intopic-toc/anchor.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-intopic-toc/gumshoe.polyfills.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-intopic-toc/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-mathjax-pro/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

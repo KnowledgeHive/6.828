@@ -1,0 +1,935 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>lab5: File system, Spawn and Shell · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-intopic-toc/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="lab6-Network Driver.html" />
+    
+    
+    <link rel="prev" href="lab4-Preemptive Multitasking.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="preparation.html">
+            
+                <a href="preparation.html">
+            
+                    
+                    准备工作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="lab1-Booting a PC.html">
+            
+                <a href="lab1-Booting a PC.html">
+            
+                    
+                    Lab1: Booting a PC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="lab2-Memory Management.html">
+            
+                <a href="lab2-Memory Management.html">
+            
+                    
+                    lab2: Memory Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Lab3-User Environments.html">
+            
+                <a href="Lab3-User Environments.html">
+            
+                    
+                    Lab3: User Environments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="lab4-Preemptive Multitasking.html">
+            
+                <a href="lab4-Preemptive Multitasking.html">
+            
+                    
+                    lab4: Preemptive Multitasking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="lab5-File system, Spawn and Shell.html">
+            
+                <a href="lab5-File system, Spawn and Shell.html">
+            
+                    
+                    lab5: File system, Spawn and Shell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="lab6-Network Driver.html">
+            
+                <a href="lab6-Network Driver.html">
+            
+                    
+                    lab6: Network Driver
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >lab5: File system, Spawn and Shell</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="lab-5-file-system-spawn-and-shell">Lab 5: File system, Spawn and Shell</h2>
+<p><img src="lab5-File system, Spawn and Shell/Lab 5 File system Spawn and Shell.png" alt=""></p>
+<p>&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;spawn&#x529F;&#x80FD;&#xFF08;fork+exec&#xFF0C;&#x4E3B;&#x8981;&#x662F;exec&#x9700;&#x8981;&#x52A0;&#x8F7D;&#x786C;&#x76D8;&#x4E2D;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#xFF09;&#x548C;console&#x529F;&#x80FD;&#xFF08;&#x8C03;&#x7528;&#x76F8;&#x5173;&#x7684;&#x529F;&#x80FD;&#x65F6;&#x8981;&#x4E48;&#x662F;&#x904D;&#x5386;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;&#x8981;&#x4E48;&#x4E5F;&#x662F;&#x52A0;&#x8F7D;&#x76F8;&#x5E94;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x3002;&#x91CD;&#x5B9A;&#x5411;&#x3001;&#x7BA1;&#x9053;&#x7B49;&#x7279;&#x6027;&#x4E5F;&#x662F;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x7279;&#x6027;&#xFF09;&#x90FD;&#x9700;&#x8981;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x652F;&#x6301;&#x3002;</p>
+<h3 id="file-system-preliminaries">File system preliminaries</h3>
+<p>JOS&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x57FA;&#x672C;&#x7279;&#x5F81;&#x6709;&#x6587;&#x4EF6;&#x7684;&#x589E;&#x5220;&#x8BFB;&#x5199;&#xFF0C;&#x652F;&#x6301;&#x6587;&#x4EF6;&#x7684;&#x7ED3;&#x6784;&#x5316;&#x3002;</p>
+<p>JOS&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4EC5;&#x6709;&#x5355;&#x7528;&#x6237;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x652F;&#x6301;&#x591A;&#x7528;&#x6237;&#x7684;&#x6743;&#x9650;&#x7BA1;&#x7406;&#x3002;&#x540C;&#x65F6;&#x4E0D;&#x652F;&#x6301;&#x786C;&#x94FE;&#x63A5;&#xFF0C;symbolic links, &#x65F6;&#x95F4;&#x6233;&#x548C;&#x7279;&#x6B8A;&#x8BBE;&#x5907;&#x7684;&#x8BFB;&#x53D6;&#x3002;</p>
+<h4 id="on-disk-file-system-structure">On-Disk File System Structure</h4>
+<p>&#x5927;&#x591A;&#x6570;<code>UNIX</code>&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x5C06;&#x786C;&#x76D8;&#x5212;&#x5206;&#x6210;&#x4E24;&#x79CD;&#x533A;&#x57DF;&#xFF1A;</p>
+<ul>
+<li>inode region</li>
+<li>data regions</li>
+</ul>
+<p>&#x6BCF;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x90FD;&#x4F1A;&#x5206;&#x914D;&#x4E00;&#x4E2A;inode&#x3002;inode&#x4F1A;&#x4FDD;&#x5B58;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x91CD;&#x8981;&#x7684;&#x5143;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x4E14;&#x6307;&#x5411;&#x81EA;&#x5DF1;&#x7684;&#x6570;&#x636E;&#x5757;&#x3002;</p>
+<p>&#x76EE;&#x5F55;&#x542B;&#x6709;&#x6587;&#x4EF6;&#x5939;&#x7684;&#x540D;&#x5B57;&#x548C;&#x6307;&#x5411;inode&#x7684;&#x6307;&#x9488;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x7684;inode&#x88AB;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x5305;&#x542B;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x8BF4;&#x8FD9;&#x662F;&#x6587;&#x4EF6;&#x786C;&#x94FE;&#x63A5;&#x3002;</p>
+<p>JOS&#x7CFB;&#x7EDF;&#x4E0D;&#x4F1A;&#x652F;&#x6301;&#x786C;&#x94FE;&#x63A5;&#xFF0C;&#x5E76;&#x4E14;JOS&#x4E0D;&#x652F;&#x6301;inode&#x7684;&#x7BA1;&#x7406;&#x3002;JOS&#x4EC5;&#x4EC5;&#x901A;&#x8FC7;&#x7B80;&#x5355;&#x7684;&#x4FDD;&#x5B58;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x6216;&#x8005;&#x76EE;&#x5F55;&#x7684;&#x5143;&#x6570;&#x636E;&#xFF0C;&#x4ECE;&#x800C;&#x8FBE;&#x5230;&#x7D22;&#x5F15;&#x7684;&#x76EE;&#x7684;&#xFF08;&#x540E;&#x9762;&#x6709;&#x56FE;&#x8FDB;&#x884C;&#x8BE6;&#x7EC6;&#x7684;&#x8BF4;&#x660E;&#xFF09;</p>
+<p>JOS&#x5141;&#x8BB8;&#x7528;&#x6237;&#x6001;&#x7684;&#x7A0B;&#x5E8F;&#x8BFB;&#x53D6;&#x76EE;&#x5F55;&#x7684;&#x5143;&#x6570;&#x636E;&#xFF0C;&#x56E0;&#x6B64;&#x5B9E;&#x73B0;ls&#x529F;&#x80FD;&#x5C06;&#x662F;&#x8F7B;&#x800C;&#x6613;&#x4E3E;&#x7684;&#x4E8B;&#x60C5;&#x3002;&#x8FD9;&#x6837;&#x505A;&#x7684;&#x7F3A;&#x70B9;&#x662F;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#x9700;&#x8981;&#x4F9D;&#x8D56;JOS&#x76EE;&#x5F55;&#x5143;&#x6570;&#x636E;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x4F7F;&#x5F97;&#x517C;&#x5BB9;&#x6027;&#x53D8;&#x5F97;&#x7279;&#x522B;&#x7684;&#x5DEE;&#x3002;&#xFF08;&#x76F8;&#x5F53;&#x4E8E;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#x7B80;&#x964B;&#x683C;&#x5F0F;&#x5F88;&#x96BE;&#x5141;&#x8BB8;&#x5176;&#x4ED6;&#x683C;&#x5F0F;&#x7684;&#x7A0B;&#x5E8F;&#x8FDB;&#x884C;&#x8FD0;&#x884C;&#xFF0C;&#x800C;inode&#x6709;&#x66F4;&#x597D;&#x8C03;&#x8282;&#x7684;&#x7075;&#x6D3B;&#x6027;&#xFF09;</p>
+<h5 id="sectors-and-blocks">Sectors and Blocks</h5>
+<p>&#x786C;&#x76D8;&#x7684;&#x57FA;&#x672C;&#x5355;&#x4F4D;&#x662F;sector = 512Bytes&#xFF0C; JOS&#x8BFB;&#x53D6;&#x7684;&#x57FA;&#x672C;&#x5355;&#x4F4D;&#x662F;block = 4096Bytes&#x3002;</p>
+<h5 id="superblocks">Superblocks</h5>
+<p>superblock&#x4FDD;&#x5B58;&#x4E86;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x603B;&#x5171;&#x6709;&#x591A;&#x5C11;&#x7684;block&#x548C;&#x6839;&#x76EE;&#x5F55;&#x4F4D;&#x7F6E;&#xFF0C;&#x7D22;&#x5F15;&#x5176;&#x4ED6;&#x6587;&#x4EF6;&#x5939;&#x6216;&#x8005;&#x6587;&#x4EF6;&#x7684;&#x6307;&#x9488;&#x3002;</p>
+<p>&#x4E00;&#x822C;&#x4FDD;&#x5B58;&#x5728;block 1&#x3002;&#x4E4B;&#x6240;&#x4EE5;&#x6CA1;&#x4FDD;&#x5B58;&#x5728;block 0&#x662F;&#x9884;&#x7559;&#x4F4D;&#x7F6E;&#x7ED9;boot loader&#x548C;partition table&#x3002;</p>
+<p>&#x8BB8;&#x591A;&#x7CFB;&#x7EDF;&#x4E2D;&#x4FDD;&#x5B58;&#x7740;&#x591A;&#x4E2A;superblock&#xFF0C;&#x56E0;&#x6B64;&#x5F53;&#x5176;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5757;&#x635F;&#x574F;&#x540E;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x4ECD;&#x7136;&#x80FD;&#x591F;&#x4FDD;&#x6301;&#x6574;&#x4E2A;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6B63;&#x5E38;&#x7684;&#x8FD0;&#x8F6C;&#x3002;</p>
+<h5 id="file-meta-data">File Meta-data</h5>
+<p>JOS&#x5C06;&#x6587;&#x4EF6;&#x7684;&#x5143;&#x6570;&#x636E;&#x901A;&#x8FC7;mmap&#x8FDB;&#x884C;&#x5206;&#x914D;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-keyword">if</span> ((diskmap = mmap(<span class="hljs-literal">NULL</span>, nblocks * BLKSIZE, PROT_READ|PROT_WRITE,
+                MAP_SHARED, diskfd, <span class="hljs-number">0</span>)) == MAP_FAILED)
+        panic(<span class="hljs-string">&quot;mmap %s: %s&quot;</span>, name, strerror(errno));
+</code></pre>
+<p>&#x53EA;&#x7528;&#x8BB0;&#x4F4F;&#x5206;&#x914D;&#x4E86;&#x4E00;&#x5757;&#x5185;&#x5B58;&#x7ED9;&#x4E86;File &#x7ED3;&#x6784;&#x4F53;&#x5143;&#x6570;&#x636E;&#xFF0C;&#x4F7F;&#x5F97;&#x4E4B;&#x540E;&#x80FD;&#x591F;&#x8FDB;&#x884C;&#x6307;&#x9488;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>JOS&#x6709;10&#x4E2A;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x5757;&#x548C;1&#x4E2A;&#x95F4;&#x63A5;&#x8BBF;&#x95EE;&#x5757;&#xFF0C;&#x603B;&#x5171;&#x80FD;&#x591F;&#x7BA1;&#x7406;&#x7684;&#x6570;&#x636E;&#x5927;&#x5C0F;&#x4E3A;(10+1024)*4KB &#x7EA6;&#x7B49;&#x4E8E;4MB&#x3002;</p>
+<p>&#x5982;&#x679C;&#x60F3;&#x8981;&#x652F;&#x6301;&#x66F4;&#x5927;&#x6587;&#x4EF6;&#x7684;&#x7BA1;&#x7406;&#xFF0C;&#x5219;&#x9700;&#x8981;2&#x4E2A;&#x95F4;&#x63A5;&#x6216;&#x8005;3&#x6B21;&#x95F4;&#x63A5;&#x5BFB;&#x5740;&#x7684;&#x65B9;&#x5F0F;&#xFF08;xv6&#x4E2D;&#x5C31;&#x652F;&#x6301;&#x8FD9;&#x79CD;&#x64CD;&#x4F5C;&#xFF09;&#x3002;</p>
+<p><img src="lab5-File system, Spawn and Shell/file.png" alt=""></p>
+<p>&#x5176;&#x4E2D;&#x7BA1;&#x7406;&#x6587;&#x4EF6;&#x6570;&#x636E;&#x7684;&#x5143;&#x6570;&#x636E;File&#x662F;&#x901A;&#x8FC7;mmap&#x8FDB;&#x884C;&#x5206;&#x914D;&#x7684;&#x3002;</p>
+<h5 id="directories-versus-regular-files">Directories versus Regular Files</h5>
+<p>&#x6587;&#x4EF6;&#x5939;&#x548C;&#x666E;&#x901A;&#x7684;&#x6587;&#x4EF6;&#x901A;&#x8FC7;&#x5143;&#x6570;&#x636E;<code>type</code>&#x8FDB;&#x884C;&#x533A;&#x5206;&#xFF0C;JOS&#x90FD;&#x662F;&#x901A;&#x8FC7;File&#x6307;&#x9488;&#x4FDD;&#x5B58;&#x5230;&#x5143;&#x6570;&#x636E;&#x4E2D;&#xFF0C;&#x4ECE;&#x800C;&#x8FDB;&#x884C;&#x7ED3;&#x6784;&#x7684;&#x7D22;&#x5F15;&#x7684;&#x3002;</p>
+<p><img src="lab5-File system, Spawn and Shell/open.png" alt=""></p>
+<p>&#x82E5;&#x60F3;&#x627E;&#x5230;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x6216;&#x8005;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x53BB;&#x904D;&#x5386;10&#x4E2A;direct block&#x548C;1024&#x4E2A;indirect block&#x3002;&#x901A;&#x8FC7;&#x6BD4;&#x5BF9;&#x8DEF;&#x5F84;&#x7684;&#x7C7B;&#x578B;&#x548C;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x4ECE;&#x800C;&#x786E;&#x5B9A;&#x662F;&#x5426;&#x627E;&#x5230;&#x5E76;&#x8FD4;&#x56DE;&#x3002;&#x5176;&#x4E2D;&#x6BCF;&#x4E00;&#x4E2A;block&#x4E2D;&#x4FDD;&#x5B58;&#x7684;&#x90FD;&#x662F;struct File&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="lab5-File system, Spawn and Shell/filename.png" alt=""></p>
+<p>&#x82E5;&#x6587;&#x4EF6;&#x7684;&#x7C7B;&#x578B;&#x662F;&#x6587;&#x4EF6;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x90A3;&#x4E48;&#x6BCF;&#x4E00;&#x4E2A;&#x7D22;&#x5F15;&#x7684;&#x6570;&#x636E;&#x9879;10+1024=1034&#x9879;&#x4E2D;&#x4FDD;&#x5B58;&#x7684;&#x90FD;&#x662F;<strong>&#x786C;&#x76D8;&#x7684;&#x5757;&#x53F7;</strong>&#x3002;(&#x53EF;&#x4EE5;&#x5728;<code>file_block_walk</code>&#x548C;<code>file_get_block</code>&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x903B;&#x8F91;&#x77E5;&#x9053;)</p>
+<h3 id="the-file-system">The File System</h3>
+<p>&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x7684;&#x5B9E;&#x9A8C;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x6211;&#x4EEC;&#x53BB;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5BF9;&#x5B9E;&#x73B0;&#x63D0;&#x4F9B;&#x7684;&#x4E00;&#x4E9B;&#x6587;&#x4EF6;&#x7684;&#x64CD;&#x4F5C;&#x51FD;&#x6570;&#x6BD4;&#x8F83;&#x7684;&#x719F;&#x6089;&#x3002;&#x672C;&#x5B9E;&#x9A8C;&#x65B0;&#x589E;&#x4EE3;&#x7801;&#x7EA6;&#x6709;5k&#x884C;&#x3002;</p>
+<h4 id="disk-access">Disk Access</h4>
+<p>JOS&#x4F7F;&#x7528; IDE disk driver&#x53BB;&#x8BBF;&#x95EE;&#x786C;&#x76D8;&#x6570;&#x636E;&#x3002;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x76F8;&#x5E94;&#x7684;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x8FDB;&#x7A0B;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x4ECE;&#x800C;&#x4F7F;&#x5F97;&#x53EA;&#x6709;&#x8BE5;&#x8FDB;&#x7A0B;&#x80FD;&#x591F;&#x83B7;&#x53D6;&#x786C;&#x76D8;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<p>&#x901A;&#x8FC7;polling&#x548C;programmed I/O&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x7528;&#x6237;&#x6001;&#x5B9E;&#x73B0;&#x78C1;&#x76D8;&#x6570;&#x636E;&#x7684;&#x8BFB;&#x53D6;&#x3002;&#x5F53;&#x7136;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x57FA;&#x4E8E;&#x4E2D;&#x65AD;&#x6765;&#x5B9E;&#x73B0;&#x8BE5;&#x529F;&#x80FD;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x76F8;&#x5BF9;&#x800C;&#x8A00;&#x6BD4;&#x8F83;&#x7684;&#x96BE;&#x3002;</p>
+<p>x86&#x901A;&#x8FC7;%eflags&#x4E2D;&#x7684;IOPL&#x4F4D;&#x6765;&#x5224;&#x65AD;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x4E0B;&#x7684;&#x4EE3;&#x7801;&#x80FD;&#x5426;&#x4F7F;&#x7528;&#x7279;&#x6B8A;&#x7684;&#x8BBE;&#x5907;I/O&#x6307;&#x4EE4;&#x5982;<code>IN</code>&#x548C;<code>out</code>&#x3002;</p>
+<p>&#x5728;JOS&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x4EC5;&#x6709;file system environment&#xFF08;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x7CFB;&#x7EDF;&#xFF09;&#x6709;&#x4E0A;&#x9762;&#x8BBE;&#x5907;I/O&#x7684;&#x6743;&#x9650;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x8FDB;&#x7A0B;&#x7EDF;&#x7EDF;&#x90FD;&#x6CA1;&#x6709;&#x8BE5;&#x6743;&#x9650;&#x3002;</p>
+<h5 id="exercise-1">exercise 1</h5>
+<blockquote>
+<p>i386_init&#x4E2D;&#xFF0C;&#x901A;&#x8FC7;<code>ENV_TYPE_FS</code>&#x5224;&#x65AD;&#x662F;&#x5426;&#x662F;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x7CFB;&#x7EDF;&#x8FDB;&#x7A0B;&#xFF0C;&#x4E4B;&#x540E;&#x7ED9;&#x64CD;&#x4F5C;&#x6587;&#x4EF6;&#x7684;&#x7279;&#x6743;&#x3002;</p>
+</blockquote>
+<p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x5728;&#x521B;&#x5EFA;&#x8FDB;&#x7A0B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5E26;&#x6709;&#x8FDB;&#x7A0B;&#x7684;&#x79CD;&#x7C7B;&#xFF1A;</p>
+<pre><code class="lang-c">ENV_CREATE(fs_fs, ENV_TYPE_FS);
+</code></pre>
+<p>&#x7531;&#x4E8E;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x7CFB;&#x7EDF;&#x7684;&#x7279;&#x6B8A;&#x6027;&#xFF0C;&#x8981;&#x5728;&#x521D;&#x59CB;&#x5316;eflags&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x65F6;&#x5019;&#x8FDB;&#x884C;&#x5224;&#x65AD;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-keyword">if</span> (type == ENV_TYPE_FS) {
+        newenv-&gt;env_tf.tf_eflags |= FL_IOPL_MASK;
+}
+</code></pre>
+<h5 id="question-1">question 1</h5>
+<blockquote>
+<p>&#x600E;&#x4E48;&#x4FDD;&#x8BC1;&#x8FDB;&#x7A0B;&#x5207;&#x6362;&#xFF0C;&#x8FD9;&#x6837;&#x7684; device I/O priviledge&#x80FD;&#x591F;&#x4FDD;&#x6301;&#xFF1F;</p>
+</blockquote>
+<p>&#x56E0;&#x4E3A;&#x8BE5;&#x6743;&#x9650;&#x4FDD;&#x5B58;&#x5728;&#x8FDB;&#x7A0B;&#x7684;&#x5E27;&#x4E2D;&#xFF0C;&#x5F53;&#x9677;&#x5165;&#x5176;&#x4ED6;&#x8FDB;&#x7A0B;&#x65F6;&#xFF0C;&#x90FD;&#x4F1A;&#x5F39;&#x51FA;&#x76F8;&#x5E94;&#x8FDB;&#x7A0B;&#x5F53;&#x65F6;&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x503C;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x9519;&#x8BEF;&#x7684;&#x4F7F;&#x7528;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x7CFB;&#x7EDF;&#x7279;&#x6709;&#x7684;&#x5BC4;&#x5B58;&#x5668;&#x503C;&#x3002;&#x5982;&#x4F55;&#x4FDD;&#x5B58;&#x6808;&#x5E27;&#x548C;&#x5F39;&#x51FA;&#x6808;&#x5E27;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x4E4B;&#x524D;&#x7684;&#x5B9E;&#x9A8C;&#x4E2D;&#x5C31;&#x5DF2;&#x7ECF;&#x8BE6;&#x7EC6;&#x7684;&#x9610;&#x8FF0;&#x4E86;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#x672C;&#x5B9E;&#x9A8C;fs.img&#x6211;&#x4EEC;&#x8BBE;&#x7F6E;&#x7684;&#x662F;disk 1, boot loader&#x8BBE;&#x7F6E;&#x7684;disk 0&#x3002;</p>
+<h4 id="the-block-cache">The Block Cache</h4>
+<p>&#x901A;&#x8FC7;&#x7CFB;&#x7EDF;&#x7684;&#x865A;&#x62DF;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#xFF0C;&#x6211;&#x4EEC;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6587;&#x4EF6;&#x7684;buffer cache&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4F1A;&#x6620;&#x5C04;&#x5230;[DISKMAP, DIAKMAP+DISKMAX] = [0X10000000, 0xD0000000] = 3G&#x5927;&#x5C0F;&#x3002;</p>
+<p>&#x5E76;&#x4E14;&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x4F1A;&#x6620;&#x5C04;&#x5230;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x7CFB;&#x7EDF;&#x7684;&#x9875;&#x76EE;&#x5F55;&#x548C;&#x9875;&#x8868;&#x4E2D;&#x3002;&#x4F46;&#x662F;&#x8FD9;&#x6837;&#x7684;&#x4F5C;&#x6CD5;&#x5728;&#x76EE;&#x524D;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E2D;&#x5E76;&#x4E0D;&#x6B63;&#x786E;&#xFF0C;&#x56E0;&#x4E3A;&#x78C1;&#x76D8;&#x7684;&#x5927;&#x5C0F;&#x52A8;&#x8F84;&#x4E0A;T&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5C06;&#x78C1;&#x76D8;&#x7684;&#x6574;&#x4E2A;&#x5185;&#x5BB9;&#x79FB;&#x52A8;&#x5230;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x90A3;&#x4E48;&#x4EE3;&#x4EF7;&#x5C06;&#x662F;&#x975E;&#x5E38;&#x5927;&#x7684;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x501F;&#x9274;lab4&#x4E2D;&#x7684;&#x601D;&#x60F3;&#xFF0C;&#x5148;&#x505A;&#x6620;&#x5C04;&#xFF0C;&#x5F53;&#x53D1;&#x751F;&#x7F3A;&#x9875;&#x4E2D;&#x65AD;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x518D;&#x8FDB;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x6620;&#x5C04;&#x3002;</p>
+<h5 id="exercise-2">exercise 2</h5>
+<blockquote>
+<p>&#x5B9E;&#x73B0;<code>fs/bc.c</code>&#x4E2D;&#x7684;<code>bc_pgfault</code>&#x548C;<code>flush_block</code>&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x5B9E;&#x73B0;<code>bc_pgfault</code>&#x65F6;&#x6CE8;&#x610F;&#x4E0B;&#x9762;&#x7684;&#x4E8B;&#x9879;&#xFF1A;</p>
+<ul>
+<li>addr&#x53EF;&#x80FD;&#x4E0D;&#x662F;&#x548C;&#x4E00;&#x4E2A;block&#x5BF9;&#x9F50;&#x7684;</li>
+<li>ide_read&#x64CD;&#x4F5C;&#x7684;&#x5355;&#x4F4D;&#x662F;sectors(512Bytes)&#xFF0C;&#x800C;&#x4E0D;&#x662F;block(4096Bytes)&#x3002;</li>
+</ul>
+<p>&#x5982;&#x679C;&#x67D0;&#x9875;&#x6CA1;&#x6709;&#x88AB;&#x6620;&#x5C04;&#x6216;&#x8005;&#x4E0D;&#x4E3A;&#x810F;&#xFF0C;&#x90A3;&#x4E48;flush_block&#x4E0D;&#x5E72;&#x4EFB;&#x4F55;&#x4E8B;&#x60C5;&#x3002;</p>
+<p>&#x5176;&#x4E2D;&#x810F;&#x4F4D;(PTE_D)&#x662F;&#x7531;&#x786C;&#x4EF6;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x4FDD;&#x5B58;&#x5728;uvpt&#x4E2D;&#x3002;<code>flush_block</code>&#x4F7F;&#x7528;sys_page_map&#x6765;&#x6E05;&#x9664;<code>PTE_D</code>&#x4F4D;&#x3002;</p>
+</blockquote>
+<p><code>fs_init</code>&#x4E2D;&#x6709;&#x7740;&#x5982;&#x4F55;&#x4F7F;&#x7528;block cache&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
+<p>&#x5F53;block cache&#x521D;&#x59CB;&#x5316;&#x5B8C;&#x540E;&#xFF08;&#x5B9E;&#x9645;&#x4E0A;&#x4EC5;&#x4EC5;&#x662F;&#x8BBE;&#x7F6E;&#x4E86;&#x4E00;&#x4E2A;bc_pgfault&#x7684;&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF09;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x8BBF;&#x95EE;&#x76F8;&#x5173;&#x7684;&#x5185;&#x5BB9;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x5185;&#x5BB9;&#x4E0D;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4F1A;&#x89E6;&#x53D1;&#x7F3A;&#x9875;&#x4E2D;&#x65AD;&#x3002;&#x4F46;&#x662F;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x5C31;&#x50CF;&#x662F;&#x5185;&#x5BB9;&#x5C31;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x4E00;&#x6837;&#x3002;</p>
+<pre><code class="lang-c">static void
+bc_pgfault(struct UTrapframe *utf)
+{
+    void *addr = (void *) utf-&gt;utf_fault_va;
+    uint32_t blockno = ((uint32_t)addr - DISKMAP) / BLKSIZE;
+    int r;
+
+    // Check that the fault was within the block cache region
+    if (addr &lt; (void*)DISKMAP || addr &gt;= (void*)(DISKMAP + DISKSIZE))
+        panic(&quot;page fault in FS: eip %08x, va %08x, err %04x&quot;,
+              utf-&gt;utf_eip, addr, utf-&gt;utf_err);
+
+    // Sanity check the block number.
+    if (super &amp;&amp; blockno &gt;= super-&gt;s_nblocks)
+        panic(&quot;reading non-existent block %08x\n&quot;, blockno);
+
+    // Allocate a page in the disk map region, read the contents
+    // of the block from the disk into that page.
+    // Hint: first round addr to page boundary. fs/ide.c has code to read
+    // the disk.
+    //
+    // LAB 5: you code here:
+    // envid &#x4F20;&#x5165; 0&#x8868;&#x793A;&#x5F53;&#x524D;&#x8FDB;&#x7A0B;&#x3002;
+    addr =(void *) ROUNDDOWN(addr, PGSIZE);
+    if ( (r = sys_page_alloc(0, addr, PTE_P|PTE_W|PTE_U)) &lt; 0) {
+        panic(&quot;in bc_pgfault, sys_page_alloc: %e&quot;, r);
+    }
+    // size_t secno = (addr - DISKMAP) / BLKSIZE;
+    if ( (r = ide_read(blockno*BLKSECTS, addr, BLKSECTS)) &lt; 0) {
+        panic(&quot;in bc_pgfault, ide_read: %e&quot;,r);
+    }
+    // Clear the dirty bit for the disk block page since we just read the
+    // block from disk
+    // &#x6E05;&#x9664;&#x810F;&#x4F4D;
+    if ((r = sys_page_map(0, addr, 0, addr, uvpt[PGNUM(addr)] &amp; PTE_SYSCALL)) &lt; 0)
+        panic(&quot;in bc_pgfault, sys_page_map: %e&quot;, r);
+
+    // Check that the block we read was allocated. (exercise for
+    // the reader: why do we do this *after* reading the block
+    // in?)
+    if (bitmap &amp;&amp; block_is_free(blockno))
+        panic(&quot;reading free block %08x\n&quot;, blockno);
+}
+</code></pre>
+<pre><code class="lang-c"><span class="hljs-comment">// Flush the contents of the block containing VA out to disk if</span>
+<span class="hljs-comment">// necessary, then clear the PTE_D bit using sys_page_map.</span>
+<span class="hljs-comment">// If the block is not in the block cache or is not dirty, does</span>
+<span class="hljs-comment">// nothing.</span>
+<span class="hljs-comment">// Hint: Use va_is_mapped, va_is_dirty, and ide_write.</span>
+<span class="hljs-comment">// Hint: Use the PTE_SYSCALL constant when calling sys_page_map.</span>
+<span class="hljs-comment">// Hint: Don&apos;t forget to round addr down.</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span>
+<span class="hljs-title">flush_block</span><span class="hljs-params">(<span class="hljs-keyword">void</span> *addr)</span>
+</span>{
+    <span class="hljs-keyword">uint32_t</span> blockno = ((<span class="hljs-keyword">uint32_t</span>)addr - DISKMAP) / BLKSIZE;
+
+    <span class="hljs-keyword">if</span> (addr &lt; (<span class="hljs-keyword">void</span>*)DISKMAP || addr &gt;= (<span class="hljs-keyword">void</span>*)(DISKMAP + DISKSIZE))
+        panic(<span class="hljs-string">&quot;flush_block of bad va %08x&quot;</span>, addr);
+
+    <span class="hljs-comment">// LAB 5: Your code here.</span>
+    addr = (<span class="hljs-keyword">void</span> *)ROUNDDOWN(addr, PGSIZE);
+    <span class="hljs-keyword">if</span> (va_is_mapped(addr) &amp;&amp; va_is_dirty(addr)) {
+
+        ide_write(blockno*BLKSECTS, addr , BLKSECTS);
+        <span class="hljs-keyword">int</span> r;
+        <span class="hljs-comment">// Clear the dirty bit for the disk block page since we just read the</span>
+        <span class="hljs-comment">// block from disk </span>
+        <span class="hljs-comment">//&#x4E0B;&#x9762;&#x7684;&#x8BED;&#x53E5;&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x6E05;&#x7A7A;&#x810F;&#x4F4D;</span>
+        <span class="hljs-keyword">if</span> ((r = sys_page_map(<span class="hljs-number">0</span>, addr, <span class="hljs-number">0</span>, addr, uvpt[PGNUM(addr)] &amp; PTE_SYSCALL)) &lt; <span class="hljs-number">0</span>)
+            panic(<span class="hljs-string">&quot;in flush_block, sys_page_map: %e&quot;</span>, r);
+    }
+    <span class="hljs-comment">//panic(&quot;flush_block not implemented&quot;);</span>
+}
+</code></pre>
+<h4 id="the-block-bitmap">The Block Bitmap</h4>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;bitmap&#x6765;&#x8BB0;&#x5F55;&#x786C;&#x76D8;&#x5757;&#x7684;&#x4F7F;&#x7528;&#x60C5;&#x51B5;&#x3002;&#x6BCF;&#x4E00;&#x4F4D;&#x90FD;&#x80FD;&#x8BB0;&#x5F55;&#x4E00;&#x4E2A;&#x5757;&#x662F;&#x5426;&#x88AB;&#x4F7F;&#x7528;&#x3002;bitmap&#x5927;&#x5C0F;&#x4E3A;4096Bytes=4096<em>8bits&#xFF0C;&#x90A3;&#x4E48;&#x4E00;&#x5171;&#x7BA1;&#x7406;$4096 </em> 8 * 4KB = 128MB$&#x53CD;&#x6B63;&#x76EE;&#x524D;&#x662F;&#x591F;&#x7528;&#x7684;&#x3002;</p>
+<h4 id="exercise-3">exercise 3</h4>
+<blockquote>
+<p>&#x4F7F;&#x7528;free_block&#x4E3A;&#x6A21;&#x677F;&#xFF0C;&#x6765;&#x5B9E;&#x73B0;<code>fs/fs.c</code>&#x4E2D;&#x7684;<code>alloc_block</code>&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x9700;&#x8981;&#x627E;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x7684;&#x786C;&#x76D8;&#x5757;&#xFF0C;&#x5C06;&#x5176;&#x6807;&#x8BB0;&#x88AB;&#x4F7F;&#x7528;&#xFF0C;&#x5E76;&#x4E14;&#x8FD4;&#x56DE;&#x5E8F;&#x53F7;</p>
+<p>&#x6CE8;&#x610F;&#x5F53;&#x6211;&#x4EEC;&#x6539;&#x53D8;&#x4E86;bitmap&#x65F6;&#xFF0C;&#x5E94;&#x8BE5;&#x5C06;&#x5176;&#x7ACB;&#x523B;&#x5199;&#x56DE;&#x786C;&#x76D8;&#x4E2D;&#xFF0C;&#x4EE5;&#x6B64;&#x6765;&#x4FDD;&#x8BC1;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x4E00;&#x81F4;&#x6027;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-c"><span class="hljs-comment">// Search the bitmap for a free block and allocate it.  When you</span>
+<span class="hljs-comment">// allocate a block, immediately flush the changed bitmap block</span>
+<span class="hljs-comment">// to disk.</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// Return block number allocated on success,</span>
+<span class="hljs-comment">// -E_NO_DISK if we are out of blocks.</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// Hint: use free_block as an example for manipulating the bitmap.</span>
+<span class="hljs-keyword">uint32_t</span> *bitmap;        <span class="hljs-comment">// bitmap blocks mapped in memory</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span>
+<span class="hljs-title">alloc_block</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    <span class="hljs-comment">// The bitmap consists of one or more blocks.  A single bitmap block</span>
+    <span class="hljs-comment">// contains the in-use bits for BLKBITSIZE blocks.  There are</span>
+    <span class="hljs-comment">// super-&gt;s_nblocks blocks in the disk altogether.</span>
+
+    <span class="hljs-comment">// LAB 5: Your code here.</span>
+    <span class="hljs-keyword">size_t</span> i;
+    <span class="hljs-comment">//bitmap 1&#x8868;&#x793A;&#x662F;&#x7A7A;&#x95F2;&#x7684;&#xFF0C;0&#x8868;&#x793A;&#x7684;&#x662F;&#x5360;&#x7528;&#x7684;</span>
+    <span class="hljs-keyword">for</span>(i=<span class="hljs-number">1</span>; i &lt; super-&gt;s_nblocks; i++) {
+        <span class="hljs-keyword">if</span> (block_is_free(i)) {
+            bitmap[i/<span class="hljs-number">32</span>] &amp;=  ~(<span class="hljs-number">1</span>&lt;&lt;(i%<span class="hljs-number">32</span>));
+            flush_block(&amp;bitmap[i/<span class="hljs-number">32</span>]);<span class="hljs-comment">//&#x5C06;bitmap&#x5728;&#x786C;&#x76D8;&#x4E2D;&#x5237;&#x65B0;</span>
+            <span class="hljs-keyword">return</span> i;
+        }
+    }
+    <span class="hljs-comment">//panic(&quot;alloc_block not implemented&quot;);</span>
+    <span class="hljs-keyword">return</span> -E_NO_DISK;
+}
+</code></pre>
+<h4 id="file-operations">File Operations</h4>
+<p>&#x719F;&#x8BFB;<code>fs/fs.c</code>&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x6709;&#x8F83;&#x4E3A;&#x719F;&#x6089;&#x7684;&#x4E86;&#x89E3;&#x3002;</p>
+<h4 id="exercise-4">exercise 4</h4>
+<blockquote>
+<p>&#x5B9E;&#x73B0;<code>file_block_walk</code>&#x548C;<code>file_get_block</code>&#x3002;</p>
+</blockquote>
+<p>file_block_walk&#x5C31;&#x662F;&#x4E0D;&#x65AD;&#x9012;&#x5F52;&#xFF0C;&#x5BFB;&#x627E;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x548C;&#x6587;&#x4EF6;&#xFF0C;&#x800C;file_get_block&#x5C31;&#x662F;&#x83B7;&#x5F97;&#x6587;&#x4EF6;&#x5757;&#x4E2D;&#x5177;&#x4F53;&#x7684;&#x5757;&#x53F7;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x5BFB;&#x627E;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x8FC7;&#x7A0B;&#x7684;&#x793A;&#x610F;&#x56FE;&#xFF1A;</p>
+<p><img src="lab5-File system, Spawn and Shell/filename.png" alt=""></p>
+<pre><code class="lang-c"><span class="hljs-comment">// Find the disk block number slot for the &apos;filebno&apos;th block in file &apos;f&apos;.</span>
+<span class="hljs-comment">// Set &apos;*ppdiskbno&apos; to point to that slot.</span>
+<span class="hljs-comment">// The slot will be one of the f-&gt;f_direct[] entries,</span>
+<span class="hljs-comment">// or an entry in the indirect block.</span>
+<span class="hljs-comment">// When &apos;alloc&apos; is set, this function will allocate an indirect block</span>
+<span class="hljs-comment">// if necessary.</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// Returns:</span>
+<span class="hljs-comment">//    0 on success (but note that *ppdiskbno might equal 0).</span>
+<span class="hljs-comment">//    -E_NOT_FOUND if the function needed to allocate an indirect block, but</span>
+<span class="hljs-comment">//        alloc was 0.</span>
+<span class="hljs-comment">//    -E_NO_DISK if there&apos;s no space on the disk for an indirect block.</span>
+<span class="hljs-comment">//    -E_INVAL if filebno is out of range (it&apos;s &gt;= NDIRECT + NINDIRECT).</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// Analogy: This is like pgdir_walk for files.</span>
+<span class="hljs-comment">// Hint: Don&apos;t forget to clear any block you allocate.</span>
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span>
+<span class="hljs-title">file_block_walk</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> File *f, uint32_t filebno, uint32_t **ppdiskbno, <span class="hljs-keyword">bool</span> alloc)</span>
+</span>{
+       <span class="hljs-keyword">int</span> r;
+
+       <span class="hljs-keyword">if</span> (filebno &gt;= NDIRECT + NINDIRECT)
+               <span class="hljs-keyword">return</span> -E_INVAL;
+       <span class="hljs-keyword">if</span> (filebno &lt; NDIRECT) {
+               <span class="hljs-keyword">if</span> (ppdiskbno)
+                       *ppdiskbno = f-&gt;f_direct + filebno;
+               <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+       }
+       <span class="hljs-keyword">if</span> (!alloc &amp;&amp; !f-&gt;f_indirect)
+               <span class="hljs-keyword">return</span> -E_NOT_FOUND;
+
+        <span class="hljs-comment">//&#x95F4;&#x63A5;&#x5BFB;&#x627E;</span>
+       <span class="hljs-keyword">if</span> (!f-&gt;f_indirect) {
+               <span class="hljs-keyword">if</span> ((r = alloc_block()) &lt; <span class="hljs-number">0</span>)
+                       <span class="hljs-keyword">return</span> -E_NO_DISK;
+               f-&gt;f_indirect = r;
+               <span class="hljs-built_in">memset</span>(diskaddr(r), <span class="hljs-number">0</span>, BLKSIZE);
+               flush_block(diskaddr(r));
+       }
+       <span class="hljs-comment">//&#x8FD9;&#x91CC;&#x4FDD;&#x5B58;&#x7684;&#x662F;&#x786C;&#x76D8;&#x5757;&#x53F7;&#xFF0C;&#x6709;&#x70B9;&#x4E0D;&#x7406;&#x89E3;</span>
+       <span class="hljs-keyword">if</span> (ppdiskbno)
+               *ppdiskbno = (<span class="hljs-keyword">uint32_t</span>*)(diskaddr(f-&gt;f_indirect)) + filebno - NDIRECT;
+       <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<pre><code class="lang-c"><span class="hljs-comment">// Set *blk to the address in memory where the filebno&apos;th</span>
+<span class="hljs-comment">// block of file &apos;f&apos; would be mapped.</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// Returns 0 on success, &lt; 0 on error.  Errors are:</span>
+<span class="hljs-comment">//    -E_NO_DISK if a block needed to be allocated but the disk is full.</span>
+<span class="hljs-comment">//    -E_INVAL if filebno is out of range.</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// Hint: Use file_block_walk and alloc_block.</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span>
+<span class="hljs-title">file_get_block</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> File *f, uint32_t filebno, <span class="hljs-keyword">char</span> **blk)</span>
+</span>{
+       <span class="hljs-comment">// LAB 5: Your code here.</span>
+       <span class="hljs-keyword">int</span> r;
+       <span class="hljs-keyword">uint32_t</span> *ppdiskbno;
+
+       <span class="hljs-keyword">if</span> ((r = file_block_walk(f, filebno, &amp;ppdiskbno, <span class="hljs-number">1</span>)) &lt; <span class="hljs-number">0</span>)
+               <span class="hljs-keyword">return</span> r;
+       <span class="hljs-keyword">if</span> (*ppdiskbno == <span class="hljs-number">0</span>) {
+               <span class="hljs-keyword">if</span> ((r = alloc_block()) &lt; <span class="hljs-number">0</span>)
+                       <span class="hljs-keyword">return</span> -E_NO_DISK;
+            *ppdiskbno = r;
+            <span class="hljs-built_in">memset</span>(diskaddr(r), <span class="hljs-number">0</span>, BLKSIZE);
+            flush_block(diskaddr(r));
+       }
+       *blk = diskaddr(*ppdiskbno);
+       <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p><code>file_block_walk</code> and <code>file_get_block</code>&#x662F;file system&#x7684;&#x9A6C;&#x529B;&#x3002;<code>file_read</code>&#x548C;<code>file_write</code>&#x6B63;&#x662F;&#x57FA;&#x4E8E;&#x4E0A;&#x9762;&#x7684;&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x8C03;&#x7528;&#x7684;&#x3002;</p>
+<h4 id="the-file-system-interface">The file system interface</h4>
+<p>JOS&#x5C06;&#x6587;&#x4EF6;&#x529F;&#x80FD;&#x5355;&#x72EC;&#x7684;&#x72EC;&#x7ACB;&#x51FA;&#x6765;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x8FDB;&#x7A0B;&#xFF0C;&#x5E76;&#x4E14;&#x5176;&#x4ED6;&#x7684;&#x8FDB;&#x7A0B;&#x6CA1;&#x6709;&#x6743;&#x9650;&#x8C03;&#x7528;&#x76F8;&#x5173;&#x7684;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;&#x51FD;&#x6570;&#xFF08;&#x7531;&#x4E8E;eflags&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x9650;&#x5236;&#xFF09;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5982;&#x679C;&#x5176;&#x4ED6;&#x8FDB;&#x7A0B;&#x60F3;&#x8981;&#x5BF9;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x90A3;&#x4E48;&#x5FC5;&#x987B;&#x548C;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x8FDB;&#x7A0B;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#xFF0C;&#x901A;&#x4FE1;&#x7684;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-c">    Regular env           FS env
+   +---------------+   +---------------+
+   |      read     |   |   file_read   |
+   |   (lib/fd.c)  |   |   (fs/fs.c)   |
+...|.......|.......|...|.......^.......|...............
+   |       v       |   |       |       | RPC mechanism
+   |  devfile_read |   |  serve_read   |
+   |  (lib/file.c) |   |  (fs/serv.c)  |
+   |       |       |   |       ^       |
+   |       v       |   |       |       |
+   |     fsipc     |   |     serve     |
+   |  (lib/file.c) |   |  (fs/serv.c)  |
+   |       |       |   |       ^       |
+   |       v       |   |       |       |
+   |   ipc_send    |   |   ipc_recv    |
+   |       |       |   |       ^       |
+   +-------|-------+   +-------|-------+
+           |                   |
+           +-------------------+
+</code></pre>
+<h4 id="exercise-5">exercise 5</h4>
+<blockquote>
+<p>&#x5B9E;&#x73B0;/fs/serv.c&#x4E2D;&#x7684;serve_read&#x51FD;&#x6570;</p>
+</blockquote>
+<pre><code class="lang-c"><span class="hljs-comment">// Read at most ipc-&gt;read.req_n bytes from the current seek position</span>
+<span class="hljs-comment">// in ipc-&gt;read.req_fileid.  Return the bytes read from the file to</span>
+<span class="hljs-comment">// the caller in ipc-&gt;readRet, then update the seek position.  Returns</span>
+<span class="hljs-comment">// the number of bytes successfully read, or &lt; 0 on error.</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span>
+<span class="hljs-title">serve_read</span><span class="hljs-params">(envid_t envid, <span class="hljs-keyword">union</span> Fsipc *ipc)</span>
+</span>{
+    <span class="hljs-keyword">struct</span> Fsreq_read *req = &amp;ipc-&gt;read;
+    <span class="hljs-keyword">struct</span> Fsret_read *ret = &amp;ipc-&gt;readRet;
+
+    <span class="hljs-keyword">if</span> (debug)
+        cprintf(<span class="hljs-string">&quot;serve_read %08x %08x %08x\n&quot;</span>, envid, req-&gt;req_fileid, req-&gt;req_n);
+
+    <span class="hljs-comment">// Lab 5: Your code here:</span>
+    <span class="hljs-keyword">int</span> r;
+    <span class="hljs-keyword">struct</span> OpenFile *of;
+    <span class="hljs-keyword">if</span> ( (r = openfile_lookup(envid, req-&gt;req_fileid, &amp;of) )&lt; <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span> r;
+    <span class="hljs-keyword">if</span> ( (r = file_read(of-&gt;o_file, ret-&gt;ret_buf, req-&gt;req_n, of-&gt;o_fd-&gt;fd_offset))&lt; <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span> r;
+
+    <span class="hljs-comment">// then update the seek position.</span>
+    of-&gt;o_fd-&gt;fd_offset += r;
+    <span class="hljs-keyword">return</span> r;
+}
+</code></pre>
+<h4 id="exercise-6">exercise 6</h4>
+<blockquote>
+<p>&#x5B9E;&#x73B0;<code>fs/serv.c</code>&#x4E2D;&#x7684;<code>serve_write</code>&#x51FD;&#x6570;&#xFF0C;&#x5B9E;&#x73B0;<code>lib/file.c</code>&#x4E2D;&#x7684;<code>devfile_write</code>&#x51FD;&#x6570;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-c"><span class="hljs-comment">// Write req-&gt;req_n bytes from req-&gt;req_buf to req_fileid, starting at</span>
+<span class="hljs-comment">// the current seek position, and update the seek position</span>
+<span class="hljs-comment">// accordingly.  Extend the file if necessary.  Returns the number of</span>
+<span class="hljs-comment">// bytes written, or &lt; 0 on error.</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span>
+<span class="hljs-title">serve_write</span><span class="hljs-params">(envid_t envid, <span class="hljs-keyword">struct</span> Fsreq_write *req)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (debug)
+        cprintf(<span class="hljs-string">&quot;serve_write %08x %08x %08x\n&quot;</span>, envid, req-&gt;req_fileid, req-&gt;req_n);
+
+    <span class="hljs-comment">// LAB 5: Your code here.</span>
+    <span class="hljs-keyword">int</span> r;
+    <span class="hljs-keyword">struct</span> OpenFile *of;
+    <span class="hljs-keyword">int</span> reqn;
+    <span class="hljs-keyword">if</span> ( (r = openfile_lookup(envid, req-&gt;req_fileid, &amp;of)) &lt; <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span> r;
+    reqn = req-&gt;req_n &gt; PGSIZE? PGSIZE:req-&gt;req_n;
+
+    <span class="hljs-keyword">if</span> ( (r = file_write(of-&gt;o_file, req-&gt;req_buf, reqn, of-&gt;o_fd-&gt;fd_offset)) &lt; <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span> r;
+
+    of-&gt;o_fd-&gt;fd_offset += r;
+    <span class="hljs-keyword">return</span> r;
+    <span class="hljs-comment">//panic(&quot;serve_write not implemented&quot;);</span>
+}
+</code></pre>
+<p><code>devfile_write</code>&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">static</span> ssize_t
+<span class="hljs-title">devfile_write</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> Fd *fd, <span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *buf, size_t n)</span>
+</span>{
+    <span class="hljs-comment">// Make an FSREQ_WRITE request to the file system server.  Be</span>
+    <span class="hljs-comment">// careful: fsipcbuf.write.req_buf is only so large, but</span>
+    <span class="hljs-comment">// remember that write is always allowed to write *fewer*</span>
+    <span class="hljs-comment">// bytes than requested.</span>
+    <span class="hljs-comment">// LAB 5: Your code here</span>
+    <span class="hljs-keyword">int</span> r;
+
+    <span class="hljs-keyword">if</span> (n &gt; <span class="hljs-keyword">sizeof</span>(fsipcbuf.write.req_buf))
+             n = <span class="hljs-keyword">sizeof</span>(fsipcbuf.write.req_buf);
+    fsipcbuf.write.req_fileid = fd-&gt;fd_file.id;
+    fsipcbuf.write.req_n = n;
+    memmove(fsipcbuf.write.req_buf, buf, n);
+    <span class="hljs-keyword">if</span> ((r = fsipc(FSREQ_WRITE, <span class="hljs-literal">NULL</span>)) &lt; <span class="hljs-number">0</span>)
+            <span class="hljs-keyword">return</span> r;
+
+    <span class="hljs-keyword">return</span> r;
+    <span class="hljs-comment">//panic(&quot;devfile_write not implemented&quot;);</span>
+}
+</code></pre>
+<h3 id="spawning-processes">Spawning Processes</h3>
+<p>spawn = fork + exec</p>
+<h4 id="exercise-7">exercise 7</h4>
+<blockquote>
+<p>&#x5B9E;&#x73B0;kern/syscall.c&#x4E2D;&#x7684;<code>sys_env_set_trapframe</code>&#x3002;</p>
+</blockquote>
+<pre><code class="lang-c"><span class="hljs-comment">// Set envid&apos;s trap frame to &apos;tf&apos;.</span>
+<span class="hljs-comment">// tf is modified to make sure that user environments always run at code</span>
+<span class="hljs-comment">// protection level 3 (CPL 3), interrupts enabled, and IOPL of 0.</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// Returns 0 on success, &lt; 0 on error.  Errors are:</span>
+<span class="hljs-comment">//    -E_BAD_ENV if environment envid doesn&apos;t currently exist,</span>
+<span class="hljs-comment">//        or the caller doesn&apos;t have permission to change envid.</span>
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span>
+<span class="hljs-title">sys_env_set_trapframe</span><span class="hljs-params">(envid_t envid, <span class="hljs-keyword">struct</span> Trapframe *tf)</span>
+</span>{
+    <span class="hljs-comment">// LAB 5: Your code here.</span>
+    <span class="hljs-comment">// Remember to check whether the user has supplied us with a good</span>
+    <span class="hljs-comment">// address!</span>
+    <span class="hljs-keyword">struct</span> Env *env;
+    <span class="hljs-keyword">int</span> r;
+    <span class="hljs-keyword">if</span> ( (r = envid2env(envid, &amp;env, <span class="hljs-number">1</span>)) &lt; <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span> r;
+
+    <span class="hljs-comment">// &#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x4F1A;&#x51FA;&#x73B0;&#x6CA1;&#x6709;&#x6743;&#x9650;&#x8BBF;&#x95EE;&#x7684;&#x95EE;&#x9898;&#xFF1F;</span>
+    user_mem_assert(env, tf, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> Trapframe), PTE_U);
+    <span class="hljs-comment">// &#x76F4;&#x63A5;&#x6574;&#x4E2A;&#x7ED3;&#x6784;&#x4F53;&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x8D4B;&#x503C;&#x7684;</span>
+    env-&gt;env_tf = *tf;
+    env-&gt;env_tf.tf_cs |= <span class="hljs-number">0x3</span>; 
+    env-&gt;env_tf.tf_eflags &amp;=  (~FL_IOPL_MASK);
+    env-&gt;env_tf.tf_eflags |= FL_IF;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-comment">//panic(&quot;sys_env_set_trapframe not implemented&quot;);</span>
+}
+</code></pre>
+<h4 id="sharing-library-state-across-fork-and-spawn">Sharing library state across fork and spawn</h4>
+<p>&#x5206;&#x4EAB;&#x7684;&#x90E8;&#x5206;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x80FD;&#x591F;&#x8FDB;&#x884C;&#x5185;&#x5B58;&#x7684;&#x5171;&#x4EAB;&#xFF0C;&#x4ECE;&#x800C;&#x80FD;&#x591F;&#x8FDB;&#x884C;&#x5185;&#x5BB9;&#x7684;&#x4E92;&#x6362;&#x4E0E;&#x901A;&#x4FE1;&#x3002;</p>
+<p>&#x4E4B;&#x524D;&#x6240;&#x6709;&#x505A;&#x7684;&#x7236;&#x8FDB;&#x7A0B;&#x4E0E;&#x5B50;&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#x5185;&#x5B58;&#x90FD;&#x662F;&#x5171;&#x4EAB;&#x8BFB;&#x7684;&#xFF0C;&#x4E00;&#x65E6;&#x67D0;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x6539;&#x53D8;&#x4E86;&#x5176;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x90A3;&#x4E48;&#x7236;&#x8FDB;&#x7A0B;&#x548C;&#x5B50;&#x8FDB;&#x7A0B;&#x5206;&#x4EAB;&#x8BFB;&#x7684;&#x5185;&#x5BB9;&#x5C31;&#x5206;&#x9053;&#x626C;&#x9573;&#x4E86;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x80FD;&#x591F;&#x5B9E;&#x73B0;&#x9875;&#x7684;&#x5171;&#x4EAB;&#xFF0C;JOS&#x505A;&#x4E86;&#x4E0B;&#x9762;&#x7684;&#x8BBE;&#x8BA1;&#x4E0E;&#x89C4;&#x5B9A;&#xFF1A;</p>
+<p>&#x65B0;&#x589E;&#x7B26;&#x53F7;&#x4F4D;<code>PTE_SHARE</code>&#xFF0C;&#x4F7F;&#x5F97;&#x6709;&#x8BE5;&#x6807;&#x8BB0;&#x7684;&#x9875;&#x80FD;&#x591F;&#x88AB;&#x5171;&#x4EAB;&#x3002;</p>
+<h4 id="exercise-8">exercise 8</h4>
+<blockquote>
+<p>&#x66F4;&#x6539;<code>lib/fork.c</code>&#x4E2D;<code>duppage</code>&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x5982;&#x679C;&#x9875;&#x6709;<code>PTE_SHARE</code>&#x6807;&#x8BB0;&#x4F4D;&#xFF0C;&#x90A3;&#x4E48;&#x76F4;&#x63A5;&#x8FDB;&#x884C;copy&#x3002;</p>
+<p>&#x540C;&#x7406;&#xFF0C;&#x5B9E;&#x73B0;<code>lib/spawn.c</code>&#x4E2D;&#x7684;<code>copy_shared_pages</code>&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x4F1A;&#x5C06;&#x76EE;&#x524D;&#x8FDB;&#x7A0B;&#x4E2D;&#x6240;&#x6709;&#x7684;&#x9875;&#x8868;&#x904D;&#x5386;&#x4E00;&#x904D;&#xFF0C;&#x7136;&#x540E;copy&#x90A3;&#x4E48;&#x6807;&#x6709;<code>PTE_SHARE</code>&#x7684;&#x9875;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span>
+<span class="hljs-title">duppage</span><span class="hljs-params">(envid_t envid, <span class="hljs-keyword">unsigned</span> pn)</span>
+</span>{
+    <span class="hljs-keyword">int</span> r;
+
+    <span class="hljs-comment">// LAB 4: Your code here.</span>
+    <span class="hljs-keyword">int</span> ret;
+    <span class="hljs-keyword">void</span> *addr = (<span class="hljs-keyword">void</span> *)(pn * PGSIZE);
+    <span class="hljs-comment">// &#x65B0;&#x589E;&#x7684;&#x5206;&#x652F;&#x5224;&#x65AD;</span>
+    <span class="hljs-keyword">if</span> (uvpt[pn] &amp; PTE_SHARE) {
+        <span class="hljs-keyword">if</span>((ret = sys_page_map(<span class="hljs-number">0</span>, addr, envid, addr, uvpt[pn] &amp; PTE_SYSCALL)) &lt;<span class="hljs-number">0</span> ) 
+            <span class="hljs-keyword">return</span> ret;
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>((uvpt[pn] &amp; PTE_W) || (uvpt[pn] &amp; PTE_COW)){
+        <span class="hljs-keyword">if</span>(sys_page_map(<span class="hljs-number">0</span>, addr, envid, addr, PTE_U | PTE_COW | PTE_P) &lt; <span class="hljs-number">0</span>)
+            panic(<span class="hljs-string">&quot;duppage: parent-&gt;child sys_page_map failed.&quot;</span>);
+        <span class="hljs-keyword">if</span>(sys_page_map(<span class="hljs-number">0</span>, addr, <span class="hljs-number">0</span>, addr, PTE_U | PTE_COW | PTE_P) &lt; <span class="hljs-number">0</span>)
+            panic(<span class="hljs-string">&quot;duppage: self sys_page_map failed.&quot;</span>);
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">if</span>(sys_page_map(<span class="hljs-number">0</span>, addr, envid, addr, PTE_P | PTE_U) &lt; <span class="hljs-number">0</span>)
+            panic(<span class="hljs-string">&quot;duppage: single sys_page_map failed.&quot;</span>);
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<pre><code class="lang-c"><span class="hljs-comment">// Copy the mappings for shared pages into the child address space.</span>
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span>
+<span class="hljs-title">copy_shared_pages</span><span class="hljs-params">(envid_t child)</span>
+</span>{
+    <span class="hljs-comment">// LAB 5: Your code here.</span>
+    <span class="hljs-keyword">size_t</span> pn;
+    <span class="hljs-keyword">int</span> r;
+    <span class="hljs-keyword">struct</span> Env *e;
+
+    <span class="hljs-keyword">for</span> (pn = PGNUM(UTEXT); pn &lt; PGNUM(USTACKTOP); ++pn) {
+        <span class="hljs-keyword">if</span> ( (uvpd[pn &gt;&gt; <span class="hljs-number">10</span>] &amp; PTE_P) &amp;&amp; (uvpt[pn] &amp; PTE_P) ) {
+            <span class="hljs-keyword">if</span> (uvpt[pn] &amp; PTE_SHARE) {
+                <span class="hljs-keyword">if</span> ( (r = sys_page_map(thisenv-&gt;env_id, (<span class="hljs-keyword">void</span> *)(pn*PGSIZE), child, (<span class="hljs-keyword">void</span> *)(pn*PGSIZE), uvpt[pn] &amp; PTE_SYSCALL )) &lt; <span class="hljs-number">0</span>)
+                    <span class="hljs-keyword">return</span> r;                
+            }
+        }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h4 id="pipe&#x7684;&#x672C;&#x8D28;">pipe&#x7684;&#x672C;&#x8D28;</h4>
+<p>&#x5728;JOS&#x4E2D;&#xFF0C;pipe&#x672C;&#x8D28;&#x4E0A;&#x5C31;&#x662F;&#x4E00;&#x6BB5;&#x7236;&#x8FDB;&#x7A0B;&#x548C;&#x5B50;&#x8FDB;&#x7A0B;&#x5171;&#x4EAB;&#x7684;&#x4E00;&#x6BB5;&#x5185;&#x5B58;&#x3002;&#x5F88;&#x591A;&#x7684;&#x793A;&#x610F;&#x56FE;&#x4F1A;&#x5C06;&#x7BA1;&#x9053;&#x753B;&#x6210;&#x4E00;&#x4E2A;&#x961F;&#x5217;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x5176;&#x5B9E;&#x5E76;&#x4E0D;&#x6B63;&#x786E;&#xFF0C;&#x4E0B;&#x9762;&#x901A;&#x8FC7;pipe&#x7684;&#x521D;&#x59CB;&#x5316;&#x548C;&#x4F7F;&#x7528;&#xFF0C;&#x5BF9;pipe&#x7684;&#x539F;&#x7406;&#x8FDB;&#x884C;&#x8BF4;&#x660E;&#x3002;</p>
+<p>&#x4E00;&#x822C;&#x7236;&#x8FDB;&#x7A0B;&#x548C;&#x5B50;&#x8FDB;&#x7A0B;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#xFF0C;&#x5047;&#x8BBE;&#x5B50;&#x8FDB;&#x7A0B;&#x8BFB;&#xFF0C;&#x7236;&#x8FDB;&#x7A0B;&#x5199;&#xFF0C;&#x90A3;&#x4E48;&#x4E00;&#x822C;&#x7684;&#x5957;&#x8DEF;&#x4E3A;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-keyword">char</span> *msg = <span class="hljs-string">&quot;Now is the time for all good men to come to the aid of their party.&quot;</span>;
+<span class="hljs-keyword">char</span> buf[<span class="hljs-number">100</span>];
+<span class="hljs-keyword">int</span> p[<span class="hljs-number">2</span>];
+pipe(p);
+<span class="hljs-keyword">int</span> pid = fork();
+<span class="hljs-keyword">if</span>(pid == <span class="hljs-number">0</span>){
+    <span class="hljs-comment">//&#x5B50;&#x8FDB;&#x7A0B;&#x7A0B;&#x5E8F;</span>
+    close(p[<span class="hljs-number">1</span>]);
+    i = readn(p[<span class="hljs-number">0</span>], buf, <span class="hljs-keyword">sizeof</span> buf<span class="hljs-number">-1</span>);
+    <span class="hljs-built_in">exit</span>();
+}
+<span class="hljs-keyword">else</span>{
+    <span class="hljs-comment">//&#x7236;&#x8FDB;&#x7A0B;&#x7A0B;&#x5E8F;</span>
+    close(p[<span class="hljs-number">0</span>]);
+    i = write(p[<span class="hljs-number">1</span>], msg, <span class="hljs-built_in">strlen</span>(msg));
+    close(p[<span class="hljs-number">1</span>]);
+}
+wait(pid);
+</code></pre>
+<p>pipe&#x8BFB;&#x5199;&#x7684;&#x8FC7;&#x7A0B;&#xFF1A;&#x5199;&#x548C;&#x8BFB;&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x5728;<strong>&#x540C;&#x4E00;&#x4E2A;&#x5185;&#x5B58;&#x5757;</strong>&#x7684;&#x3002;</p>
+<pre><code class="lang-c"><span class="hljs-keyword">if</span> ((r = sys_page_map(<span class="hljs-number">0</span>, va, <span class="hljs-number">0</span>, fd2data(fd1), PTE_P|PTE_W|PTE_U|PTE_SHARE)) &lt; <span class="hljs-number">0</span>)
+</code></pre>
+<p>&#x8BE5;&#x8BED;&#x53E5;&#x8868;&#x793A;&#x7684;&#x5C31;&#x662F;&#x4E24;&#x4E2A;fd&#x6307;&#x5411;&#x7684;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x865A;&#x62DF;&#x7684;&#x9875;&#x9762;&#x3002;</p>
+<p>close(p[i])&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x51CF;&#x5C11;&#x8BE5;&#x5185;&#x5B58;&#x9875;&#x7684;&#x5F15;&#x7528;&#x6B21;&#x6570;&#x3002;</p>
+<p>&#x8BFB;&#x662F;&#x5728;&#x4E00;&#x4E2A;&#x8F6E;&#x8BE2;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x56E0;&#x6B64;&#x5F53;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x5B8C;&#x6210;&#x4E86;&#x5199;&#x64CD;&#x4F5C;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x5E94;&#x8BE5;&#x7ACB;&#x523B;close(p[1])&#xFF0C;&#x4ECE;&#x800C;&#x80FD;&#x591F;&#x51CF;&#x5C11;&#x8BE5;&#x5171;&#x4EAB;&#x9875;&#x7684;&#x5F15;&#x7528;&#x6B21;&#x6570;&#x3002;&#x800C;&#x8BFB;&#x8FDB;&#x7A0B;&#x4E00;&#x65E6;&#x77E5;&#x9053;&#x4E86;&#x6240;&#x6709;&#x7684;&#x5199;&#x64CD;&#x4F5C;&#x90FD;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4F1A;&#x7ED3;&#x675F;&#x8FD9;&#x4E2A;&#x8BFB;&#x7684;&#x64CD;&#x4F5C;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x53CA;&#x65F6;&#x7684;&#x5173;&#x95ED;&#x5199;&#xFF0C;&#x90A3;&#x4E48;&#x8BFB;&#x8FDB;&#x7A0B;&#x5C31;&#x4F1A;&#x8FDB;&#x5165;&#x6B7B;&#x5FAA;&#x73AF;&#xFF08;&#x5199;&#x8FDB;&#x7A0B;&#x662F;&#x6B63;&#x5E38;&#x7ED3;&#x675F;&#x7684;&#xFF09;&#x3002;</p>
+<p>&#x540C;&#x6837;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x5199;&#x8FDB;&#x7A0B;&#x5199;&#x6EE1;&#x4E86;pipe buffer&#xFF0C;&#x5E76;&#x4E14;&#x68C0;&#x6D4B;&#x5230;&#x6CA1;&#x6709;&#x8BFB;&#x7BA1;&#x9053;&#xFF0C;&#x90A3;&#x4E48;&#x4F1A;&#x7ACB;&#x523B;&#x505C;&#x6B62;&#x5199;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<p><img src="lab5-File system, Spawn and Shell/fs.png" alt=""></p>
+<p>&#x4E0A;&#x56FE;&#x662F;&#x6574;&#x4E2A;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x5927;&#x6982;&#x7684;&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;&#xFF0C;fd&#x5B9E;&#x9645;&#x4E0A;&#x662F;dev(&#x5373;&#x786C;&#x76D8;)&#x3001;&#x7BA1;&#x9053;&#x548C;console&#x7684;&#x62BD;&#x8C61;&#x3002;&#x5728;lab6&#x4E2D;&#x4E5F;&#x662F;socket&#x7684;&#x62BD;&#x8C61;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x7279;&#x610F;&#x7B80;&#x5316;&#x5176;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x8981;&#x7D20;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x6574;&#x4E2A;pipe&#x5DE5;&#x4F5C;&#x7684;&#x539F;&#x7406;&#x56FE;&#xFF1A;</p>
+<p><img src="lab5-File system, Spawn and Shell/pipe.png" alt=""></p>
+<p>fd0(&#x8BFB;&#x64CD;&#x4F5C;)&#xFF0C;fd1(&#x5199;&#x64CD;&#x4F5C;)&#x90FD;&#x6307;&#x5411;&#x4E86;&#x540C;&#x6837;&#x7684;&#x4E00;&#x5757;&#x865A;&#x62DF;&#x5730;&#x5740;&#x7A7A;&#x95F4;&#xFF0C;&#x8FD9;&#x4E2A;&#x7A7A;&#x95F4;&#x5C31;&#x662F;pipe&#x3002;&#x5176;&#x4E2D;<code>p_rpos</code>&#x662F;&#x8BFB;&#x6307;&#x9488;&#xFF0C;<code>p_wpos</code>&#x662F;&#x5199;&#x6307;&#x9488;&#xFF0C;&#x5B83;&#x4EEC;&#x5171;&#x540C;&#x7684;&#x6570;&#x636E;&#x533A;&#x57DF;&#x4E3A;<code>p_buf</code>&#x3002;</p>
+<p>&#x5F53;&#x67D0;&#x4E2A;&#x8FDB;&#x7A0B;&#x5199;&#x5B8C;&#x4E86;&#xFF0C;&#x5E94;&#x8BE5;&#x53CA;&#x65F6;&#x7684;&#x5173;&#x95ED;&#x7BA1;&#x9053;&#xFF0C;&#x8FD9;&#x6837;&#x624D;&#x80FD;&#x591F;&#x53CA;&#x65F6;&#x7684;&#x901A;&#x77E5;&#x8BFB;&#x8FDB;&#x7A0B;&#xFF0C;&#x544A;&#x8BC9;&#x5B83;&#x8BFB;&#x5B8C;&#x5C31;&#x53EF;&#x4EE5;&#x7ED3;&#x675F;&#x4E86;&#x3002;</p>
+<pre><code class="lang-c">ret = pageref(fd) == pageref(p);
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x8BED;&#x53E5;&#x4E2D;&#xFF0C;&#x5F53;&#x5199;&#x8FDB;&#x7A0B;&#x5728;&#x5199;&#x7684;&#x65F6;&#x5019;&#xFF0C;<code>pageref(fd) &lt; pageref(p)</code>&#xFF0C;&#x4E00;&#x65E6;close(fd[i])&#xFF0C;&#x76F8;&#x5173;&#x7684;pageref(p)&#x5C31;&#x4F1A;&#x51CF;&#x5C11;&#x3002;&#x6CE8;&#x610F;p&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#xFF0C;&#x800C;fd&#x6709;&#x4E24;&#x4E2A;fd0&#x548C;fd1&#x3002;</p>
+<p>&#x77E5;&#x9053;&#x4E86;&#x4E0A;&#x9762;&#x7684;&#x539F;&#x7406;&#xFF0C;&#x6211;&#x4EEC;&#x4FEE;&#x6539;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-c">
+<span class="hljs-keyword">if</span>(pid == <span class="hljs-number">0</span>){
+    <span class="hljs-comment">//&#x5B50;&#x8FDB;&#x7A0B;&#x7A0B;&#x5E8F;</span>
+    close(p[<span class="hljs-number">1</span>]);
+    i = readn(p[<span class="hljs-number">0</span>], buf, <span class="hljs-keyword">sizeof</span> buf<span class="hljs-number">-1</span>);
+    <span class="hljs-built_in">exit</span>();
+}
+<span class="hljs-keyword">else</span>{
+    <span class="hljs-comment">//&#x7236;&#x8FDB;&#x7A0B;&#x7A0B;&#x5E8F;</span>
+    <span class="hljs-comment">//close(p[0]); //&#x4EC5;&#x4EC5;&#x628A;&#x8FD9;&#x4E2A;&#x6CE8;&#x91CA;&#x4E86;</span>
+    i = write(p[<span class="hljs-number">1</span>], msg, <span class="hljs-built_in">strlen</span>(msg));
+    close(p[<span class="hljs-number">1</span>]);
+}
+wait(pid);
+</code></pre>
+<p>&#x8FD9;&#x6837;&#x4E5F;&#x662F;&#x5BF9;&#x7684;&#x3002;</p>
+<p>&#x4E00;&#x5F00;&#x59CB;pipe()+fork()&#xFF0C;&#x4F7F;&#x5F97;pageref(p)=4, pageref(fd0)=2, pageref(fd1)=2&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x53EA;&#x8981;&#x4FDD;&#x8BC1;&#x5199;&#x8FDB;&#x7A0B;&#x5199;&#x5B8C;&#x540E;pageref(fd1) = 0&#x5C31;&#x80FD;&#x4FDD;&#x8BC1;&#x7A0B;&#x5E8F;&#x7684;&#x6B63;&#x786E;&#x7684;&#x8FD0;&#x884C;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x4F7F;&#x5F97;&#x8BFB;&#x8FDB;&#x7A0B;&#x9677;&#x5165;&#x6B7B;&#x5FAA;&#x73AF;&#x3002;</p>
+<h3 id="the-keyboard-interface">The keyboard interface</h3>
+<p>&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x7684;&#x5B9E;&#x73B0;&#x548C;&#x5728;monitor&#x4E2D;&#x7684;&#x8F93;&#x5165;&#x4E0D;&#x592A;&#x4E00;&#x6837;&#xFF0C;&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x662F;&#x5728;&#x7528;&#x6237;&#x6001;&#x7684;&#x7A0B;&#x5E8F;&#x8FDB;&#x884C;&#x8F93;&#x5165;&#x7684;&#x63A5;&#x53D7;&#x3002;</p>
+<h4 id="exercise-9">exercise 9</h4>
+<blockquote>
+<p>In your <code>kern/trap.c</code>, call <code>kbd_intr</code> to handle trap <code>IRQ_OFFSET+IRQ_KBD</code> and <code>serial_intr</code> to handle trap <code>IRQ_OFFSET+IRQ_SERIAL</code>.</p>
+</blockquote>
+<pre><code class="lang-c"><span class="hljs-comment">// Handle keyboard and serial interrupts.</span>
+    <span class="hljs-comment">// LAB 5: Your code here.</span>
+    <span class="hljs-keyword">if</span> (tf-&gt;tf_trapno == IRQ_OFFSET + IRQ_KBD) {
+        kbd_intr();
+        <span class="hljs-keyword">return</span>;
+    }
+    <span class="hljs-keyword">if</span> (tf-&gt;tf_trapno == IRQ_OFFSET + IRQ_SERIAL) {
+        serial_intr();
+        <span class="hljs-keyword">return</span>;
+    }
+</code></pre>
+<h3 id="the-shell">The Shell</h3>
+<p>&#x8FD0;&#x884C;<code>make run-icode</code>&#x6216;&#x8005;&#x8FD0;&#x884C;<code>make run-icode-nox</code>&#xFF0C;&#x4F7F;&#x5F97;&#x80FD;&#x591F;&#x901A;&#x8FC7;&#x952E;&#x76D8;&#x8F93;&#x5165;&#x8FD0;&#x884C;&#x7B80;&#x5355;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;</p>
+<h4 id="exercise-10">exercise 10</h4>
+<blockquote>
+<p>&#x8FDB;&#x884C;&#x76F8;&#x5173;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x4F7F;&#x5F97;&#x8BE5;&#x7A0B;&#x5E8F;&#x652F;&#x6301;&#x8F93;&#x5165;&#x7684;&#x91CD;&#x5B9A;&#x5411;&#xFF0C;&#x652F;&#x6301;<code>sh &lt;script</code>&#x64CD;&#x4F5C;&#x3002;</p>
+</blockquote>
+<p>&#x89E3;&#x6790;&#x8BFB;&#x5165;<code>&lt;</code>&#x540E;&#x9762;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x8BE5;&#x6587;&#x4EF6;&#x4F5C;&#x4E3A;&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#x7684;&#x8F93;&#x5165;&#x5373;&#x53EF;&#x3002;</p>
+<pre><code class="lang-c"><span class="hljs-keyword">case</span> <span class="hljs-string">&apos;&lt;&apos;</span>:    <span class="hljs-comment">// Input redirection</span>
+            <span class="hljs-comment">// Grab the filename from the argument list</span>
+            <span class="hljs-keyword">if</span> (gettoken(<span class="hljs-number">0</span>, &amp;t) != <span class="hljs-string">&apos;w&apos;</span>) {
+                cprintf(<span class="hljs-string">&quot;syntax error: &lt; not followed by word\n&quot;</span>);
+                <span class="hljs-built_in">exit</span>();
+            }
+            <span class="hljs-comment">// Open &apos;t&apos; for reading as file descriptor 0</span>
+            <span class="hljs-comment">// (which environments use as standard input).</span>
+            <span class="hljs-comment">// We can&apos;t open a file onto a particular descriptor,</span>
+            <span class="hljs-comment">// so open the file as &apos;fd&apos;,</span>
+            <span class="hljs-comment">// then check whether &apos;fd&apos; is 0.</span>
+            <span class="hljs-comment">// If not, dup &apos;fd&apos; onto file descriptor 0,</span>
+            <span class="hljs-comment">// then close the original &apos;fd&apos;.</span>
+
+            <span class="hljs-comment">// LAB 5: Your code here.</span>
+            <span class="hljs-keyword">if</span> ( (fd = open(t, O_RDONLY) )&lt; <span class="hljs-number">0</span> ) {
+                <span class="hljs-built_in">fprintf</span>(<span class="hljs-number">2</span>,<span class="hljs-string">&quot;file %s is no exist\n&quot;</span>, t);
+                <span class="hljs-built_in">exit</span>();
+            }
+            <span class="hljs-keyword">if</span> (fd != <span class="hljs-number">0</span>) {
+                dup(fd, <span class="hljs-number">0</span>);
+                close(fd);
+            }
+            <span class="hljs-keyword">break</span>;
+            <span class="hljs-comment">//panic(&quot;&lt; redirection not implemented&quot;);</span>
+</code></pre>
+<p>&#x6700;&#x540E;&#x7684;&#x7ED3;&#x679C;&#xFF1A;</p>
+<p><img src="lab5-File system, Spawn and Shell/result.png" alt=""></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="lab4-Preemptive Multitasking.html" class="navigation navigation-prev " aria-label="Previous page: lab4: Preemptive Multitasking">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="lab6-Network Driver.html" class="navigation navigation-next " aria-label="Next page: lab6: Network Driver">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"lab5: File system, Spawn and Shell","level":"1.7","depth":1,"next":{"title":"lab6: Network Driver","level":"1.8","depth":1,"path":"lab6-Network Driver.md","ref":"./lab6-Network Driver.md","articles":[]},"previous":{"title":"lab4: Preemptive Multitasking","level":"1.6","depth":1,"path":"lab4-Preemptive Multitasking.md","ref":"./lab4-Preemptive Multitasking.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["callouts@git+https://github.com/Simran-B/gitbook-plugin-callouts.git","intopic-toc","theme-comscore","-lunr","-search","search-pro","github","splitter","-sharing","mathjax-pro"],"pluginsConfig":{"callouts":{"showTypeInHeader":true},"github":{"url":"https://github.com/KnowledgeHive/ddia"},"intopic-toc":{"isCollapsed":false,"isScrollspyActive":true,"label":{"de":"导航","en":"导航","ch":"导航"},"maxDepth":6,"mode":"nested","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4, .markdown-section h5, .markdown-section h6","visible":true},"splitter":{},"search-pro":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"mathjax-pro":{"forceSVG":false,"version":"2.7.7"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"lab5-File system, Spawn and Shell.md","mtime":"2021-02-19T16:35:01.847Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-19T16:39:19.156Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-intopic-toc/anchor.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-intopic-toc/gumshoe.polyfills.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-intopic-toc/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-mathjax-pro/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

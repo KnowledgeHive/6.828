@@ -1,0 +1,955 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Lab3: User Environments · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-intopic-toc/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="lab4-Preemptive Multitasking.html" />
+    
+    
+    <link rel="prev" href="lab2-Memory Management.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="preparation.html">
+            
+                <a href="preparation.html">
+            
+                    
+                    准备工作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="lab1-Booting a PC.html">
+            
+                <a href="lab1-Booting a PC.html">
+            
+                    
+                    Lab1: Booting a PC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="lab2-Memory Management.html">
+            
+                <a href="lab2-Memory Management.html">
+            
+                    
+                    lab2: Memory Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="Lab3-User Environments.html">
+            
+                <a href="Lab3-User Environments.html">
+            
+                    
+                    Lab3: User Environments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="lab4-Preemptive Multitasking.html">
+            
+                <a href="lab4-Preemptive Multitasking.html">
+            
+                    
+                    lab4: Preemptive Multitasking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="lab5-File system, Spawn and Shell.html">
+            
+                <a href="lab5-File system, Spawn and Shell.html">
+            
+                    
+                    lab5: File system, Spawn and Shell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="lab6-Network Driver.html">
+            
+                <a href="lab6-Network Driver.html">
+            
+                    
+                    lab6: Network Driver
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Lab3: User Environments</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="lab3-user-environments">Lab3: User Environments</h1>
+<p>&#x6574;&#x4E2A;&#x5B9E;&#x9A8C;&#x90E8;&#x5206;&#x6846;&#x67B6;&#x56FE;&#xFF1A;</p>
+<p><img src="Lab3-User Environments/arch.png" alt=""></p>
+<p>&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x662F;&#x901A;&#x8FC7;&#x4E2D;&#x65AD;&#x6765;&#x8FDB;&#x884C;&#x7684;&#xFF0C;syscall()&#x4ECE;&#x7528;&#x6237;&#x6001;&#x5230;&#x5185;&#x6838;&#x6001;&#x7684;&#x9677;&#x5165;&#x8FC7;&#x7A0B;&#xFF1A;</p>
+<p><img src="Lab3-User Environments/syscall.png" alt=""></p>
+<p>&#x76EE;&#x5F55;<code>/user</code>&#x548C;<code>/lib</code>&#x662F;&#x7528;&#x6237;&#x6001;&#x7684;&#x7A0B;&#x5E8F;&#xFF0C;<code>/kern</code>&#x548C;<code>/inc</code>&#xFF08;<code>/inc</code>&#x662F;&#x5185;&#x6838;&#x6001;&#x7684;&#x51FD;&#x6570;&#x5E93;&#x6587;&#x4EF6;&#xFF0C;&#x4F9B;&#x5185;&#x6838;&#x5185;&#x90E8;&#x8C03;&#x7528;&#xFF09;&#x662F;&#x8FD0;&#x884C;&#x5728;&#x5185;&#x6838;&#x4E2D;&#x7684;&#x7A0B;&#x5E8F;&#x3002;</p>
+<h3 id="part-a-user-environments-and-exception-handling">Part A: User Environments and Exception Handling</h3>
+<h4 id="environment-state">Environment State</h4>
+<p>JOS&#x4E2D;&#x5C06;thread&#x548C;address space&#x7684;&#x6982;&#x5FF5;&#x5177;&#x4F53;&#x5316;&#x3002;&#x5176;&#x4E2D;thread&#x5177;&#x4F53;&#x6307;&#x7684;&#x5C31;&#x662F;&#x4FDD;&#x5B58;&#x4E0B;&#x6765;&#x7684;&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x503C;<code>env_tf</code>&#xFF0C;address space&#x662F;page directory(<code>env_pgdir</code>)&#x3002;</p>
+<h4 id="allocating-the-environments-array">Allocating the Environments Array</h4>
+<h4 id="exercise-1">exercise 1</h4>
+<blockquote>
+<p>&#x6309;&#x7167;&#x4E4B;&#x524D;&#x5B9E;&#x9A8C;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4E3A;environment&#x5206;&#x914D;&#x76F8;&#x5E94;&#x7684;&#x7BA1;&#x7406;&#x5143;&#x6570;&#x636E;&#x7A7A;&#x95F4;&#xFF0C;&#x5E76;&#x4E14;&#x5BF9;&#x865A;&#x62DF;&#x7A7A;&#x95F4;&#x548C;&#x7269;&#x7406;&#x9875;&#x5730;&#x5740;&#x8FDB;&#x884C;&#x6620;&#x5C04;&#x3002;&#x6839;&#x636E;<code>/inc/memlayout.h</code>&#x4E2D;&#x7684;&#x5206;&#x914D;&#x5BF9;&#x6743;&#x9650;&#x8FDB;&#x884C;&#x5206;&#x5206;&#x914D;&#xFF0C;&#x7528;&#x6237;&#x6001;&#x4EC5;&#x53EF;&#x8BFB;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-c">envs = (struct Env*)boot_alloc(NENV*sizeof(struct Env));
+memset(envs, 0, NENV*sizeof(struct Env));
+boot_map_region(kern_pgdir, UENVS, PTSIZE, PADDR(envs), PTE_U);
+</code></pre>
+<h4 id="creating-and-running-environments">Creating and Running Environments</h4>
+<p>&#x5728;&#x4E4B;&#x524D;&#x7684;&#x5B9E;&#x9A8C;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x5728;boot loader&#x4E2D;&#x52A0;&#x8F7D;&#x4E86;&#x4E00;&#x4E2A;&#x5185;&#x6838;&#x4E8C;&#x8FDB;&#x5236;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14;&#x8FD0;&#x884C;&#x3002;</p>
+<p>&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x662F;&#x4ECE;&#x5185;&#x6838;&#x6001;&#x52A0;&#x8F7D;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#xFF0C;&#x5728;&#x7528;&#x6237;&#x6001;&#x8FD0;&#x884C;&#x3002;</p>
+<h4 id="exercise-2">exercise 2</h4>
+<blockquote>
+<p>&#x5728;<code>env.c</code>&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5B8C;&#x6210;&#x4E0B;&#x9762;&#x7684;&#x51FD;&#x6570;&#x529F;&#x80FD;&#xFF1A;</p>
+<p>env_init(): &#x521D;&#x59CB;&#x5316;&#x6211;&#x4EEC;&#x5728;exercise 1&#x4E2D;&#x5206;&#x914D;&#x7684;&#x6709;&#x5173;environments&#x7684;&#x5143;&#x6570;&#x636E;&#xFF0C;&#x5C06;&#x8FD9;&#x4E9B;&#x5143;&#x6570;&#x636E;&#x901A;&#x8FC7;<code>env_free_list</code>&#x8FDE;&#x63A5;&#x5230;&#x4E00;&#x8D77;&#x3002;&#x8C03;&#x7528; env_init_percpu()&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E9B;&#x6BB5;&#x5BC4;&#x5B58;&#x5668;&#x3002;</p>
+<p>env_setup_vm(): &#x5EFA;&#x7ACB;&#x8BE5;environment&#x7684;&#x9875;&#x76EE;&#x5F55;&#x7BA1;&#x7406;&#x7A7A;&#x95F4;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x5185;&#x6838;&#x7684;&#x9875;&#x76EE;&#x5F55;&#x7BA1;&#x7406;&#x5185;&#x5BB9;&#x590D;&#x5236;&#x5230;&#x8FD9;&#x4E2A;&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x5C06;UVPY(Cur. Page Table part)&#x865A;&#x62DF;&#x5730;&#x5740;&#x8FD9;&#x4E2A;&#x90E8;&#x5206;&#x7684;&#x7269;&#x7406;&#x5730;&#x5740;&#x66F4;&#x6539;&#x4E3A;&#x5F53;&#x524D;&#x7269;&#x7406;&#x9875;&#x9762;&#x7684;&#x7269;&#x7406;&#x5730;&#x5740;&#x3002;</p>
+<p>region_alloc(): &#x901A;&#x8FC7;elf&#x6587;&#x4EF6;&#x4E2D;&#x7684;memsz&#x548C;p_va&#x7533;&#x8BF7;&#x82E5;&#x5E72;&#x7684;&#x7269;&#x7406;&#x9875;&#xFF0C;&#x5E76;&#x4E14;&#x8FDB;&#x884C;&#x865A;&#x62DF;&#x5730;&#x5740;&#x548C;&#x7269;&#x7406;&#x5730;&#x5740;&#x7684;&#x6620;&#x5C04;&#xFF0C;&#x4FDD;&#x5B58;&#x5230;&#x5F53;&#x524D;environment&#x7684;&#x9875;&#x76EE;&#x5F55;&#x4E2D;&#x3002;</p>
+<p>load_icode(): &#x89E3;&#x6790;&#x4E00;&#x4E2A;ELF&#x6587;&#x4EF6;&#xFF0C;&#x5C06;&#x5176;&#x52A0;&#x8F7D;&#x5230;user environment&#x4E2D;&#xFF0C;&#x6709;&#x70B9;&#x7C7B;&#x4F3C;&#x4E8E;&#x52A0;&#x8F7D;&#x5185;&#x6838;&#x7684;&#x955C;&#x50CF;ELF&#x4E00;&#x6837;&#x3002;</p>
+<p>env_create(): &#x4F7F;&#x7528;env_alloc()(&#x4ECE;env_free_list&#x4E2D;&#x5206;&#x914D;&#x4E00;&#x4E2A;env &#x5143;&#x6570;&#x636E;&#x53D8;&#x91CF;)&#x548C;load_icode()</p>
+<p>env_run(): &#x672C;&#x5B9E;&#x9A8C;&#x7684;&#x4E00;&#x4E2A;&#x6838;&#x5FC3;&#x95EE;&#x9898;&#xFF0C;&#x600E;&#x4E48;&#x4ECE;&#x5185;&#x6838;&#x6001;&#x8F6C;&#x6362;&#x5230;&#x7528;&#x6237;&#x6001;&#x3002;</p>
+</blockquote>
+<p>&#x4E0A;&#x9762;&#x82E5;&#x5E72;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x8FC7;&#x7A0B;&#xFF1A;</p>
+<ul>
+<li><p>env_init()</p>
+</li>
+<li><p>env_create()</p>
+<ul>
+<li><p>env_alloc()</p>
+<ul>
+<li>env_setup_vm()</li>
+</ul>
+</li>
+<li><p>load_icode()</p>
+<ul>
+<li>region_alloc()</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>env_run()</p>
+</li>
+</ul>
+<p>env_init()&#x90E8;&#x5206;&#x7684;&#x5B9E;&#x73B0;&#x601D;&#x8DEF;&#x53CA;&#x4EE3;&#x7801;&#xFF1A;</p>
+<p>&#x5C06;&#x7A7A;&#x95F2;&#x7684;envs&#x94FE;&#x63A5;&#x8D77;&#x6765;</p>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> counter;
+env_free_list = <span class="hljs-literal">NULL</span>;
+<span class="hljs-keyword">for</span> (counter = NENV - <span class="hljs-number">1</span>; counter &gt;= <span class="hljs-number">0</span>; --counter) {
+    envs[counter].env_id = <span class="hljs-number">0</span>;
+    envs[counter].env_status = ENV_FREE;
+    envs[counter].env_link = env_free_list;
+    env_free_list = &amp;envs[counter];
+}
+</code></pre>
+<p>env_setup_vm():</p>
+<p>&#x5EFA;&#x7ACB;&#x6BCF;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x7684;&#x9875;&#x76EE;&#x5F55;&#x7BA1;&#x7406;&#x3002;</p>
+<pre><code class="lang-c">++p-&gt;pp_ref;
+    e-&gt;env_pgdir = (<span class="hljs-keyword">pde_t</span> *)page2kva(p);
+    <span class="hljs-built_in">memcpy</span>(e-&gt;env_pgdir, kern_pgdir, PGSIZE);
+
+    <span class="hljs-comment">// UVPT maps the env&apos;s own page table read-only.</span>
+    <span class="hljs-comment">// Permissions: kernel R, user R</span>
+    e-&gt;env_pgdir[PDX(UVPT)] = PADDR(e-&gt;env_pgdir) | PTE_P | PTE_U;
+</code></pre>
+<p>region_alloc():</p>
+<p>&#x5206;&#x914D;&#x5E76;&#x4E14;&#x6620;&#x5C04;&#x7269;&#x7406;&#x5185;&#x5B58;&#x3002;</p>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span>
+<span class="hljs-title">region_alloc</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> Env *e, <span class="hljs-keyword">void</span> *va, size_t len)</span>
+</span>{
+    <span class="hljs-comment">// LAB 3: Your code here.</span>
+    <span class="hljs-comment">// (But only if you need it for load_icode.)</span>
+    <span class="hljs-comment">//</span>
+    <span class="hljs-comment">// Hint: It is easier to use region_alloc if the caller can pass</span>
+    <span class="hljs-comment">//   &apos;va&apos; and &apos;len&apos; values that are not page-aligned.</span>
+    <span class="hljs-comment">//   You should round va down, and round (va + len) up.</span>
+    <span class="hljs-comment">//   (Watch out for corner-cases!)</span>
+    <span class="hljs-keyword">struct</span> PageInfo *page = <span class="hljs-literal">NULL</span>;
+    va = ROUNDDOWN(va, PGSIZE);
+    <span class="hljs-keyword">void</span> *end = (<span class="hljs-keyword">void</span> *)ROUNDUP(va + len, PGSIZE);
+    <span class="hljs-keyword">for</span> (; va &lt; end; va += PGSIZE) {
+        <span class="hljs-keyword">if</span> (!(page = page_alloc(ALLOC_ZERO)))
+            panic(<span class="hljs-string">&quot;region_alloc: alloc failed.&quot;</span>);
+        <span class="hljs-keyword">if</span> (page_insert(e-&gt;env_pgdir, page, va, PTE_U | PTE_W))
+            panic(<span class="hljs-string">&quot;region_alloc: page mapping failed.&quot;</span>);
+    }
+}
+</code></pre>
+<p>load_icode():</p>
+<p>&#x5C06;&#x4E8C;&#x8FDB;&#x5236;&#x7684;&#x7A0B;&#x5E8F;&#x52A0;&#x8F7D;&#x5230;&#x5185;&#x5B58;&#x4E2D;</p>
+<pre><code class="lang-c"><span class="hljs-keyword">struct</span> Elf *elf_header = (<span class="hljs-keyword">struct</span> Elf *)binary;
+    <span class="hljs-keyword">if</span> (elf_header-&gt;e_magic != ELF_MAGIC)
+        panic(<span class="hljs-string">&quot;load_icode: illegal ELF format.&quot;</span>);
+    lcr3(PADDR(e-&gt;env_pgdir));
+    <span class="hljs-keyword">struct</span> Proghdr *ph = (<span class="hljs-keyword">struct</span> Proghdr *)((<span class="hljs-keyword">uint8_t</span> *)(elf_header) + elf_header-&gt;e_phoff);
+    <span class="hljs-keyword">struct</span> Proghdr *eph = ph + elf_header-&gt;e_phnum;
+    <span class="hljs-keyword">for</span> (; ph &lt; eph; ++ph) {
+        <span class="hljs-keyword">if</span> (ph-&gt;p_type == ELF_PROG_LOAD) {
+            region_alloc(e, (<span class="hljs-keyword">void</span> *)ph-&gt;p_va, ph-&gt;p_memsz);
+            memmove((<span class="hljs-keyword">void</span> *)ph-&gt;p_pa, binary + ph-&gt;p_offset, ph-&gt;p_filesz);
+            <span class="hljs-built_in">memset</span>((<span class="hljs-keyword">void</span> *)(ph-&gt;p_pa + ph-&gt;p_filesz), <span class="hljs-number">0</span>, ph-&gt;p_memsz - ph-&gt;p_filesz);
+        }
+    }
+    e-&gt;env_tf.tf_eip = elf_header-&gt;e_entry;
+    lcr3(PADDR(kern_pgdir));
+    region_alloc(e, (<span class="hljs-keyword">void</span> *)(USTACKTOP - PGSIZE), PGSIZE);
+</code></pre>
+<p>&#x5F53;&#x4E0A;&#x9762;&#x7684;&#x529F;&#x80FD;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF0C;&#x5185;&#x6838;&#x4F1A;&#x53BB;&#x6267;&#x884C;&#x4E00;&#x4E2A;hello&#x7684;ELF&#x6587;&#x4EF6;&#xFF0C;&#x4F46;&#x662F;&#x4E00;&#x65E6;&#x6267;&#x884C;&#x5230;<code>int</code>&#x6307;&#x4EE4;&#x7684;&#x7A0B;&#x5E8F;&#xFF0C;&#x5C31;&#x4F1A;&#x6709;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x5728;&#x8FD9;&#x4E2A;&#x8282;&#x70B9;&#x4E0A;&#x8FD8;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x786C;&#x4EF6;&#x521D;&#x59CB;&#x5316;&#x6765;&#x5904;&#x7406;&#x5F02;&#x5E38;&#x3002;</p>
+<p>&#x5F53;&#x5185;&#x6838;&#x53D1;&#x73B0;&#x6CA1;&#x6709;&#x5EFA;&#x7ACB;&#x5F02;&#x5E38;&#x5904;&#x7406;&#x673A;&#x5236;&#x65F6;&#xFF0C;&#x4F1A;&#x4EA7;&#x751F;a double fault exception&#x3002;</p>
+<p>&#x5E76;&#x4E14;&#x6700;&#x7EC8;&#x653E;&#x5F03;&#xFF0C;&#x7ED9;&#x51FA;&quot;triple fault&quot;&#x3002;</p>
+<p>&#x5728;<code>env_pop_tf()</code>&#x51FD;&#x6570;&#x4E2D;&#x7684;<code>iret</code>&#x6307;&#x4EE4;&#x540E;&#x4F1A;&#x4ECE;&#x5185;&#x6838;&#x8FDB;&#x5165;&#x5230;&#x7528;&#x6237;&#x6A21;&#x5F0F;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E00;&#x4E2A;&#x5206;&#x754C;&#x7684;&#x6307;&#x4EE4;&#x3002;</p>
+<p>&#x8BF4;&#x8BF4;&#x8FD9;&#x4E2A;<code>iret</code>&#x7684;&#x542B;&#x4E49;&#xFF1A;</p>
+<p>&#x5728;&#x4E00;&#x822C;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;call address&#x4E4B;&#x540E;&#x4E00;&#x5B9A;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;<code>ret</code>&#x6307;&#x4EE4;&#xFF0C;&#x8BE5;&#x6307;&#x4EE4;&#x5C31;&#x662F;&#x8FD4;&#x56DE;call&#x4E0B;&#x4E00;&#x6761;&#x6307;&#x4EE4;&#x5730;&#x5740;&#x3002;</p>
+<p><code>iret</code>&#x6307;&#x7684;&#x662F;&#x4E2D;&#x65AD;&#x7684;&#x8FD4;&#x56DE;&#x3002;&#x6211;&#x4EEC;&#x4E4B;&#x524D;&#x90FD;&#x6CA1;&#x6709;&#x8C03;&#x7528;&#x54EA;&#x6765;&#x7684;&#x8FD4;&#x56DE;&#x554A;&#xFF1F;</p>
+<p>&#x8FD9;&#x5C31;&#x662F;&#x4ECE;&#x5185;&#x6838;&#x6001;&#x5207;&#x6362;&#x5230;&#x7528;&#x6237;&#x6001;&#x7684;&#x7CBE;&#x9AD3;&#x6240;&#x5728;&#x4E86;&#x3002;&#x6211;&#x4EEC;&#x5728;&#x4E4B;&#x524D;&#x7684;&#x521D;&#x59CB;&#x5316;&#x7A0B;&#x5E8F;&#x4E2D;&#x521D;&#x59CB;&#x5316;&#x4E86;&#x82E5;&#x5E72;&#x7684;&#x5BC4;&#x5B58;&#x5668;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">//env_alloc()</span>
+e-&gt;env_tf.tf_ds = GD_UD | <span class="hljs-number">3</span>;
+e-&gt;env_tf.tf_es = GD_UD | <span class="hljs-number">3</span>;
+e-&gt;env_tf.tf_ss = GD_UD | <span class="hljs-number">3</span>;
+e-&gt;env_tf.tf_esp = USTACKTOP;
+e-&gt;env_tf.tf_cs = GD_UT | <span class="hljs-number">3</span>;
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x770B;&#x5230;&#x6211;&#x4EEC;&#x521D;&#x59CB;&#x5316;&#x4E86;environment&#x7684;&#x6808;&#x8BBE;&#x7F6E;&#x5230;&#x4E86;<code>USTACKTOP</code>&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x9996;&#x5148;&#x5C06;esp&#x79FB;&#x52A8;&#x5230;&#x4E86;<code>tf</code>&#x7ED3;&#x6784;&#x4F53;&#xFF0C;&#x7136;&#x540E;iret&#x76F8;&#x5F53;&#x4E8E;&#x662F;&#x5C06;&#x6808;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x8D4B;&#x503C;&#x5230;&#x4E86;&#x76F8;&#x5E94;&#x7684;&#x5BC4;&#x5B58;&#x5668;&#x4E2D;:</p>
+<p><img src="Lab3-User Environments/iret.png" alt=""></p>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x76F8;&#x5E94;&#x7684;&#x7ED3;&#x6784;&#x4F53;&#x548C;&#x503C;&#x76F8;&#x5BF9;&#x5E94;&#xFF0C;&#x53D1;&#x73B0;&#x786E;&#x5B9E;&#x662F;&#x8FD9;&#x6837;&#x7684;&#x3002;</p>
+<pre><code class="lang-c"><span class="hljs-keyword">struct</span> Trapframe {
+    <span class="hljs-keyword">struct</span> PushRegs tf_regs;
+    <span class="hljs-keyword">uint16_t</span> tf_es;
+    <span class="hljs-keyword">uint16_t</span> tf_padding1;
+    <span class="hljs-keyword">uint16_t</span> tf_ds;
+    <span class="hljs-keyword">uint16_t</span> tf_padding2;
+    <span class="hljs-keyword">uint32_t</span> tf_trapno;
+    <span class="hljs-comment">/* below here defined by x86 hardware */</span>
+    <span class="hljs-keyword">uint32_t</span> tf_err;
+    <span class="hljs-keyword">uintptr_t</span> tf_eip;
+    <span class="hljs-keyword">uint16_t</span> tf_cs;
+    <span class="hljs-keyword">uint16_t</span> tf_padding3;
+    <span class="hljs-keyword">uint32_t</span> tf_eflags;
+    <span class="hljs-comment">/* below here only when crossing rings, such as from user to kernel */</span>
+    <span class="hljs-keyword">uintptr_t</span> tf_esp;
+    <span class="hljs-keyword">uint16_t</span> tf_ss;
+    <span class="hljs-keyword">uint16_t</span> tf_padding4;
+} __attribute__((packed));
+</code></pre>
+<p>&#x5F53;&#x6211;&#x4EEC;&#x6267;&#x884C;&#x5B8C;<code>iret</code>&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x7684;esp&#x5BC4;&#x5B58;&#x5668;&#x786E;&#x5B9E;&#x5728;&#x4E86;<code>USTACKTOP</code>&#x8FD9;&#x91CC;&#xFF1A;</p>
+<p><img src="Lab3-User Environments/userstack.png" alt=""></p>
+<p>&#x6B64;&#x523B;&#x6211;&#x4EEC;&#x5728;<code>/lib/entry.S</code>&#x4E2D;&#x3002;</p>
+<p>&#x77E5;&#x9053;&#x4E86;&#x600E;&#x4E48;&#x4ECE;&#x5185;&#x6838;-&gt;&#x7528;&#x6237;&#x6001;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x600E;&#x4E48;&#x4ECE;&#x7528;&#x6237;&#x6001;-&gt;&#x5185;&#x6838;&#x6001;&#x5462;&#xFF1F;</p>
+<p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;&#x6211;&#x4EEC;&#x90FD;&#x662F;&#x901A;&#x8FC7;&#x4E2D;&#x65AD;&#x8FDB;&#x5165;&#x5230;&#x5185;&#x6838;&#x6001;&#x7684;&#xFF0C;&#x90A3;&#x4E48;&#x5728;&#x4E2D;&#x65AD;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x89C2;&#x5BDF;&#x6808;&#xFF1A;</p>
+<p><img src="Lab3-User Environments/preINT.png" alt=""></p>
+<p>&#x53D1;&#x73B0;&#x6B64;&#x65F6;&#x6267;&#x884C;&#x7684;&#x4EE3;&#x7801;&#x4F9D;&#x65E7;&#x662F;&#x5728;&#x7528;&#x6237;&#x6001;&#xFF08;&#x5730;&#x5740;&#x4E3A;0x800b2d&#x8F83;&#x4F4E;&#xFF09;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x7279;&#x610F;&#x6253;&#x5370;&#x4E86;&#x4E00;&#x4E9B;&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x503C;&#xFF0C;&#x770B;&#x770B;<code>int</code>&#x540E;&#x4F1A;&#x5C06;&#x54EA;&#x4E9B;&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x503C;&#x538B;&#x5165;&#x3002;</p>
+<p><img src="Lab3-User Environments/INT_process.png" alt=""></p>
+<p>&#x6211;&#x4EEC;&#x53D1;&#x73B0;&#x4E86;&#x4E0B;&#x9762;&#x7684;&#x538B;&#x6808;&#x987A;&#x5E8F;&#xFF1A;</p>
+<pre><code>ss
+old esp
+eflags
+cs
+old eip
+0(&#x6211;&#x4E5F;&#x4E0D;&#x77E5;&#x9053;&#x662F;&#x4EC0;&#x4E48;&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x503C;&#xFF0C;&#x53EF;&#x80FD;&#x662F;error code)
+&#x4E2D;&#x65AD;&#x7C7B;&#x578B;
+</code></pre><p>&#x5E76;&#x4E14;&#x6B64;&#x523B;&#x7684;&#x6808;&#x503C;&#x4E3A;<code>0xefffffe8</code>&#xFF0C;&#x67E5;&#x770B;<code>memlayout.h</code>&#x53D1;&#x73B0;&#x5C31;&#x662F;CPU0&#x7684;&#x5185;&#x6838;&#x6808;&#x3002;</p>
+<p>&#x5E76;&#x4E14;&#x6211;&#x4EEC;&#x53D1;&#x73B0;&#x8FD9;&#x4E2A;&#x6808;&#x503C;&#x5E76;&#x4E0D;&#x662F;&#x539F;&#x6765;kernel&#x6240;&#x5728;stack&#x7684;&#x503C;&#xFF0C;&#x5B8C;&#x5168;&#x662F;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x6808;&#xFF08;CPU0&#x7684;&#x6808;&#xFF0C;&#x5185;&#x6838;&#x6808;&#x4ECE;&#x5185;&#x6838;&#x6001;&#x5207;&#x6362;&#x5230;&#x7528;&#x6237;&#x6001;&#x4E00;&#x53BB;&#x4E0D;&#x590D;&#x8FD4;&#x4E86;&#xFF09;&#x3002;&#x8FD9;&#x4E5F;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x8F6F;&#x4E2D;&#x65AD;&#x4E0D;&#x80FD;&#x5D4C;&#x5957;&#x7684;&#x4E00;&#x4E2A;&#x539F;&#x56E0;&#xFF0C;&#x56E0;&#x4E3A;&#x4ECE;&#x7528;&#x6237;&#x6001;&#x5230;&#x5185;&#x6838;&#x6001;&#x90FD;&#x662F;&#x4ECE;<code>KSTACKTOP</code>&#x5F80;&#x4E0B;&#x6539;&#x53D8;&#x7684;&#xFF08;&#x540E;&#x9762;&#x6211;&#x4EEC;&#x4F1A;&#x77E5;&#x9053;&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#x8868;&#x4E2D;0-31&#x53F7;&#x4E2D;&#x65AD;&#x5C5E;&#x4E8E;&#x7CFB;&#x7EDF;&#x4E2D;&#x65AD;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x53EF;&#x4EE5;&#x5D4C;&#x5957;&#x7684;&#xFF09;&#x3002;</p>
+<p>&#x4E8E;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x7EC8;&#x4E8E;&#x641E;&#x61C2;&#x4E86;&#x5185;&#x6838;-&gt;&#x7528;&#x6237;&#x6001;&#xFF0C;&#x7528;&#x6237;&#x6001;-&gt;&#x5185;&#x6838;&#x6001;&#x7684;&#x5168;&#x8FC7;&#x7A0B;&#x3002;</p>
+<p>&#x4E4B;&#x540E;&#x6211;&#x4EEC;&#x4E0A;&#x9762;&#x505A;&#x7684;&#x5DE5;&#x4F5C;&#x90FD;&#x5E94;&#x8BE5;&#x6B63;&#x786E;&#x76F4;&#x5230;&#x6267;&#x884C;<code>int $30</code>&#x3002;&#x786E;&#x4FDD;&#x4E0A;&#x9762;&#x5DE5;&#x4F5C;&#x7684;&#x6B63;&#x5E38;&#x3002;</p>
+<h4 id="handling-interrupts-and-exceptions">Handling Interrupts and Exceptions</h4>
+<blockquote>
+<p>&#x9605;&#x8BFB;<a href="https://pdos.csail.mit.edu/6.828/2018/readings/i386/toc.htm" target="_blank">i386&#x624B;&#x518C;</a>&#xFF0C;&#x53BB;&#x4E86;&#x89E3;&#x4E2D;&#x65AD;&#x7684;&#x539F;&#x7406;</p>
+</blockquote>
+<p>&#x672C;&#x5B9E;&#x9A8C;&#x4E2D;&#xFF0C;<code>exception</code>, <code>trap</code>, <code>interrupt</code>, <code>fault</code> &#x548C; <code>abort</code>&#x6CA1;&#x6709;&#x672C;&#x8D28;&#x7684;&#x533A;&#x522B;&#x3002;</p>
+<p>call&#x548C;int&#x7684;&#x533A;&#x522B;&#xFF1A;</p>
+<p>&#x5728;&#x8C03;&#x7528;call&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x4F1A;&#x5C06;call&#x7684;&#x4E0B;&#x4E00;&#x6761;&#x6307;&#x4EE4;&#x538B;&#x5165;&#x5230;&#x6808;&#x4E2D;&#x3002;&#xFF08;&#x6808;&#x5E27;&#x662F;&#x8FDE;&#x7EED;&#x7684;&#xFF09;</p>
+<p>&#x800C;&#x5728;int &#x6307;&#x4EE4;&#x4E2D;&#xFF0C;&#x9996;&#x5148;&#x8DF3;&#x8F6C;&#x5230;&#x65B0;&#x7684;&#x6808;&#x5730;&#x5740;&#xFF08;&#x6808;&#x5E27;&#x662F;&#x4E0D;&#x8FDE;&#x7EED;&#x7684;&#xFF09;&#xFF0C;&#x4F9D;&#x6B21;&#x538B;&#x5165;&#x539F;esp&#xFF0C;eflags&#xFF0C;cs&#xFF0C;&#x548C;int&#x4E0B;&#x4E00;&#x6761;&#x6307;&#x4EE4;&#x5730;&#x5740;&#x3002;</p>
+<p>&#x672C;&#x8D28;&#x4E0A;&#x538B;&#x6808;&#x7684;&#x7ED3;&#x6784;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</p>
+<pre><code>                     +--------------------+ KSTACKTOP             
+                     | 0x00000 | old SS   |     &quot; - 4
+                     |      old ESP       |     &quot; - 8
+                     |     old EFLAGS     |     &quot; - 12
+                     | 0x00000 | old CS   |     &quot; - 16
+                     |      old EIP       |     &quot; - 20 &lt;---- ESP 
+                     +--------------------+
+</code></pre><p>&#x5982;&#x4E0B;&#x9762;&#x8FC7;&#x7A0B;&#x6240;&#x793A;&#xFF0C;&#x5C06;&#x8C03;&#x7528;&#x524D;&#x548C;&#x8C03;&#x7528;&#x540E;&#x7684;&#x6808;&#x7A7A;&#x95F4;&#x5185;&#x5BB9;&#x663E;&#x793A;&#x51FA;&#x6765;&#xFF0C;&#x5E76;&#x4E14;&#x8FD9;&#x4E2A;&#x5185;&#x5BB9;&#x5728;&#x524D;&#x9762;&#x7528;&#x6237;&#x6001;-&gt;&#x5185;&#x6838;&#x6001;&#x7684;&#x5207;&#x6362;&#x5DF2;&#x7ECF;&#x8BB2;&#x8FC7;&#x4E86;&#xFF0C;&#x4E3B;&#x8981;&#x5C31;&#x662F;&#x60F3;&#x5F3A;&#x8C03;&#x4E2D;&#x65AD;&#x538B;&#x6808;&#x987A;&#x5E8F;&#x7684;&#x91CD;&#x8981;&#x6027;&#xFF1A;</p>
+<p><img src="Lab3-User Environments/preINT.png" alt=""></p>
+<p><img src="Lab3-User Environments/INT_process.png" alt=""></p>
+<p>&#x4E0B;&#x9762;&#x7684;&#x4E24;&#x4E2A;&#x673A;&#x5236;&#x4FDD;&#x8BC1;&#x4E86;&#x4E2D;&#x65AD;&#x7684;&#x6709;&#x5E8F;&#x8FDB;&#x884C;&#xFF1A;</p>
+<ol>
+<li><p>&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#x8868;&#xFF1A;x86&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#x8868;&#x6700;&#x591A;&#x652F;&#x6301;256&#x4E2A;&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x600E;&#x4E48;&#x5927;&#x4E5F;&#x662F;&#x7CFB;&#x7EDF;&#x7684;&#x89C4;&#x5B9A;&#x3002;&#x4E3B;&#x8981;&#x5728;&#x8868;&#x4E2D;&#x8BB0;&#x5F55;&#x4E0B;&#x9762;&#x7684;&#x4E24;&#x4E2A;&#x503C;&#xFF1A;</p>
+</li>
+<li><p>EIP&#xFF1A;&#x4E2D;&#x65AD;&#x53D1;&#x751F;&#x4E86;&#x5E94;&#x8BE5;&#x8DF3;&#x8F6C;&#x5230;&#x54EA;&#x91CC;</p>
+</li>
+<li><p>CS &#x5BC4;&#x5B58;&#x5668;&#x7684;&#x503C;&#xFF0C;&#x5305;&#x62EC;&#x672B;&#x4E24;&#x4F4D;&#x6307;&#x793A;&#x4F18;&#x5148;&#x7EA7;&#x7684;&#x503C;&#xFF08;JOS&#x4E2D;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x4E2D;&#x65AD;&#x90FD;&#x662F;&#x5728;&#x5185;&#x6838;&#x6A21;&#x5F0F;&#x8FDB;&#x884C;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x4F18;&#x5148;&#x7EA7;=0&#xFF09;</p>
+</li>
+<li><p>The Task State Segment(TSS)&#xFF1A;&#x7CFB;&#x7EDF;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x5730;&#x65B9;&#x6765;&#x5B58;&#x50A8;&#x65E7;&#x7684;&#x5904;&#x7406;&#x5668;&#x7684;&#x72B6;&#x6001;&#x3002;&#x5728;JOS&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4EC5;&#x4EC5;&#x4F7F;&#x7528;<code>ESP0</code> &#x548C;<code>SS0</code>&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x6211;&#x4EEC;&#x4ECE;&#x7528;&#x6237;&#x6001;-&gt;&#x5185;&#x6838;&#x6001;&#xFF0C;&#x6808;&#x5BC4;&#x5B58;&#x5668;&#x4E00;&#x4E0B;&#x5B50;&#x5C31;&#x53D8;&#x6210;&#x4E86;<code>KSTACKTOP</code>&#x7684;&#x539F;&#x56E0;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;TSS&#x5728;&#x4ECE;&#x5185;&#x6838;&#x6001;-&gt;&#x7528;&#x6237;&#x6001;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x5DF2;&#x7ECF;&#x4FDD;&#x5B58;&#x597D;&#x4E86;&#x5185;&#x6838;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x65B9;&#x4FBF;&#x80FD;&#x591F;&#x8FD4;&#x56DE;&#x5185;&#x6838;&#x6001;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x4E1C;&#x897F;&#x4E3B;&#x8981;&#x4F9D;&#x9760;<code>tr</code>&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x652F;&#x6301;&#xFF0C;<code>tr</code>&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x7ED3;&#x6784;&#xFF1A;</p>
+<p><img src="Lab3-User Environments/tr.gif" alt=""></p>
+<p>&#x56E0;&#x6B64;&#x6574;&#x4E2A;&#x627E;&#x5230;&#x539F;&#x6765;&#x5904;&#x7406;&#x5668;&#x72B6;&#x6001;&#x7684;&#x8FC7;&#x7A0B;&#x4E3A;&#xFF0C;&#x5176;&#x4E2D;&#x7EFF;&#x8272;&#x7684;&#x6846;&#x8868;&#x793A;&#x7CFB;&#x7EDF;&#x4E2D;&#x6D89;&#x53CA;&#x5230;&#x7684;&#x521D;&#x59CB;&#x5316;&#x7684;&#x90E8;&#x5206;&#xFF1A;</p>
+<p><img src="Lab3-User Environments/process.gif" alt=""></p>
+<p>&#x6211;&#x4EEC;&#x521D;&#x59CB;&#x5316;&#x4E86;<code>tr</code>&#x5BC4;&#x5B58;&#x5668;&#x7684;SELECTOR&#x90E8;&#x5206;&#xFF0C;&#x4ECE;&#x800C;&#x80FD;&#x591F;&#x901A;&#x8FC7;GDT&#x6765;&#x627E;&#x5230;TSS&#xFF0C;&#x627E;&#x5230;TSS&#x4E2D;&#x7684;old ESP&#x548C;CS&#x5C31;&#x786E;&#x5B9A;&#x4E86;&#x539F;&#x6765;&#x6808;&#x7684;&#x72B6;&#x51B5;&#x4E86;&#xFF0C;EIP&#x548C;CS&#x6839;&#x636E;&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#x8868;&#x6765;&#x786E;&#x5B9A;&#x3002;</p>
+</li>
+</ol>
+<pre><code class="lang-c"><span class="hljs-comment">// &#x521D;&#x59CB;&#x5316;&#x90E8;&#x5206;</span>
+<span class="hljs-comment">// Initialize the TSS slot of the gdt.</span>
+gdt[GD_TSS0 &gt;&gt; <span class="hljs-number">3</span>] = SEG16(STS_T32A, (<span class="hljs-keyword">uint32_t</span>) (&amp;ts),
+                    <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> Taskstate) - <span class="hljs-number">1</span>, <span class="hljs-number">0</span>);
+gdt[GD_TSS0 &gt;&gt; <span class="hljs-number">3</span>].sd_s = <span class="hljs-number">0</span>;
+
+
+ltr(GD_TSS0);
+</code></pre>
+<p>&#x7EFC;&#x4E0A;&#xFF0C;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x4ECE;&#x7528;&#x6237;&#x6001;&#x8F6C;&#x79FB;&#x5230;&#x5185;&#x6838;&#x6001;&#x8FDB;&#x884C;&#x5C0F;&#x5FC3;&#x7684;&#x5904;&#x7406;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x501F;&#x52A9;&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#x8868;&#x548C;TSS&#xFF0C;&#x4ECE;&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#x8868;&#x4E2D;&#x52A0;&#x8F7D;EIP&#x548C;CS&#xFF0C;&#x4ECE;TSS&#x4E2D;&#x52A0;&#x8F7D;ESP&#x548C;SS&#xFF0C;&#x4ECE;&#x800C;&#x5C31;&#x5B8C;&#x6210;&#x4E86;&#x7528;&#x6237;&#x6001;-&gt;&#x5185;&#x6838;&#x6001;&#x7684;&#x8F6C;&#x79FB;&#x5DE5;&#x4F5C;&#x3002;</p>
+<h4 id="gdt-idt-ldt&#x548C;tss&#x7684;&#x5173;&#x7CFB;">GDT, IDT, LDT&#x548C;TSS&#x7684;&#x5173;&#x7CFB;</h4>
+<p>JOS&#x6240;&#x6709;&#x7684;&#x5B9E;&#x9A8C;&#x90FD;&#x6CA1;&#x6709;&#x4F7F;&#x7528;LDT&#xFF08;local descriptor table&#xFF09;&#x3002;&#x5B83;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x5B9A;&#x4F4D;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x5904;&#x7406;&#x5668;(processor)&#x7684;segment&#xFF0C;&#x5E76;&#x4E14;&#x5165;&#x53E3;&#x4FDD;&#x5B58;&#x5230;&#x4E86;GDT&#xFF0C;&#x914D;&#x5408;LDTR (Local Descriptor Table Register)&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x3002;</p>
+<p>GDT&#x5728;JOS&#x4E2D;&#x4E3B;&#x8981;&#x662F;&#x4FDD;&#x5B58;&#x5404;&#x6BB5;&#x7684;&#x4F4D;&#x7F6E;&#x7B49;&#x4FE1;&#x606F;&#xFF0C;&#x914D;&#x5408;&#x82E5;&#x5E72;&#x5BC4;&#x5B58;&#x5668;&#x4F7F;&#x7528;&#x5982;SS&#xFF0C;TR(task register)&#x7B49;&#x7B49;&#x3002;</p>
+<p>IDT[256]&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#x8868;</p>
+<p>TSS&#x901A;&#x8FC7;tr&#x5BC4;&#x5B58;&#x5668;&#x548C;GDT&#x80FD;&#x591F;&#x627E;&#x5230;&#x3002;</p>
+<h4 id="basics-of-protected-control-transfer">Basics of Protected Control Transfer</h4>
+<h4 id="types-of-exceptions-and-interrupts">Types of Exceptions and Interrupts</h4>
+<p>&#x6709;0-31&#x7684;&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#x5185;&#x90E8;&#x7684;&#x4E2D;&#x65AD;(<em>the processor</em> exceptions)&#x3002;</p>
+<p>&#x53EF;&#x81EA;&#x7531;&#x5B9A;&#x4E49;&#x7684;&#x8F6F;&#x4E2D;&#x65AD;&#x3002;</p>
+<p>&#x786C;&#x4EF6;&#x4E2D;&#x65AD;&#x3002;</p>
+<p>&#x5176;&#x4E2D;&#x7B2C;&#x4E00;&#x79CD;&#x662F;&#x53EF;&#x4EE5;&#x5D4C;&#x5957;&#x7684;&#xFF0C;&#x5176;&#x4ED6;&#x4E24;&#x79CD;&#x5E94;&#x8BE5;&#x4E0D;&#x80FD;&#x8FDB;&#x884C;&#x5D4C;&#x5957;&#x3002;</p>
+<h4 id="&#x4E00;&#x4E2A;&#x4E2D;&#x65AD;&#x53D1;&#x751F;&#x7684;&#x4F8B;&#x5B50;">&#x4E00;&#x4E2A;&#x4E2D;&#x65AD;&#x53D1;&#x751F;&#x7684;&#x4F8B;&#x5B50;</h4>
+<p><code>Trapframe</code>&#x7ED3;&#x6784;&#x5728;&#x6808;&#x4E2D;&#x5EFA;&#x7ACB;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x4EE5;int $0x30&#x4E3A;&#x4F8B;&#xFF1A;</p>
+<ol>
+<li><code>int</code>&#x6307;&#x4EE4;&#x4F1A;&#x4ECE;&#x7528;&#x6237;&#x6808;&#x5207;&#x6362;&#x5230;&#x5185;&#x6838;&#x6808;<code>KSTACKTOP</code>&#x3002;&#x5E76;&#x4E14;&#x4F9D;&#x6B21;&#x538B;&#x5165;&#x4EE5;&#x4E0B;&#x7684;&#x503C;&#xFF1A;</li>
+</ol>
+<pre><code>(xxx)(&#x76EE;&#x524D;&#x672A;&#x77E5;)
+ss
+old esp
+eflags
+cs
+old eip
+error code
+</code></pre><ol>
+<li><code>/kern/trapentry.S</code>&#x4E2D;&#x6709;&#x4E0B;&#x9762;&#x7684;&#x6307;&#x4EE4;&#xFF1A;<code>pushl $(num);</code></li>
+</ol>
+<p>&#x73B0;&#x5728;&#x7684;&#x6808;&#x5185;&#x5BB9;&#x4E3A;&#xFF1A;</p>
+<pre><code>               &lt;---------------KSTACKTOP
+(xxx)(&#x76EE;&#x524D;&#x672A;&#x77E5;)
+ss
+old esp
+eflags
+cs
+old eip
+error code
+&#x4E2D;&#x65AD;&#x7C7B;&#x578B;
+</code></pre><ol>
+<li><code>_alltraps</code>&#x6267;&#x884C;&#x5B8C;&#x76F8;&#x5E94;&#x7684;&#x538B;&#x6808;&#x6307;&#x4EE4;&#xFF0C;&#x5185;&#x5B58;&#x4E3A;&#xFF1A;</li>
+</ol>
+<pre><code>               &lt;---------------KSTACKTOP
+(xxx)(&#x76EE;&#x524D;&#x672A;&#x77E5;)
+ss
+old esp
+eflags
+cs
+old eip
+error code
+&#x4E2D;&#x65AD;&#x7C7B;&#x578B;
+ds
+es
+&#x82E5;&#x5E72;&#x901A;&#x7528;&#x5BC4;&#x5B58;&#x5668;&#x503C;
+</code></pre><p>&#x4E0A;&#x9762;&#x5C31;&#x6784;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;Trapframe&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;&#x6211;&#x4EEC;&#x518D;&#x6B21;&#x5BF9;&#x6BD4;Trapframe&#x7684;&#x7ED3;&#x6784;&#x4F53;&#x53D8;&#x91CF;&#x7ED3;&#x6784;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-keyword">struct</span> Trapframe {
+    <span class="hljs-keyword">struct</span> PushRegs tf_regs;
+    <span class="hljs-keyword">uint16_t</span> tf_es;
+    <span class="hljs-keyword">uint16_t</span> tf_padding1;
+    <span class="hljs-keyword">uint16_t</span> tf_ds;
+    <span class="hljs-keyword">uint16_t</span> tf_padding2;
+    <span class="hljs-keyword">uint32_t</span> tf_trapno;
+    <span class="hljs-comment">/* below here defined by x86 hardware */</span>
+    <span class="hljs-keyword">uint32_t</span> tf_err;
+    <span class="hljs-keyword">uintptr_t</span> tf_eip;
+    <span class="hljs-keyword">uint16_t</span> tf_cs;
+    <span class="hljs-keyword">uint16_t</span> tf_padding3;
+    <span class="hljs-keyword">uint32_t</span> tf_eflags;
+    <span class="hljs-comment">/* below here only when crossing rings, such as from user to kernel */</span>
+    <span class="hljs-keyword">uintptr_t</span> tf_esp;
+    <span class="hljs-keyword">uint16_t</span> tf_ss;
+    <span class="hljs-keyword">uint16_t</span> tf_padding4;
+} __attribute__((packed));
+</code></pre>
+<p>&#x6808;&#x4E2D;&#x5B58;&#x653E;&#x7684;&#x5C31;&#x662F;&#x8FD9;&#x4E2A;&#x7ED3;&#x6784;&#x4F53;&#x554A;&#x3002;</p>
+<p>&#x603B;&#x7ED3;&#x6784;&#x5EFA;&#x6309;Trapframe&#x7684;&#x6B65;&#x9AA4;&#x5C31;&#x662F;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> $<span class="hljs-number">0x30</span>
+pushl $(num)
+pushl %ds
+pushl %es
+pushal <span class="hljs-comment">//&#x538B;&#x5165;&#x901A;&#x7528;&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x503C;</span>
+</code></pre>
+<p>&#x6784;&#x9020;&#x5B8C;&#x4E86;Trapframe&#x4E4B;&#x540E;&#xFF0C;&#x4F1A;&#x8C03;&#x7528;<code>call trap</code>&#xFF0C;trap&#x8C03;&#x7528;&#x7684;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF1A;trap(struct Trapframe *tf)&#x3002;&#x8FD9;&#x5C31;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x9A8C;&#x8BC1;&#x4E86;lab1&#x4E2D;&#x51FD;&#x6570;&#x6808;&#x7684;&#x7ED3;&#x6784;&#x95EE;&#x9898;&#x4E86;&#xFF0C;&#x518D;&#x6B21;&#x653E;&#x4E0A;&#x56FE;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x539F;&#x6765;&#x7684;&#x56FE;&#x4E0A;&#x589E;&#x52A0;&#x4E86;Trapframe&#x7684;&#x4F4D;&#x7F6E;&#xFF1A;</p>
+<p><img src="Lab3-User%20Environments/stackcall.png" alt=""></p>
+<p>&#x8FD9;&#x5C31;&#x662F;&#x6574;&#x4E2A;trap()&#x8C03;&#x7528;&#x7684;&#x673A;&#x5236;&#x4E86;&#x3002;</p>
+<h4 id="nested-exceptions-and-interrupts">Nested Exceptions and Interrupts</h4>
+<p>&#x82E5;&#x5728;&#x7528;&#x6237;&#x6001;-&gt;&#x5185;&#x6838;&#x6001;&#x540E;&#xFF0C;&#x5728;&#x5185;&#x6838;&#x6001;&#x53C8;&#x53D1;&#x751F;&#x4E86;&#x65B0;&#x7684;&#x4E2D;&#x65AD;&#xFF0C;&#x90A3;&#x4E48;&#x6808;&#x662F;&#x5728;&#x539F;&#x6765;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x8FDB;&#x884C;&#x6539;&#x53D8;&#x7684;&#x3002;</p>
+<p>&#x56E0;&#x4E3A;&#x6CA1;&#x6709;&#x65B0;&#x7684;&#x6808;&#x7A7A;&#x95F4;&#x7684;&#x8F6C;&#x53D8;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x5728;&#x8C03;&#x7528;&#x4E2D;&#x65AD;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x9700;&#x8981;&#x538B;&#x5165;<code>old ss</code>&#x548C;<code>old esp</code>&#x3002;</p>
+<pre><code class="lang-c">                     +--------------------+ KSTACKTOP             
+                     | 0x00000 | old SS   |     &quot; - 4
+                     |      old ESP       |     &quot; - 8
+                     |     old EFLAGS     |     &quot; - 12
+                     | 0x00000 | old CS   |     &quot; - 16
+                     |      old EIP       |     &quot; - 20 &lt;---- ESP 
+                     +--------------------+        
+                     &#x539F;&#x6765;&#x7684;&#x538B;&#x6808;&#x987A;&#x5E8F;&#x53D8;&#x4E3A;&#x4E86;&#xFF1A;
+                     +--------------------+ &lt;---- old ESP
+                     |     old EFLAGS     |     &quot; - 4
+                     | 0x00000 | old CS   |     &quot; - 8
+                     |      old EIP       |     &quot; - 12
+                     +--------------------+
+</code></pre>
+<h4 id="setting-up-the-idt">Setting Up the IDT</h4>
+<h4 id="exercise-4">exercise 4</h4>
+<blockquote>
+<p>&#x5B8C;&#x6210;idt&#x7684;&#x521D;&#x59CB;&#x5316;</p>
+<p>&#x5EFA;&#x7ACB;&#x76F8;&#x5E94;&#x7684;Trapframe</p>
+<p>&#x5B9E;&#x73B0;&#x7684;_alltraps &#x51FD;&#x6570;&#x5E94;&#x8BE5;&#xFF1A;</p>
+<ol>
+<li>&#x5C06;&#x503C;&#x538B;&#x5165;&#x5806;&#x6808;&#xFF0C;&#x4F7F;&#x5806;&#x6808;&#x770B;&#x8D77;&#x6765;&#x50CF;&#x4E00;&#x4E2A;Trapframe</li>
+<li>&#x52A0;&#x8F7D;GD_KD &#x8FDB;&#x5165;%ds &#x4EE5;&#x53CA;%es</li>
+<li>&#x4F7F;&#x7528;pusl %esp &#x7ED9;Trapframe &#x4F20;&#x9012;&#x6307;&#x9488;&#xFF0C;&#x4F5C;&#x4E3A;trap() &#x7684;&#x53C2;&#x6570;</li>
+<li>&#x8C03;&#x7528;trap</li>
+</ol>
+<p>&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x7684;&#x4E24;&#x4E2A;&#x90E8;&#x5206;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x80FD;&#x591F;&#x901A;&#x8FC7;&#x4E00;&#x4E9B;&#x6D4B;&#x8BD5;&#xFF1A;<code>divzero</code>, <code>softint</code>, and <code>badsegment</code></p>
+</blockquote>
+<p>&#x5B9A;&#x4E49;&#x76F8;&#x5E94;&#x7684;&#x5904;&#x7406;&#x51FD;&#x6570;</p>
+<pre><code>/*
+ * Lab 3: Your code here for generating entry points for the different traps.
+ */
+
+ //&#x672C;&#x90E8;&#x5206;&#x662F;&#x51FD;&#x6570;&#x58F0;&#x660E;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x7684;&#x90E8;&#x5206;&#x3002;
+
+TRAPHANDLER_NOEC(handler_divide,  T_DIVIDE)
+TRAPHANDLER_NOEC(handler_debug,   T_DEBUG)
+TRAPHANDLER_NOEC(handler_nmi,     T_NMI)
+TRAPHANDLER_NOEC(handler_brkpt,   T_BRKPT)
+TRAPHANDLER_NOEC(handler_oflow,   T_OFLOW)
+TRAPHANDLER_NOEC(handler_bound,   T_BOUND)
+TRAPHANDLER_NOEC(handler_illop,   T_ILLOP)
+TRAPHANDLER_NOEC(handler_device,  T_DEVICE)
+TRAPHANDLER_NOEC(handler_simderr, T_SIMDERR)
+TRAPHANDLER_NOEC(handler_fperr,   T_FPERR)
+TRAPHANDLER_NOEC(handler_mchk,    T_MCHK)
+TRAPHANDLER_NOEC(handler_syscall, T_SYSCALL)
+TRAPHANDLER(handler_dblflt, T_DBLFLT)
+TRAPHANDLER(handler_tss,    T_TSS)
+TRAPHANDLER(handler_segnp,  T_SEGNP)
+TRAPHANDLER(handler_stack,  T_STACK)
+TRAPHANDLER(handler_gpflt,  T_GPFLT)
+TRAPHANDLER(handler_pgflt,  T_PGFLT)
+TRAPHANDLER(handler_align,  T_ALIGN)
+</code></pre><p>&#x5728;trap.c &#x4E2D;&#x5B8C;&#x6210;trap_init&#xFF0C;&#x5BF9;&#x4E8E;&#x7CFB;&#x7EDF;&#x7684;IDT &#x8868;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">//&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x73B0;&#x90FD;&#x5728;trapentry.S&#x4E2D;&#x5B9E;&#x73B0;&#x3002;</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handler_divide</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handler_debug</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handler_nmi</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handler_brkpt</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handler_oflow</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handler_bound</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handler_illop</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handler_device</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handler_simderr</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handler_fperr</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handler_mchk</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handler_syscall</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handler_dblflt</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handler_tss</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handler_segnp</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handler_stack</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handler_gpflt</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handler_pgflt</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handler_align</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span>
+<span class="hljs-title">trap_init</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    <span class="hljs-keyword">extern</span> <span class="hljs-keyword">struct</span> Segdesc gdt[];
+
+    <span class="hljs-comment">// LAB 3: Your code here.</span>
+    SETGATE(idt[T_DIVIDE],  <span class="hljs-number">0</span>, GD_KT, handler_divide,  <span class="hljs-number">0</span>);
+    SETGATE(idt[T_DEBUG],   <span class="hljs-number">0</span>, GD_KT, handler_debug,   <span class="hljs-number">0</span>);
+    SETGATE(idt[T_NMI],     <span class="hljs-number">0</span>, GD_KT, handler_nmi,     <span class="hljs-number">0</span>);
+    SETGATE(idt[T_BRKPT],   <span class="hljs-number">0</span>, GD_KT, handler_brkpt,   <span class="hljs-number">3</span>);
+    SETGATE(idt[T_OFLOW],   <span class="hljs-number">0</span>, GD_KT, handler_oflow,   <span class="hljs-number">0</span>);
+    SETGATE(idt[T_BOUND],   <span class="hljs-number">0</span>, GD_KT, handler_bound,   <span class="hljs-number">0</span>);
+    SETGATE(idt[T_ILLOP],   <span class="hljs-number">0</span>, GD_KT, handler_illop,   <span class="hljs-number">0</span>);
+    SETGATE(idt[T_DEVICE],  <span class="hljs-number">0</span>, GD_KT, handler_device,  <span class="hljs-number">0</span>);
+    SETGATE(idt[T_SIMDERR], <span class="hljs-number">0</span>, GD_KT, handler_simderr, <span class="hljs-number">0</span>);
+    SETGATE(idt[T_FPERR],   <span class="hljs-number">0</span>, GD_KT, handler_fperr,   <span class="hljs-number">0</span>);
+    SETGATE(idt[T_MCHK],    <span class="hljs-number">0</span>, GD_KT, handler_mchk,    <span class="hljs-number">0</span>);
+    SETGATE(idt[T_SYSCALL], <span class="hljs-number">0</span>, GD_KT, handler_syscall, <span class="hljs-number">3</span>);
+    SETGATE(idt[T_DBLFLT],  <span class="hljs-number">0</span>, GD_KT, handler_dblflt,  <span class="hljs-number">0</span>);
+    SETGATE(idt[T_TSS],     <span class="hljs-number">0</span>, GD_KT, handler_tss,     <span class="hljs-number">0</span>);
+    SETGATE(idt[T_SEGNP],   <span class="hljs-number">0</span>, GD_KT, handler_segnp,   <span class="hljs-number">0</span>);
+    SETGATE(idt[T_STACK],   <span class="hljs-number">0</span>, GD_KT, handler_stack,   <span class="hljs-number">0</span>);
+    SETGATE(idt[T_GPFLT],   <span class="hljs-number">0</span>, GD_KT, handler_gpflt,   <span class="hljs-number">0</span>);
+    SETGATE(idt[T_PGFLT],   <span class="hljs-number">0</span>, GD_KT, handler_pgflt,   <span class="hljs-number">0</span>);
+    SETGATE(idt[T_ALIGN],   <span class="hljs-number">0</span>, GD_KT, handler_align,   <span class="hljs-number">0</span>);
+
+    <span class="hljs-comment">// Per-CPU setup </span>
+    trap_init_percpu();
+}
+</code></pre>
+<p>Q1: &#x4E3A;&#x4EC0;&#x4E48;&#x6BCF;&#x4E00;&#x4E2A;&#x4E2D;&#x65AD;&#x90FD;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x4E2D;&#x65AD;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF1F;&#x800C;&#x4E0D;&#x662F;&#x653E;&#x5728;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4E2D;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF1F;</p>
+<p>&#x6709;&#x7684;&#x51FD;&#x6570;&#x9700;&#x8981;&#x8FD4;&#x56DE;&#xFF0C;&#x6709;&#x7684;&#x4E0D;&#x9700;&#x8981;&#xFF0C;&#x53EF;&#x80FD;&#x5904;&#x7406;&#x7684;&#x7EA7;&#x522B;&#x4E5F;&#x662F;&#x4E0D;&#x540C;&#x7684;&#xFF08;&#x6709;&#x5728;&#x7528;&#x6237;&#x6001;(&#x5982;syscall)&#xFF0C;&#x6709;&#x5728;&#x5185;&#x6838;&#x6001;&#xFF09;&#x56E0;&#x6B64;&#x5206;&#x5F00;&#x5904;&#x7406;&#x8F83;&#x4E3A;&#x7684;&#x660E;&#x786E;&#x3002;&#x5F53;&#x7136;&#x6CA1;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x8BF4;&#x6CD5;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x5B9A;&#x8981;&#x653E;&#x5728;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4E2D;&#x5904;&#x7406;&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x7684;&#x3002;</p>
+<p>Q2: &#x5728;<code>/user/softint.c</code>&#x4E2D;&#x8BD5;&#x56FE;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;<code>int $14</code>&#x7684;&#x4E2D;&#x65AD;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x5B9E;&#x9645;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x5374;&#x4EA7;&#x751F;&#x7684;&#x662F;13&#x53F7;&#x4E2D;&#x65AD;<code>general protection fault</code>&#xFF0C;&#x8FD9;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#xFF1F;&#x5982;&#x679C;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x4EA7;&#x751F;14&#x53F7;&#x4E2D;&#x65AD;&#xFF0C;&#x90A3;&#x4E48;&#x4F1A;&#x53D1;&#x751F;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<p>&#x9996;&#x5148;&#x662F;&#x5728;&#x7528;&#x6237;&#x6001;&#x4E0D;&#x5141;&#x8BB8;&#x8FDB;&#x884C;&#x8D8A;&#x6743;&#x4E2D;&#x65AD;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x8BBA;&#x4F7F;&#x7528;&#x4EC0;&#x4E48;&#x4E2D;&#x65AD;&#xFF0C;&#x90FD;&#x4F1A;&#x4EA7;&#x751F;13&#x53F7;&#x4E2D;&#x65AD;&#x3002;&#x5982;&#x679C;&#x8FD0;&#x884C;&#x8C03;&#x7528;14&#x53F7;&#x4E2D;&#x65AD;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x662F;&#x5141;&#x8BB8;&#x5728;&#x7528;&#x6237;&#x6001;&#x8C03;&#x7528;&#x5185;&#x6838;&#x6001;&#x7684;&#x4E2D;&#x65AD;&#xFF0C;&#x8FD9;&#x5F88;&#x53EF;&#x80FD;&#x7834;&#x574F;&#x5185;&#x6838;&#x4E2D;&#x7684;&#x72B6;&#x6001;&#x3002;&#x5176;&#x5B9E;&#x5728;&#x7528;&#x6237;&#x6001;&#x80FD;&#x6709;&#x9650;&#x7684;&#x8C03;&#x7528;&#x4E00;&#x4E9B;&#x4E2D;&#x65AD;&#xFF0C;&#x4ECE;&#x800C;&#x80FD;&#x591F;&#x4ECE;&#x7528;&#x6237;&#x6001;&#x9677;&#x5165;&#x5230;&#x5185;&#x6838;&#x6001;&#xFF0C;&#x6BD4;&#x5982;<code>handler_syscall</code>&#x548C;<code>handler_brkpt</code>&#x3002;</p>
+<p>&#x7EFC;&#x4E0A;&#xFF0C;part A&#x4E3B;&#x8981;&#x505A;&#x7684;&#x5C31;&#x662F;&#x521B;&#x5EFA;&#x7528;&#x6237;&#x6001;environment&#xFF0C;iret&#x5C06;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x503C;&#x8D4B;&#x503C;&#x5230;&#x76F8;&#x5E94;&#x7684;&#x5BC4;&#x5B58;&#x5668;&#x4E2D;&#xFF0C;&#x4ECE;&#x800C;&#x80FD;&#x591F;&#x4ECE;&#x5185;&#x6838;&#x6001;&#x5207;&#x6362;&#x5230;&#x7528;&#x6237;&#x6001;&#x3002;&#x7136;&#x540E;&#x6211;&#x4EEC;&#x53C8;&#x4E86;&#x89E3;&#x4E86;&#x600E;&#x4E48;&#x4ECE;&#x7528;&#x6237;&#x6001;&#x5207;&#x6362;&#x5230;&#x5185;&#x6838;&#x6001;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x6808;&#x4E2D;&#x503C;&#x662F;&#x600E;&#x4E48;&#x53D8;&#x5316;&#x7684;&#x3002;&#x5E76;&#x4E14;&#x8FD9;&#x4E2A;Trapframe&#x662F;&#x6211;&#x4EEC;&#x4E4B;&#x540E;&#x4ECE;&#x5185;&#x6838;&#x6001;&#x8FD4;&#x56DE;&#x7528;&#x6237;&#x6001;&#x7684;&#x5173;&#x952E;&#xFF0C;&#x81F3;&#x4E8E;&#x600E;&#x4E48;&#x8FD4;&#x56DE;&#xFF0C;&#x5219;&#x548C;&#x521D;&#x6B21;&#x4ECE;&#x5185;&#x6838;&#x6001;-&gt;&#x7528;&#x6237;&#x6001;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x4E00;&#x81F4;&#x7684;&#x3002;</p>
+<h3 id="part-b-page-faults-breakpoints-exceptions-and-system-calls">Part B: Page Faults, Breakpoints Exceptions, and System Calls</h3>
+<p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4E2D;&#x65AD;&#x7684;&#x57FA;&#x7840;&#x4E4B;&#x4E0A;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x66F4;&#x591A;&#x7684;&#x7CFB;&#x7EDF;&#x539F;&#x8BED;&#x3002;</p>
+<h4 id="handling-page-faults">Handling Page Faults</h4>
+<pre><code class="lang-c"><span class="hljs-comment">// buggy program - faults with a read from location zero</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;inc/lib.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span>
+<span class="hljs-title">umain</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> **argv)</span>
+</span>{
+    cprintf(<span class="hljs-string">&quot;I read %08x from location 0!\n&quot;</span>, *(<span class="hljs-keyword">unsigned</span>*)<span class="hljs-number">0</span>);
+}
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x770B;&#x770B;&#x8FD9;&#x4E2A;&#x4E2D;&#x65AD;&#x662F;&#x600E;&#x4E48;&#x89E6;&#x53D1;&#x7684;&#xFF0C;&#x5728;cprintf&#x51FD;&#x6570;&#x8C03;&#x7528;&#x8FDB;&#x884C;&#x5355;&#x6B65;&#x8C03;&#x8BD5;&#xFF0C;&#x5F97;&#x5230;&#x4E0B;&#x9762;&#x7684;&#x4FE1;&#x606F;&#xFF1A;</p>
+<p><img src="Lab3-User Environments/faultread.png" alt=""></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5728;&#x8C03;&#x7528;cprintf&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x6307;&#x4EE4;&#x540E;&#x5C31;&#x4E2D;&#x65AD;&#x4E86;&#xFF0C;&#x5177;&#x4F53;&#x600E;&#x4E48;&#x89E6;&#x53D1;&#x7684;&#x611F;&#x89C9;&#x4E0D;&#x662F;&#x5F88;&#x6E05;&#x695A;&#xFF0C;&#x611F;&#x89C9;&#x5E94;&#x8BE5;&#x662F;&#x6709;&#x4E00;&#x4E2A;&#x5730;&#x5740;&#x68C0;&#x6D4B;&#x7684;&#x673A;&#x5236;&#xFF1F;&#xFF08;&#x8FD9;&#x91CC;&#x4E0D;&#x662F;&#x5F88;&#x61C2;&#xFF09;</p>
+<h4 id="exercise-5">exercise 5</h4>
+<blockquote>
+<p>&#x4FEE;&#x6539;trap_dispatch()&#x51FD;&#x6570;&#xFF0C;&#x4F7F;&#x5F97;&#x53D1;&#x751F;&#x9875;&#x9519;&#x8BEF;&#x5F02;&#x5E38;&#x7684;&#x65F6;&#x5019;&#x89E6;&#x53D1;page_fault_handler()&#x3002;</p>
+</blockquote>
+<pre><code class="lang-c"><span class="hljs-keyword">switch</span>(tf-&gt;tf_trapno){
+        <span class="hljs-keyword">case</span> T_PGFLT:
+            page_fault_handler(tf);
+            <span class="hljs-keyword">return</span> ;
+}
+</code></pre>
+<h4 id="the-breakpoint-exception">The Breakpoint Exception</h4>
+<p>&#x8FD9;&#x4E00;&#x4E2A;&#x529F;&#x80FD;&#x5C31;&#x662F;&#x5B9E;&#x73B0;&#x6211;&#x4EEC;&#x5E73;&#x65F6;&#x65AD;&#x70B9;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x5B9E;&#x73B0;&#x7684;&#x539F;&#x7406;&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x5C31;&#x662F;&#x5728;&#x65AD;&#x70B9;&#x7684;&#x8BED;&#x53E5;&#x524D;&#x9762;&#x52A0;&#x4E0A;<code>int $3</code>&#x3002;</p>
+<p>JOS&#x4E2D;&#x8FDB;&#x5165;&#x540E;&#x5C31;&#x662F;&#x8FDB;&#x5165;monitor shell&#x3002;</p>
+<h4 id="exercise-6">exercise 6</h4>
+<blockquote>
+<p>&#x4FEE;&#x6539;trap_dispatch&#xFF0C;&#x4F7F;&#x65AD;&#x70B9;&#x5F02;&#x5E38;&#x53D1;&#x751F;&#x65F6;&#x80FD;&#x591F;&#x8C03;&#x7528;kernel monitor&#x3002;&#x4FEE;&#x6539;&#x5B8C;&#x6210;&#x540E;&#x91CD;&#x65B0;make
+grade &#x5E94;&#x8BE5;&#x80FD;&#x591F;&#x901A;&#x8FC7;breakpoint &#x6D4B;&#x8BD5;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-c"><span class="hljs-keyword">switch</span>(tf-&gt;tf_trapno){
+        <span class="hljs-keyword">case</span> T_PGFLT:
+            page_fault_handler(tf);
+            <span class="hljs-keyword">return</span> ;
+        <span class="hljs-keyword">case</span> T_BRKPT:
+
+            monitor(tf);
+            <span class="hljs-keyword">return</span> ;
+
+    }
+</code></pre>
+<p>Q3: &#x5728;breakpoint.c&#x7684;&#x7684;&#x6D4B;&#x8BD5;&#x4E2D;&#xFF0C;&#x8FD9;&#x4E2A;&#x6D4B;&#x8BD5;&#x7684;&#x4F8B;&#x7A0B;&#x8981;&#x4E48;&#x4F1A;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x65AD;&#x70B9;&#x5F02;&#x5E38;&#xFF0C;&#x8981;&#x4E48;&#x4F1A;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;general protection fault&#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x4EA7;&#x751F;&#x54EA;&#x79CD;&#x5F02;&#x5E38;&#x53D6;&#x51B3;&#x4E8E;&#x5982;&#x4F55;&#x521D;&#x59CB;&#x5316;&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#x8868;IDT&#x7684;&#x3002;&#x4E3A;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<pre><code class="lang-c">SETGATE(idt[T_BRKPT],   <span class="hljs-number">0</span>, GD_KT, handler_brkpt,   <span class="hljs-number">3</span>);<span class="hljs-comment">//&#x4EA7;&#x751F;Break point&#x7684;&#x4E2D;&#x65AD;</span>
+SETGATE(idt[T_BRKPT],   <span class="hljs-number">0</span>, GD_KT, handler_brkpt,   <span class="hljs-number">0</span>);<span class="hljs-comment">//&#x4EA7;&#x751F;General Protection</span>
+</code></pre>
+<p>DPL &#x5B57;&#x6BB5;&#x4E3A;&#x6BB5;&#x63CF;&#x8FF0;&#x7B26;&#x4F18;&#x5148;&#x7EA7;&#xFF0C;&#x5982;&#x679C;&#x5F53;&#x524D;&#x7A0B;&#x5E8F;&#x4E3A;&#x7528;&#x6237;&#x6001;&#x4F46;&#x662F;&#x5C1D;&#x8BD5;&#x8C03;&#x7528;&#x5185;&#x6838;&#x6001;&#x7684;&#x6307;&#x4EE4;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x4F1A;&#x89E6;&#x53D1;general protection exception&#x3002;&#x53EA;&#x6709;&#x5F53;&#x524D;&#x7A0B;&#x5E8F;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x5C0F;&#x4E8E;&#x6216;&#x7B49;&#x4E8E;&#x6BB5;&#x63CF;&#x8FF0;&#x7B26;&#x4F18;&#x5148;&#x7EA7;&#x624D;&#x80FD;&#x89E6;&#x53D1;&#x6B63;&#x786E;&#x7684;breakpoint exception&#x3002;</p>
+<p>Q4&#xFF1A;&#x4F60;&#x8BA4;&#x4E3A;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x4E2D;&#x65AD;&#x7684;&#x673A;&#x5236;&#xFF0C;&#x7279;&#x522B;&#x662F;&#x8003;&#x8651;&#x5230;<code>user/softint</code>&#x6D4B;&#x8BD5;&#x4F8B;&#x7A0B;&#x4E2D;&#x7684;&#x884C;&#x4E3A;&#xFF1F;</p>
+<p>&#x8FD9;&#x6837;&#x4F7F;&#x5F97;&#x7528;&#x6237;&#x6001;&#x4E0D;&#x80FD;&#x968F;&#x610F;&#x7684;&#x8BBF;&#x95EE;&#x5185;&#x6838;&#x7684;&#x4EE3;&#x7801;&#x548C;&#x5185;&#x5B58;&#xFF0C;&#x4F7F;&#x5F97;&#x5185;&#x6838;&#x4E0D;&#x53D7;&#x7528;&#x6237;&#x7A0B;&#x5E8F;&#x7684;&#x7834;&#x574F;&#x3002;</p>
+<h4 id="system-calls">System calls</h4>
+<p>system call&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x636E;&#x8BF4;&#x7528;&#x6237;&#x6001;&#x80FD;&#x591F;&#x4ECE;&#x7528;&#x6237;&#x6001;&#x9677;&#x5165;&#x5230;&#x5185;&#x6838;&#x6001;&#x8FDB;&#x884C;&#x8D44;&#x6E90;&#x7684;&#x8C03;&#x7528;&#x3002;</p>
+<p>JOS&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7279;&#x522B;&#x4F7F;&#x7528;<code>int $0x30</code>&#x8FDB;&#x884C;&#x8C03;&#x7528;&#xFF0C;</p>
+<p>syscall&#x51FD;&#x6570;&#x8F93;&#x5165;: syscall number-&gt;%eax, &#x5176;&#x4F59;&#x51FD;&#x6570;&#x7684;&#x53D8;&#x91CF;&#x653E;&#x5230; <code>%edx</code>, <code>%ecx</code>, <code>%ebx</code>, <code>%edi</code>, and <code>%esi</code>&#xFF0C;&#x6700;&#x591A;&#x652F;&#x6301;&#x4E94;&#x4E2A;&#x53D8;&#x91CF;&#x3002;</p>
+<p>&#x5E76;&#x4E14;&#x6700;&#x7EC8;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x4FDD;&#x5B58;&#x5230;<code>%eax</code>&#x4E2D;&#x3002;</p>
+<h4 id="exercise-7">exercise 7</h4>
+<blockquote>
+<p>&#x901A;&#x8FC7;&#x7F16;&#x8F91;kern/trapentry.S &#x4EE5;&#x53CA;kern/trap.c &#x7684;trap_init()&#xFF0C;&#x7ED9;T_SYSCALL &#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#x5904;&#x7406;&#x51FD;&#x6570;&#x3002;&#x540C;&#x65F6;trap_dispatch &#x4E5F;&#x9700;&#x8981;&#x88AB;&#x4FEE;&#x6539;&#xFF0C;&#x901A;&#x8FC7;&#x8C03;&#x7528;syscall &#x7684;&#x65B9;&#x6CD5;&#x6765;&#x5904;&#x7406;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x3002;&#x6700;&#x540E;&#xFF0C;&#x9700;&#x8981;&#x5728;kern/syscall.c &#x4E2D;&#x9996;&#x5148;&#x5B9E;&#x73B0;syscall &#x51FD;&#x6570;&#x3002;&#x5982;&#x679C;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x53F7;&#x4E0D;&#x5408;&#x6CD5;&#xFF0C;&#x9700;&#x8981;syscall &#x8FD4;&#x56DE;-E_INVAL&#x3002;</p>
+<p>&#x901A;&#x8FC7;make run-hello &#x8FD0;&#x884C;user/hello&#xFF0C;qemu &#x5E94;&#x8BE5;&#x6253;&#x5370;&#x5904;hello, world&#xFF0C;&#x5E76;&#x89E6;&#x53D1;&#x4E00;&#x4E2A;page fault&#x3002;&#x5E76;&#x4E14;make grade &#x5E94;&#x8BE5;&#x80FD;&#x591F;&#x901A;&#x8FC7;testbss &#x6D4B;&#x8BD5;&#x3002;</p>
+</blockquote>
+<pre><code>// kern/trapentry.S
+TRAPHANDLER_NOEC(handler_syscall, T_SYSCALL);
+// trap_init&#x51FD;&#x6570;&#x4E2D;&#x6DFB;&#x52A0;handler_syscall
+SETGATE(idt[T_SYSCALL], 0, GD_KT, t_syscall, 3);
+</code></pre><pre><code>// kern/trap.c
+case T_SYSCALL:
+            tf-&gt;tf_regs.reg_eax = syscall(
+                    tf-&gt;tf_regs.reg_eax,
+                    tf-&gt;tf_regs.reg_edx,
+                    tf-&gt;tf_regs.reg_ecx,
+                    tf-&gt;tf_regs.reg_ebx,
+                    tf-&gt;tf_regs.reg_edi,
+                    tf-&gt;tf_regs.reg_esi);
+            return ;
+</code></pre><pre><code>// &#x7136;&#x540E;&#x5728;kern/syscall.c &#x4E2D;&#x5B8C;&#x6210;&#x5BF9;&#x4E8E;syscall &#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x4ECE;&#x800C;&#x5B8C;&#x6210;&#x5BF9;&#x4E8E;&#x6574;&#x4E2A;int &#x6307;&#x4EE4;&#x7684;&#x8C03;&#x7528;&#xFF1A;
+// Dispatches to the correct kernel function, passing the arguments.
+int32_t
+syscall(uint32_t syscallno, uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5)
+{
+    // Call the function corresponding to the &apos;syscallno&apos; parameter.
+    // Return any appropriate return value.
+    // LAB 3: Your code here.
+
+    switch (syscallno) {
+        case SYS_cputs:
+            sys_cputs((char *)a1, a2);
+            return 0;
+        case SYS_cgetc:
+            return sys_cgetc();
+        case SYS_getenvid:
+            return sys_getenvid();
+        case SYS_env_destroy:
+            return sys_env_destroy(a1);
+        default:
+            return -E_INVAL;
+    }
+    panic(&quot;syscall not implemented&quot;);
+}
+</code></pre><h4 id="user-mode-startup">User-mode startup</h4>
+<p>&#x8FD0;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x7528;&#x6237;&#x6001;&#x7A0B;&#x5E8F;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5728;<code>/kern/init.c</code>&#x4E2D;&#x52A0;&#x5165;&#x4E86;<code>ENV_CREATE(user_hello, ENV_TYPE_USER);</code>&#xFF0C;&#x5C31;&#x80FD;&#x6267;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x8BED;&#x53E5;&#xFF0C;&#x786E;&#x4FDD;<code>sys_getenvid()</code>&#x6267;&#x884C;&#x7684;&#x6B63;&#x786E;&#x6027;&#xFF08;&#x8FD9;&#x4E00;&#x6B65;&#x4F1A;&#x8FDB;&#x884C;&#x4E2D;&#x65AD;&#x8C03;&#x7528;&#xFF09;&#x3002;</p>
+<p>&#x4ECE;&#x5185;&#x6838;&#x542F;&#x52A8;&#x7528;&#x6237;&#x6001;&#x7A0B;&#x5E8F;&#x7684;&#x8FC7;&#x7A0B;&#xFF1A;</p>
+<p>&#x6839;&#x636E;&#x524D;&#x9762;&#x7684;&#x94FA;&#x57AB;&#xFF0C;&#x9996;&#x5148;&#x662F;&#x5206;&#x914D;&#x76F8;&#x5E94;&#x7684;&#x8FDB;&#x7A0B;&#x7A7A;&#x95F4;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;&#x865A;&#x62DF;&#x5185;&#x5B58;&#x7684;&#x6620;&#x5C04;&#xFF0C;&#x52A0;&#x8F7D;&#x76F8;&#x5173;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x4EE3;&#x7801;&#x3002;&#x5F53;&#x76F8;&#x5173;&#x7684;&#x5185;&#x6838;&#x72B6;&#x6001;&#x521D;&#x59CB;&#x5316;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF0C;&#x5C31;&#x8FD0;&#x884C;<code>/lib/entry.S</code>&#x4E2D;&#x7684;&#x7A0B;&#x5E8F;&#xFF0C;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x8FD0;&#x884C;&#x5728;&#x7528;&#x6237;&#x6001;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;<code>libmain.c</code>&#x901A;&#x8FC7;&#x8C03;&#x7528;<code>umain()</code>&#x51FD;&#x6570;&#x8C03;&#x7528;&#x76F8;&#x5173;&#x7528;&#x6237;&#x6001;&#x7A0B;&#x5E8F;&#x3002;</p>
+<h4 id="exercise-8">exercise 8</h4>
+<blockquote>
+<p>Add the required code to the user library, then boot your kernel. You should see <code>user/hello</code> print &quot;<code>hello, world</code>&quot; and then print &quot;<code>i am environment 00001000</code>&quot;. <code>user/hello</code> then attempts to &quot;exit&quot; by calling <code>sys_env_destroy()</code> (see <code>lib/libmain.c</code> and <code>lib/exit.c</code>). Since the kernel currently only supports one user environment, it should report that it has destroyed the only environment and then drop into the kernel monitor. You should be able to get make grade to succeed on the <code>hello</code> test.</p>
+</blockquote>
+<pre><code class="lang-c"><span class="hljs-comment">// /lib/libmain.c</span>
+thisenv = envs + ENVX(sys_getenvid());
+</code></pre>
+<h4 id="page-faults-and-memory-protection">Page faults and memory protection</h4>
+<p>&#x5185;&#x5B58;&#x4FDD;&#x62A4;&#x662F;&#x4E00;&#x4EF6;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x4F7F;&#x5F97;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x7684;bugs&#x4E0D;&#x4F1A;&#x5E72;&#x6270;&#x5176;&#x4ED6;&#x7A0B;&#x5E8F;&#x7684;&#x5185;&#x5BB9;&#x6216;&#x8005;&#x6B63;&#x5E38;&#x7684;&#x8FD0;&#x884C;&#x3002;</p>
+<p>&#x4E00;&#x822C;&#x5185;&#x5B58;&#x4FDD;&#x62A4;&#x673A;&#x5236;&#x662F;&#x786C;&#x4EF6;&#x7684;&#x652F;&#x6301;&#xFF0C;&#x5E76;&#x4E14;&#x9677;&#x5165;&#x5230;&#x5185;&#x6838;&#x6001;&#x3002;&#x5982;&#x679C;&#x7A0B;&#x5E8F;&#x80FD;&#x591F;&#x88AB;&#x4FEE;&#x590D;&#xFF0C;&#x90A3;&#x4E48;&#x7A0B;&#x5E8F;&#x5C06;&#x4F1A;&#x7EE7;&#x7EED;&#x6B63;&#x5E38;&#x7684;&#x6267;&#x884C;&#xFF0C;&#x82E5;&#x65E0;&#x6CD5;&#x4FEE;&#x590D;&#xFF0C;&#x7A0B;&#x5E8F;&#x5C31;&#x65E0;&#x6CD5;&#x6B63;&#x5E38;&#x7684;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x3002;</p>
+<p>&#x53EF;&#x4FEE;&#x590D;&#x7684;&#x9519;&#x8BEF;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;&#x4E00;&#x5F00;&#x59CB;&#x5185;&#x6838;&#x7ED9;&#x7A0B;&#x5E8F;&#x5206;&#x914D;&#x4E86;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6808;&#xFF0C;&#x5F53;&#x8C03;&#x7528;&#x7684;&#x6808;&#x5927;&#x5C0F;&#x8D85;&#x8FC7;&#x4E86;&#x6307;&#x5B9A;&#x5927;&#x5C0F;&#x65F6;&#xFF0C;&#x62A5;&#x9519;&#x9677;&#x5165;&#x5185;&#x6838;&#xFF0C;&#x5185;&#x6838;&#x4F1A;&#x7EE7;&#x7EED;&#x7ED9;&#x8BE5;&#x7A0B;&#x5E8F;&#x5206;&#x914D;&#x76F8;&#x5E94;&#x5927;&#x5C0F;&#x7684;&#x5185;&#x6838;&#x6808;&#xFF0C;&#x4F7F;&#x5F97;&#x7A0B;&#x5E8F;&#x4E2D;&#x65AD;&#x4E4B;&#x540E;&#x8FD8;&#x80FD;&#x591F;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x3002;&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x529F;&#x80FD;&#x7684;&#x5B9E;&#x73B0;&#x5728;lab4&#x4E2D;&#x4F1A;&#x8FDB;&#x884C;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#x3002;</p>
+<p>&#x4ECE;&#x7528;&#x6237;&#x6001;&#x8FDB;&#x884C;syscall&#x65F6;&#xFF0C;&#x9677;&#x5165;&#x5230;&#x5185;&#x6838;&#x6001;&#x4ECD;&#x7136;&#x9700;&#x8981;&#x5BF9;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x89E3;&#x5F15;&#x7528;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x5728;&#x7528;&#x6237;&#x6001;&#x8FDB;&#x884C;&#x8BFB;&#x5199;&#x3002;&#x8FD9;&#x6837;&#x505A;&#x5176;&#x5B9E;&#x6709;&#x4E24;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;</p>
+<ol>
+<li>kernel page fault &#x548C; user environment page fault&#x4E24;&#x8005;&#x7684;&#x4E25;&#x91CD;&#x7A0B;&#x5EA6;&#x662F;&#x4E0D;&#x540C;&#x7684;&#xFF0C;&#x5728;syscall&#x8C03;&#x7528;&#x9020;&#x6210;&#x7684;&#x7528;&#x6237;&#x6001;page fault&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#x8981;&#x80FD;&#x591F;&#x6B63;&#x786E;&#x7684;&#x533A;&#x5206;&#x3002;</li>
+<li>&#x5185;&#x6838;&#x548C;&#x7528;&#x6237;&#x6001;&#x7684;&#x6743;&#x9650;&#x5F80;&#x5F80;&#x662F;&#x6709;&#x5F88;&#x5927;&#x7684;&#x4E0D;&#x540C;&#x7684;&#xFF0C;&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#x8981;&#x80FD;&#x591F;&#x8FDB;&#x884C;&#x533A;&#x5206;&#x3002;</li>
+</ol>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x5F53;&#x5728;&#x5185;&#x6838;&#x6001;&#x9047;&#x5230;&#x6307;&#x9488;&#x89E3;&#x5F15;&#x7528;&#x65F6;&#xFF0C;&#x8981;&#x4E25;&#x683C;&#x7684;&#x5BF9;&#x7528;&#x6237;&#x6001;&#x4F20;&#x5165;&#x7684;&#x6307;&#x9488;&#x8FDB;&#x884C;&#x68C0;&#x67E5;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x7528;&#x6237;&#x6001;&#x7684;&#x6307;&#x9488;&#x51FA;&#x73B0;&#x9519;&#x8BEF;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x5E94;&#x8BE5;&#x62A5;&#x51FA;page fault&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5185;&#x6838;&#x4E2D;&#x7684;&#x6307;&#x9488;&#x51FA;&#x73B0;&#x9519;&#x8BEF;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x5E94;&#x8BE5;panic and terminate&#xFF0C;&#x4F7F;&#x5F97;&#x6574;&#x4E2A;&#x7CFB;&#x7EDF;&#x5B95;&#x6389;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;&#x662F;&#x5185;&#x6838;&#x7684;&#x9519;&#x8BEF;&#xFF0C;&#x4E0D;&#x80FD;&#x5141;&#x8BB8;&#x9519;&#x8BEF;&#x7684;&#x51FA;&#x73B0;&#x3002;</p>
+<h4 id="exercise-9">exercise 9</h4>
+<blockquote>
+<p>&#x4FEE;&#x6539;<code>kern/trap.c</code>&#xFF0C;&#x5982;&#x679C;&#x5728;kernel mode&#x53D1;&#x751F; page fault, &#x90A3;&#x4E48;&#x5C31;panic&#x3002;</p>
+<p>hint: &#x4F7F;&#x7528;tf_cs&#x6765;&#x68C0;&#x6D4B;&#x662F;&#x5728;&#x7528;&#x6237;&#x6001;&#x8FD8;&#x662F;&#x5728;&#x5185;&#x6838;&#x6001;</p>
+<p>&#x9605;&#x8BFB;<code>/kern/pmap.c</code>&#x4E2D;&#x7684;<code>user_mem_assert</code>&#xFF0C;&#x5E76;&#x4E14;&#x5B8C;&#x6210;&#x51FD;&#x6570;&#x7684;&#x529F;&#x80FD;&#x7684;&#x5B9E;&#x73B0;&#x3002;</p>
+<p>&#x5BF9;system call&#x7684;&#x51FD;&#x6570;&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x68C0;&#x67E5;&#x3002;</p>
+<p>&#x8FD0;&#x884C;<code>user/buggyhello</code>&#x80FD;&#x591F;&#x6B63;&#x786E;&#x7684;&#x89E6;&#x53D1;<code>user_mem_check</code>&#x3002;</p>
+<p>&#x6700;&#x540E;&#xFF0C;&#x5728;<code>/kern/kdebug.c</code>&#x4E2D;&#x66F4;&#x6539;<code>debuginfo_eip</code>, &#x8BE5;&#x51FD;&#x6570;&#x8C03;&#x7528;<code>user_mem_check</code>&#x3002;&#x4E4B;&#x540E;&#x8FD0;&#x884C;<code>user/breakpoint</code>&#x4F7F;&#x5F97;&#xFF0C;&#x9677;&#x5165;&#x5230;monitor shell&#x4E4B;&#x540E;&#x80FD;&#x591F;&#x8FD0;&#x884C;<code>backtrace</code>&#x67E5;&#x770B;&#x4E4B;&#x524D;&#x6808;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x80FD;&#x591F;&#x770B;&#x5230;&#x662F;<code>/lib/libmain.c</code>&#x7684;&#x8C03;&#x7528;&#x4FE1;&#x606F;&#x3002;&#x5E76;&#x4E14;&#x5728;traceback&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;page fault&#x3002;&#x4F60;&#x4E0D;&#x9700;&#x8981;&#x4FEE;&#x590D;&#x5B83;&#xFF0C;&#x4F46;&#x662F;&#x4F60;&#x8981;&#x80FD;&#x591F;&#x8BF4;&#x660E;&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x4EA7;&#x751F;&#x8FD9;&#x6837;&#x7684;&#x9519;&#x8BEF;&#x3002;</p>
+</blockquote>
+<p>&#x9996;&#x5148;&#x5224;&#x65AD;&#x9519;&#x8BEF;&#x662F;&#x6765;&#x81EA;&#x7528;&#x6237;&#x6001;&#x8FD8;&#x662F;&#x6765;&#x81EA;&#x5185;&#x6838;&#x6001;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">// Handle kernel-mode page faults.</span>
+    <span class="hljs-keyword">if</span> (tf-&gt;tf_cs == GD_KT)
+        panic(<span class="hljs-string">&quot;page_fault_handler: kernel page fault&quot;</span>);
+    <span class="hljs-comment">// LAB 3: Your code here.</span>
+</code></pre>
+<p><code>user_mem_assert</code>&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;&#x662F;<code>user_mem_check</code>&#xFF0C;&#x5B83;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x68C0;&#x67E5;[va, va+len)&#x8FD9;&#x6BB5;&#x7528;&#x6237;&#x6001;&#x5185;&#x5B58;&#x662F;&#x5426;&#x62E5;&#x6709;<code>perm|PTE_P</code>&#x6743;&#x9650;&#x3002;</p>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">int</span>
+<span class="hljs-title">user_mem_check</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> Env *env, <span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *va, size_t len, <span class="hljs-keyword">int</span> perm)</span>
+</span>{
+    <span class="hljs-comment">// LAB 3: Your code here.</span>
+    <span class="hljs-keyword">uint32_t</span> start = (<span class="hljs-keyword">uint32_t</span>)ROUNDDOWN(va, PGSIZE);
+    <span class="hljs-keyword">uint32_t</span> end = (<span class="hljs-keyword">uint32_t</span>)ROUNDUP(va + len, PGSIZE);
+    <span class="hljs-keyword">pte_t</span> *page;
+    <span class="hljs-keyword">for</span> (; start &lt; end; start += PGSIZE) {
+        page = pgdir_walk(env-&gt;env_pgdir, (<span class="hljs-keyword">void</span> *)start, <span class="hljs-number">0</span>);
+        <span class="hljs-keyword">if</span> (!page || start &gt; ULIM || ((<span class="hljs-keyword">uint32_t</span>)(*page) &amp; perm) != perm ) {
+            <span class="hljs-keyword">if</span> (start &lt;= (<span class="hljs-keyword">uint32_t</span>)va)
+                user_mem_check_addr = (<span class="hljs-keyword">uintptr_t</span>)va;
+            <span class="hljs-keyword">else</span>
+                user_mem_check_addr = (<span class="hljs-keyword">uintptr_t</span>)start;
+            <span class="hljs-keyword">return</span> -E_FAULT;
+        }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x770B;&#x5230;&#x5F53;&#x8FD0;&#x884C;&#x7528;&#x6237;&#x6001;&#x7A0B;&#x5E8F;<code>buggyhello.c</code>&#x4E2D;&#x7684;&#x7A0B;&#x5E8F;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x8981;&#x8F93;&#x51FA;&#x76F8;&#x5E94;&#x7684;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#xFF0C;&#x53D1;&#x73B0;&#x8C03;&#x7528;&#x7684;&#x662F;<code>sys_cputs()</code>&#xFF0C;&#x56E0;&#x6B64;&#x8BE5;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x4E0B;&#x8FDB;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x5185;&#x5B58;&#x5730;&#x5740;&#x7684;&#x5224;&#x65AD;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span>
+<span class="hljs-title">sys_cputs</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *s, size_t len)</span>
+</span>{
+    <span class="hljs-comment">// Check that the user has permission to read memory [s, s+len).</span>
+    <span class="hljs-comment">// Destroy the environment if not.</span>
+
+    <span class="hljs-comment">// LAB 3: Your code here.</span>
+    user_mem_assert(curenv, s, len, <span class="hljs-number">0</span>);
+    <span class="hljs-comment">// Print the string supplied by the user.</span>
+    cprintf(<span class="hljs-string">&quot;%.*s&quot;</span>, len, s);
+}
+</code></pre>
+<p>&#x6700;&#x540E;&#x4FEE;&#x6539;kern/kdegbug.c &#x4E2D;&#x7684;debuginfo_eip&#x3002;&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">// Make sure the STABS and string table memory is valid.</span>
+        <span class="hljs-comment">// LAB 3: Your code here.</span>
+        <span class="hljs-keyword">if</span>(user_mem_check(curenv, usd, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> UserStabData), PTE_U))
+            <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+</code></pre>
+<p>&#x5728;&#x8FD0;&#x884C;<code>/user/breakpoint.c</code>&#x6D4B;&#x8BD5;&#x4F8B;&#x7A0B;&#x540E;&#xFF0C;&#x4EA7;&#x751F;&#x7CFB;&#x7EDF;&#x4E2D;&#x65AD;&#x800C;&#x8FDB;&#x5165;monitor&#x6A21;&#x5F0F;&#xFF0C;&#x6B64;&#x523B;&#x4F7F;&#x7528;backtrace&#x4F1A;&#x6253;&#x5370;&#x4E00;&#x4E9B;&#x9519;&#x8BEF;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x8FD8;&#x662F;&#x4F1A;&#x4EA7;&#x751F;&#x65B0;&#x7684;page fault&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;</p>
+<p><img src="Lab3-User Environments/traceback-pgfault.png" alt=""></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x56DE;&#x6EAF;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x7528;&#x6237;&#x6001;&#x7684;&#x6808;&#x6307;&#x9488;&#x8D8A;&#x754C;&#x4E86;&#xFF0C;&#x4ECE;&#x800C;&#x4F1A;&#x4EA7;&#x751F;page fault&#x7684;&#x9519;&#x8BEF;&#x3002;</p>
+<pre><code class="lang-c"> *    USTACKTOP  ---&gt;  +------------------------------+ <span class="hljs-number">0xeebfe000</span>
+</code></pre>
+<h4 id="exercise-10">exercise 10</h4>
+<blockquote>
+<p>&#x4E0A;&#x9762;&#x5BF9;&#x7528;&#x6237;&#x4F20;&#x5165;&#x5185;&#x6838;&#x6307;&#x9488;&#x5730;&#x5740;&#x7684;&#x529F;&#x80FD;&#x5BF9;&#x6076;&#x610F;&#x7A0B;&#x5E8F;&#x4E5F;&#x540C;&#x6837;&#x9002;&#x7528;&#xFF0C;&#x5728;&#x8FD0;&#x884C;<code>user/evilhello.c</code>&#x4E2D;&#x8BE5;&#x7A0B;&#x5E8F;&#x5C1D;&#x8BD5;&#x7740;&#x6253;&#x5370;&#x5185;&#x6838;&#x7684;&#x5165;&#x53E3;&#x5730;&#x5740;&#xFF0C;&#x4E5F;&#x80FD;&#x6B63;&#x786E;&#x7684;&#x62A5;&#x9519;&#xFF0C;&#x5E76;&#x4E14;&#x5185;&#x6838;&#x4E0D;&#x4F1A;panic&#x3002;</p>
+</blockquote>
+<p>&#x672C;&#x90E8;&#x5206;&#x4E0D;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x4EFB;&#x4F55;&#x7684;&#x4EE3;&#x7801;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x4EC5;&#x4EC5;&#x662F;&#x6D4B;&#x8BD5;&#x6837;&#x4F8B;&#x7684;&#x8865;&#x5145;&#x3002;</p>
+<p><img src="Lab3-User Environments/result.png" alt=""></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="lab2-Memory Management.html" class="navigation navigation-prev " aria-label="Previous page: lab2: Memory Management">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="lab4-Preemptive Multitasking.html" class="navigation navigation-next " aria-label="Next page: lab4: Preemptive Multitasking">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Lab3: User Environments","level":"1.5","depth":1,"next":{"title":"lab4: Preemptive Multitasking","level":"1.6","depth":1,"path":"lab4-Preemptive Multitasking.md","ref":"./lab4-Preemptive Multitasking.md","articles":[]},"previous":{"title":"lab2: Memory Management","level":"1.4","depth":1,"path":"lab2-Memory Management.md","ref":"./lab2-Memory Management.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["callouts@git+https://github.com/Simran-B/gitbook-plugin-callouts.git","intopic-toc","theme-comscore","-lunr","-search","search-pro","github","splitter","-sharing","mathjax-pro"],"pluginsConfig":{"callouts":{"showTypeInHeader":true},"github":{"url":"https://github.com/KnowledgeHive/ddia"},"intopic-toc":{"isCollapsed":false,"isScrollspyActive":true,"label":{"de":"导航","en":"导航","ch":"导航"},"maxDepth":6,"mode":"nested","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4, .markdown-section h5, .markdown-section h6","visible":true},"splitter":{},"search-pro":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"mathjax-pro":{"forceSVG":false,"version":"2.7.7"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Lab3-User Environments.md","mtime":"2021-02-19T16:34:54.446Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-19T16:39:19.156Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-intopic-toc/anchor.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-intopic-toc/gumshoe.polyfills.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-intopic-toc/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-mathjax-pro/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

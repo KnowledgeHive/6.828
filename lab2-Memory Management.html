@@ -1,0 +1,906 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>lab2: Memory Management · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-intopic-toc/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Lab3-User Environments.html" />
+    
+    
+    <link rel="prev" href="lab1-Booting a PC.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="preparation.html">
+            
+                <a href="preparation.html">
+            
+                    
+                    准备工作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="lab1-Booting a PC.html">
+            
+                <a href="lab1-Booting a PC.html">
+            
+                    
+                    Lab1: Booting a PC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="lab2-Memory Management.html">
+            
+                <a href="lab2-Memory Management.html">
+            
+                    
+                    lab2: Memory Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Lab3-User Environments.html">
+            
+                <a href="Lab3-User Environments.html">
+            
+                    
+                    Lab3: User Environments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="lab4-Preemptive Multitasking.html">
+            
+                <a href="lab4-Preemptive Multitasking.html">
+            
+                    
+                    lab4: Preemptive Multitasking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="lab5-File system, Spawn and Shell.html">
+            
+                <a href="lab5-File system, Spawn and Shell.html">
+            
+                    
+                    lab5: File system, Spawn and Shell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="lab6-Network Driver.html">
+            
+                <a href="lab6-Network Driver.html">
+            
+                    
+                    lab6: Network Driver
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >lab2: Memory Management</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="lab2-memory-management">lab2: Memory Management</h1>
+<p>&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x4E3B;&#x8981;&#x6709;&#x4E0B;&#x9762;&#x4E24;&#x65B9;&#x9762;&#x7684;&#x529F;&#x80FD;&#xFF1A;</p>
+<ol>
+<li>&#x5185;&#x5B58;&#x5206;&#x914D;&#xFF0C;&#x80FD;&#x591F;&#x53CA;&#x65F6;&#x7684;&#x5206;&#x914D;&#x548C;&#x56DE;&#x6536;&#xFF0C;&#x77E5;&#x9053;&#x54EA;&#x4E9B;&#x8FDB;&#x7A0B;&#x548C;&#x5185;&#x5B58;&#x76F8;&#x6620;&#x5C04;&#x3002;</li>
+<li>&#x865A;&#x62DF;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x3002;</li>
+</ol>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x7279;&#x522B;&#x7559;&#x610F;&#x672C;&#x6587;&#x9875;&#x76EE;&#x5F55;(page directory rentry)&#x548C;&#x9875;&#x8868;(page table entry)&#x3002;</p>
+<p>&#x672C;&#x6587;&#x4E3B;&#x8981;&#x56F4;&#x7ED5;<code>memlayout.h</code>&#x4E2D;&#x7684;&#x90A3;&#x5F20;&#x865A;&#x62DF;&#x5185;&#x5B58;&#x8868;&#x548C;128MB&#x5B9E;&#x9645;&#x7269;&#x7406;&#x5185;&#x5B58;&#x6620;&#x5C04;&#x8FDB;&#x884C;&#x5C55;&#x5F00;&#xFF0C;&#x6CE8;&#x610F;&#x533A;&#x522B;&#x3002;</p>
+<p><img src="lab2-Memory Management/arch.png" alt=""></p>
+<h3 id="part-1-physical-page-management">Part 1: Physical Page Management</h3>
+<p>&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x9700;&#x8981;&#x505A;&#x7684;&#x662F;&#x5BF9;&#x7269;&#x7406;&#x5185;&#x5B58;&#x7684;&#x7BA1;&#x7406;&#x5DE5;&#x4F5C;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x6709;&#x51FD;&#x6570;<code>i386_detect_memory()</code>&#x7528;&#x6765;&#x68C0;&#x67E5;&#x7269;&#x7406;&#x5185;&#x5B58;&#x7684;&#x5927;&#x5C0F;&#x3002;&#x672C;&#x5B9E;&#x9A8C;&#x68C0;&#x6D4B;&#x51FA;&#x6765;&#x80FD;&#x591F;&#x4F7F;&#x7528;&#x7684;&#x7269;&#x7406;&#x5185;&#x5B58;&#x662F;128MB&#x3002;&#x5E76;&#x4E14;&#x662F;&#x6309;&#x7167;page&#x4E3A;&#x5355;&#x5143;&#x8FDB;&#x884C;&#x7BA1;&#x7406;&#x7684;&#xFF0C;1 page=4096 Bytes&#x3002;&#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x8FD9;&#x4E2A;&#x5927;&#x5C0F;&#x7684;&#x7A7A;&#x95F4;&#x8FDB;&#x884C;&#x5185;&#x5B58;&#x7684;&#x7BA1;&#x7406;&#xFF0C;&#x5176;&#x5B9E;&#x548C;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x6709;&#x5173;&#x3002;&#x4E00;&#x4E2A;32&#x4F4D;&#x7684;&#x5730;&#x5740;&#x53EF;&#x4EE5;&#x88AB;&#x8FD9;&#x6837; &#x8FDB;&#x884C;&#x5212;&#x5206;&#x7BA1;&#x7406;&#xFF1A;</p>
+<pre><code>// A linear address &apos;la&apos; has a three-part structure as follows:
+//
+// +--------10------+-------10-------+---------12----------+
+// | Page Directory |   Page Table   | Offset within Page  |
+// |      Index     |      Index     |                     |
+// +----------------+----------------+---------------------+
+//  \--- PDX(la) --/ \--- PTX(la) --/ \---- PGOFF(la) ----/
+//  \---------- PGNUM(la) ----------/
+//
+</code></pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x6700;&#x540E;&#x7684;12&#x4F4D;&#x5C31;&#x662F;&#x9875;(page)&#x5185;&#x504F;&#x79FB;&#xFF0C;&#x5373;2^12=4096Bytes&#x5927;&#x5C0F;&#x3002;</p>
+<h4 id="exercise-1">exercise 1</h4>
+<p>&#x5728;<code>kern/pmap.c</code>&#x4E2D;&#xFF0C;&#x901A;&#x8FC7;&#x4FEE;&#x6539;&#x4E0B;&#x9762;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x5BF9;&#x7269;&#x7406;&#x5185;&#x5B58;&#x8FDB;&#x884C;&#x7BA1;&#x7406;&#xFF1A;</p>
+<ul>
+<li><code>boot_alloc()</code> // &#x5206;&#x914D;n bytes&#x5927;&#x5C0F;&#x7684;&#x7A7A;&#x95F4;&#xFF0C;&#x7A7A;&#x95F4;&#x5927;&#x5C0F;&#x4EE5;PAGE&#x5927;&#x5C0F;&#x5411;&#x4E0A;&#x53D6;&#x6574;&#x3002;</li>
+<li><code>mem_init()</code> (only up to the call to <code>check_page_free_list(1)</code>) </li>
+<li><code>page_init()</code>&#xFF1A;// &#x5C06;&#x53EF;&#x4F7F;&#x7528;&#x7684;&#x5185;&#x5B58;&#x4EE5;&#x94FE;&#x8868;&#x7684;&#x5F62;&#x5F0F;&#x8FDE;&#x63A5;&#x5728;&#x4E00;&#x8D77;&#x3002;</li>
+<li><code>page_alloc()</code>: // &#x5206;&#x914D;&#x4E00;&#x4E2A;&#x7A7A;&#x95F2;page</li>
+<li><code>page_free()</code>: // &#x4E0E;&#x4E0A;&#x9762;&#x7684;&#x529F;&#x80FD;&#x76F8;&#x53CD;&#xFF0C;&#x6536;&#x56DE;&#x4E00;&#x4E2A;&#x7A7A;&#x95F2;&#x9875;&#x3002;</li>
+</ul>
+<ul>
+<li><p><code>boot_alloc(uint32_t n)</code>: &#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4EC5;&#x5728;&#x7CFB;&#x7EDF;&#x5EFA;&#x7ACB;&#x865A;&#x62DF;&#x5185;&#x5B58;&#x6620;&#x5C04;&#x7CFB;&#x7EDF;&#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528;&#xFF0C;&#x540E;&#x9762;&#x6240;&#x6709;&#x7684;&#x5185;&#x5B58;&#x5206;&#x914D;&#x5355;&#x4F4D;&#x90FD;&#x662F;PAGE&#xFF0C;&#x5E76;&#x4E14;&#x4F7F;&#x7528;<code>page_alloc</code>(&#x5C3D;&#x7BA1;&#x8FD9;&#x4E2A;n&#x4E5F;&#x662F;&#x5411;&#x7740;PAGE&#x5927;&#x5C0F;&#x4E3A;&#x5355;&#x4F4D;&#x5411;&#x4E0A;&#x53D6;&#x6574;&#x7684;&#x3002; </p>
+<p>&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">// LAB 2: Your code here.</span>
+result = nextfree;
+nextfree = ROUNDUP(nextfree+n, PGSIZE);
+<span class="hljs-keyword">if</span>((<span class="hljs-keyword">uint32_t</span>)nextfree-KERNBASE &gt; (npages*PGSIZE)){
+    panic(<span class="hljs-string">&quot;OUT OF MEMORY&quot;</span>);
+}
+<span class="hljs-keyword">return</span> result;
+</code></pre>
+</li>
+</ul>
+<hr>
+<p>  &#x4E4B;&#x540E;&#xFF0C;&#x4E3A;&#x4E86;&#x80FD;&#x591F;&#x66F4;&#x597D;&#x7684;&#x7BA1;&#x7406;&#x7269;&#x7406;&#x5185;&#x5B58;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5BF9;&#x6BCF;&#x4E00;&#x4E2A;&#x7269;&#x7406;&#x9875;&#x6709;&#x7BA1;&#x7406;&#x7684;&#x5143;&#x6570;&#x636E;&#xFF0C;&#x4F7F;&#x5F97;&#x66F4;&#x597D;&#x7684;&#x8FDB;&#x884C;&#x7D22;&#x5F15;&#x548C;&#x6743;&#x9650;&#x7684;&#x7BA1;&#x7406;&#x3002;</p>
+<pre><code class="lang-c">  pages = (struct PageInfo *)boot_alloc(npages * sizeof(struct PageInfo));
+  memset(pages, 0, npages * sizeof(struct PageInfo));
+</code></pre>
+<p>  &#x603B;&#x5171;&#x9700;&#x8981;131072KB=128MB&#x7684;&#x7269;&#x7406;&#x5185;&#x5B58;&#x9700;&#x8981;&#x7BA1;&#x7406;&#xFF0C;&#x8FD9;&#x4E2A;&#x5927;&#x5C0F;&#x662F;<code>i386_detect_memory()</code>&#x68C0;&#x6D4B;&#x51FA;&#x6765;&#x7684;&#x3002;&#x56E0;&#x6B64;&#x9700;&#x8981;131072/4 = 32768&#x4E2A;<code>PageInfo</code>&#x8FDB;&#x884C;&#x7BA1;&#x7406;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;<code>PageInfo</code>&#x90FD;&#x4F1A;&#x7BA1;&#x7406;&#x4E00;&#x4E2A;&#x7269;&#x7406;page&#xFF0C;&#x6216;&#x8005;&#x662F;&#x7BA1;&#x7406;PageInfo&#x6307;&#x5411;&#x7684;&#x7269;&#x7406;page&#x91CC;&#x9762;&#x7EF4;&#x62A4;&#x7684;&#x5185;&#x5BB9;&#x662F;Page&#x5730;&#x5740;&#x548C;&#x6743;&#x9650;&#x3002;</p>
+<p>&#x7269;&#x7406;&#x5185;&#x5B58;&#x7684;&#x5206;&#x5E03;&#x60C5;&#x51B5;&#xFF1A;</p>
+<p><img src="lab2-Memory Management/memlayout.png" alt=""></p>
+<ul>
+<li><code>page_init()</code>&#x51FD;&#x6570;&#x4E3B;&#x8981;&#x662F;&#x5C06;&#x7269;&#x7406;&#x5185;&#x5B58;&#x4E2D;&#x7A7A;&#x95F2;&#x7684;&#x90E8;&#x5206;&#x4EE5;&#x94FE;&#x8868;&#x7684;&#x5F62;&#x5F0F;&#x5B58;&#x50A8;&#x8D77;&#x6765;&#x8FDB;&#x884C;&#x5206;&#x914D;&#x548C;&#x56DE;&#x6536;&#x3002;</li>
+</ul>
+<p>JOS&#x5C06;&#x5185;&#x5B58;&#x5206;&#x6210;&#x4E86;&#x56DB;&#x4E2A;&#x90E8;&#x5206;&#x3002;</p>
+<p>&#x5176;&#x4E2D;&#x524D;1MB&#x7684;&#x5185;&#x5B58;&#x5206;&#x6210;&#x4E86;&#x4E09;&#x4E2A;&#x90E8;&#x5206;+1MB&#x4E4B;&#x540E;&#x7684;&#x5185;&#x5BB9;&#xFF1A;</p>
+<ol>
+<li><p>[0-4)KB&#xFF1A;IDT&#x8868;&#xFF0C;BIOS structure &#xFF08;&#x4E0D;&#x53EF;&#x7528;&#xFF09;</p>
+</li>
+<li><p>[4-640)KB: base memory             &#xFF08;&#x53EF;&#x7528;&#xFF09;</p>
+</li>
+<li><p>[640,1024)KB:IO hole                    &#xFF08;&#x4E0D;&#x53EF;&#x7528;&#xFF09;</p>
+<p>&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014; 1MB</p>
+</li>
+<li><p>[1024, ...)                                         &#xFF08;&#x53EF;&#x7528;&#xFF09;</p>
+</li>
+</ol>
+<p>&#x5176;&#x4E2D;&#x524D;&#x9762;&#x7684;1MB&#x7684;&#x5185;&#x5B58;&#x662F;&#x8FD9;&#x6837;&#x5212;&#x5206;&#x7684;&#xFF0C;&#x4ECE;lab1&#x91CC;&#x9762;&#x627E;&#x6765;&#x7684;&#x7ED3;&#x6784;&#xFF1A;</p>
+<pre><code>+------------------+  &lt;- 0x00100000 (1MB)          [640,1024)KB:IO hole
+|     BIOS ROM     |                                 |
++------------------+  &lt;- 0x000F0000 (960KB)          |
+|  16-bit devices, |                                 |
+|  expansion ROMs  |                                 |IO hole
++------------------+  &lt;- 0x000C0000 (768KB)          |
+|   VGA Display    |                                 |
++------------------+  &lt;- 0x000A0000 (640KB)        [4-640)KB: base memory
+|                  |                                 |    
+|    Low Memory    |                                 |base memory
+|                  |                                 |
++------------------+  &lt;- 0x00000000                 [0-4)KB&#xFF1A;IDT&#x8868;&#xFF0C;BIOS structure
+</code></pre><p>&#x6700;&#x540E;&#x6211;&#x4EEC;&#x5185;&#x5B58;&#x7684;&#x5206;&#x914D;&#x60C5;&#x51B5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="lab2-Memory Management/layout.png" alt=""></p>
+<p>&#x7EA2;&#x8272;&#x9634;&#x5F71;&#x90E8;&#x5206;&#x7684;&#x5185;&#x5B58;&#x4E0D;&#x53EF;&#x4EE5;&#x518D;&#x5206;&#x914D;&#x4F7F;&#x7528;&#x4E86;&#x3002;</p>
+<p>&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x5BF9;&#x5143;&#x6570;&#x636E;<code>pages</code>&#x7684;&#x521D;&#x59CB;&#x5316;&#x548C;&#x9875;&#x7A7A;&#x95F2;&#x94FE;&#x8868;<code>page_free_list</code>&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-c">    <span class="hljs-keyword">size_t</span> i;
+    <span class="hljs-comment">//boot_alloc(0)&#x83B7;&#x53D6;&#x4E4B;&#x524D;&#x5206;&#x914D;&#x5230;&#x7684;&#x7A7A;&#x95F2;&#x9875;&#x7684;&#x9996;&#x5730;&#x5740;</span>
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> pages_in_use_end =
+        npages_basemem + <span class="hljs-number">96</span> + ((<span class="hljs-keyword">uint32_t</span>)boot_alloc(<span class="hljs-number">0</span>) - KERNBASE) / PGSIZE;
+    <span class="hljs-comment">// pages_in_use_end = 600;</span>
+    cprintf(<span class="hljs-string">&quot;now in use: %d\n&quot;</span>, pages_in_use_end);
+    <span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x8BA9;&#x7B2C;0&#x9875;&#x4E3A;&#x4F7F;&#x7528;</span>
+    cprintf(<span class="hljs-string">&quot;%08x %08x\n&quot;</span>, pages, (<span class="hljs-keyword">uint32_t</span>)boot_alloc(<span class="hljs-number">0</span>));
+    <span class="hljs-comment">//&#x7B2C;0&#x9875;&#x7528;&#x4E8E;&#x5B58;&#x653E;real-mode IDT (interrupt descriptor table)and BIOS structures</span>
+    pages[<span class="hljs-number">0</span>].pp_ref = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">1</span>; i &lt; npages_basemem; i++) {
+        pages[i].pp_ref = <span class="hljs-number">0</span>;
+        pages[i].pp_link = page_free_list;
+        page_free_list = &amp;pages[i];
+    }
+    <span class="hljs-comment">// I/O</span>
+    <span class="hljs-keyword">for</span> (i = npages_basemem; i &lt; pages_in_use_end; ++i){
+        pages[i].pp_ref = <span class="hljs-number">1</span>;
+    }
+    <span class="hljs-keyword">for</span> (i = pages_in_use_end; i &lt; npages; ++i) {
+        pages[i].pp_ref = <span class="hljs-number">0</span>;
+        pages[i].pp_link = page_free_list;
+        page_free_list = &amp;pages[i];
+    }
+</code></pre>
+<p>&#x5176;&#x4E2D;96&#x7684;&#x7531;&#x6765;&#x5C31;&#x662F;(1024-640)/4=96&#x3002;</p>
+<ul>
+<li><code>page_alloc()</code>: &#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x5206;&#x914D;&#x4E00;&#x4E2A;page, &#x8FD4;&#x56DE;&#x503C;&#x4E3A;&#x4E00;&#x4E2A;<code>PageInfo</code>&#x3002;</li>
+</ul>
+<p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">struct</span> PageInfo *
+<span class="hljs-title">page_alloc</span><span class="hljs-params">(<span class="hljs-keyword">int</span> alloc_flags)</span>
+</span>{
+    <span class="hljs-comment">// Fill this function in</span>
+    <span class="hljs-keyword">struct</span> PageInfo *temp;
+    <span class="hljs-keyword">if</span>(page_free_list == <span class="hljs-literal">NULL</span>){
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+    }
+    temp = page_free_list;
+    page_free_list = temp-&gt;pp_link;
+    temp-&gt;pp_link = <span class="hljs-literal">NULL</span>;
+    <span class="hljs-keyword">if</span> (alloc_flags &amp; ALLOC_ZERO)
+        <span class="hljs-comment">//&#x56E0;&#x4E3A;&#x6240;&#x6709;&#x7684;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x5730;&#x5740;&#x90FD;&#x662F;&#x865A;&#x62DF;&#x5730;&#x5740;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5C06;&#x771F;&#x5B9E;&#x7684;&#x7269;&#x7406;&#x9875;&#x9762;&#x8F6C;&#x6362;&#x5230;&#x865A;&#x62DF;&#x5730;&#x5740;&#x4E0B;&#x521D;&#x59CB;&#x5316;</span>
+        <span class="hljs-built_in">memset</span>(page2kva(temp), <span class="hljs-number">0</span>, PGSIZE);
+    <span class="hljs-keyword">return</span> temp;
+}
+</code></pre>
+<ul>
+<li><code>page_free()</code>:</li>
+</ul>
+<p>&#x56DE;&#x6536;&#x76F8;&#x5E94;&#x7684;&#x7269;&#x7406;&#x9875;&#x9762;&#x5230;&#x7A7A;&#x95F2;&#x9875;&#x94FE;&#x8868;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">void</span>
+<span class="hljs-title">page_free</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> PageInfo *pp)</span>
+</span>{
+    <span class="hljs-comment">// Fill this function in</span>
+    <span class="hljs-comment">// Hint: You may want to panic if pp-&gt;pp_ref is nonzero or</span>
+    <span class="hljs-comment">// pp-&gt;pp_link is not NULL.</span>
+    <span class="hljs-keyword">if</span>(pp-&gt;pp_ref != <span class="hljs-number">0</span> || pp-&gt;pp_link != <span class="hljs-literal">NULL</span>)
+        panic(<span class="hljs-string">&quot;can&apos;t properly free page\n&quot;</span>);
+    pp-&gt;pp_link = page_free_list;
+    page_free_list = pp;
+
+}
+</code></pre>
+<h3 id="part-2-virtual-memory">Part 2: Virtual Memory</h3>
+<h4 id="exercise-2">exercise 2</h4>
+<blockquote>
+<p>&#x9605;&#x8BFB;&#x76F8;&#x5173;&#x7684;&#x6587;&#x7AE0;&#xFF0C;&#x4E86;&#x89E3;&#x9875;&#x8F6C;&#x6362;&#x673A;&#x5236;&#x548C;&#x9875;&#x7684;&#x4FDD;&#x62A4;&#x673A;&#x5236;&#x3002;</p>
+</blockquote>
+<p><a href="https://pdos.csail.mit.edu/6.828/2018/readings/i386/toc.htm" target="_blank">&#x6587;&#x7AE0;&#x94FE;&#x63A5;-i386&#x8BBE;&#x8BA1;</a></p>
+<p>&#x5176;&#x4E2D;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7279;&#x522B;&#x5173;&#x6CE8;&#x5176;&#x4E2D;&#x7684;&#x4E24;&#x8282;&#xFF0C;&#x662F;&#x6211;&#x4EEC;&#x4E4B;&#x540E;&#x5B9E;&#x9A8C;&#x7684;&#x9884;&#x5907;&#x77E5;&#x8BC6;&#xFF1A;</p>
+<p><a href="https://pdos.csail.mit.edu/6.828/2018/readings/i386/s05_02.htm" target="_blank">Table translation</a></p>
+<h4 id="virtual-linear-and-physical-addresses">Virtual, Linear, and Physical Addresses</h4>
+<p>&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x8BB2;&#x5230;&#x4E86;&#x865A;&#x62DF;&#x5730;&#x5740;&#x662F;&#x600E;&#x4E48;&#x8FDB;&#x884C;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x7406;&#x89E3;&#x4E0B;&#x9762;&#x7684;&#x56FE;&#x5C31;&#x884C;&#xFF1A;</p>
+<p><img src="lab2-Memory Management/addressTranslation.png" alt=""></p>
+<p>&#x9996;&#x5148;&#x6709;&#x4E00;&#x4E2A;&#x5BC4;&#x5B58;&#x5668;CR3&#x4FDD;&#x5B58;&#x7684;&#x662F;&#x9875;&#x76EE;&#x5F55;&#x7684;&#x9996;&#x5730;&#x5740;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x865A;&#x62DF;&#x5730;&#x5740;&#x7684;&#x9AD8;10&#x4F4D;&#xFF0C;&#x5373;&#x53EF;&#x627E;&#x5230;&#x9875;&#x8868;&#x5F00;&#x59CB;&#x4F4D;&#x7F6E;&#x3002;&#x901A;&#x8FC7;&#x4E2D;&#x95F4;&#x7684;10&#x4F4D;+&#x9875;&#x8868;&#x5F00;&#x59CB;&#x5730;&#x5740;&#xFF0C;&#x5373;&#x53EF;&#x627E;&#x5230;&#x5177;&#x4F53;&#x7684;&#x9875;&#x5730;&#x5740;&#x3002;</p>
+<p>&#x5176;&#x4E2D;<code>DIR ENTRY</code>32&#x4F4D;&#x6211;&#x4EEC;&#x90FD;&#x7528;&#x6765;&#x5B58;PAGE TABLE&#x7684;&#x5F00;&#x59CB;&#x5730;&#x5740;&#xFF0C;&#x7531;&#x4E8E;&#x4E00;&#x4E2A;&#x9875;&#x5927;&#x5C0F;&#x4E3A;4096Bytes&#xFF0C;&#x56E0;&#x6B64;&#x4E00;&#x5171;&#x53EF;&#x4EE5;&#x7BA1;&#x7406;4096/4=1024&#x9879;PAGE TABLE&#x3002;PG TBL ENTRY&#x6211;&#x4EEC;&#x7684;&#x9AD8;20&#x4F4D;&#x7528;&#x6765;&#x5B58;&#x50A8;PAGE FRAME ADDRESS&#xFF0C;&#x540E;&#x9762;&#x7684;12&#x4F4D;&#x7528;&#x6765;&#x7EF4;&#x62A4;&#x5177;&#x4F53;PAGE&#x7684;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="lab2-Memory Management/tableEntry.png" alt=""></p>
+<p>&#x8FD9;&#x4E5F;&#x662F;<a href="https://pdos.csail.mit.edu/6.828/2018/readings/i386/s06_04.htm" target="_blank">page-level protection</a>&#x6240;&#x91CD;&#x70B9;&#x8BF4;&#x660E;&#x7684;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5BF9;&#x5176;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4F4D;&#x8FDB;&#x884C;&#x5177;&#x4F53;&#x7684;&#x8BF4;&#x660E;&#xFF1A;</p>
+<ul>
+<li>P&#xFF1A;PRESENT</li>
+</ul>
+<p>&#x5F53;&#x4E3A;0&#x65F6;&#xFF0C;&#x8868;&#x793A;&#x662F;&#x4E00;&#x4E2A;&#x65E0;&#x6548;&#x7684;&#x9879;&#xFF1A;</p>
+<p><img src="lab2-Memory Management/invalid.png" alt=""></p>
+<p>&#x4E00;&#x822C;&#x6211;&#x4EEC;&#x7684;&#x7A0B;&#x5E8F;&#x90FD;&#x4F1A;&#x5C06;&#x5176;&#x8BBE;&#x7F6E;&#x6210;1&#x3002;</p>
+<ul>
+<li>R/W: READ/WRITE, Read-only access (R/W=0), Read/write access (R/W=1)</li>
+</ul>
+<p>&#x5F53;&#x5728;&#x5185;&#x6838;&#x6001;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6240;&#x6709;&#x7684;pages&#x90FD;&#x662F;&#x53EF;&#x8BFB;&#x53EF;&#x5199;&#x7684;&#xFF0C;&#x5F53;&#x5728;&#x7528;&#x6237;&#x6001;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x7528;&#x6237;&#x6001;&#x7684;&#x53EF;&#x8BFB;&#x53EF;&#x5199;&#xFF0C;&#x5185;&#x6838;&#x6001;&#x7684;&#x4EC5;&#x53EF;&#x8BFB;&#x3002;</p>
+<p>&#x5173;&#x4E8E;&#x600E;&#x4E48;&#x505A;&#x5927;&#x4E0D;&#x540C;&#x6743;&#x9650;&#x7684;&#x8BBF;&#x95EE;&#xFF0C;&#x4E0B;&#x9762;&#x7684;<code>U/S</code>&#x5C31;&#x80FD;&#x8868;&#x793A;&#x8BE5;&#x9875;&#x662F;&#x5185;&#x6838;&#x6001;&#x7A0B;&#x5E8F;&#xFF0C;&#x8FD8;&#x662F;&#x7528;&#x6237;&#x6001;&#x7A0B;&#x5E8F;&#x3002;&#x5F53;&#x7CFB;&#x7EDF;&#x52A8;&#x6001;&#x8FD0;&#x884C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x901A;&#x8FC7;&#x5224;&#x65AD;CPL&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x503C;&#xFF0C;&#x5C31;&#x80FD;&#x77E5;&#x9053;&#x6B64;&#x523B;&#x7528;&#x6237;&#x7684;&#x72B6;&#x6001;&#x3002;&#x4ECE;&#x800C;&#x80FD;&#x591F;&#x8FDB;&#x884C;&#x4E0D;&#x540C;&#x7528;&#x6237;&#x7684;&#x6743;&#x9650;&#x63A7;&#x5236;&#x3002;</p>
+<ul>
+<li>U/S&#xFF1A;USER/SUPERVISOR, &#x76EE;&#x524D;&#x8BE5;&#x503C;&#x7684;&#x8BBE;&#x7F6E;&#x548C;CPL&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x503C;&#x6709;&#x5173;&#x3002;&#x82E5;CPL=3&#xFF0C;&#x5219;&#x662F;&#x7528;&#x6237;&#x6001;&#xFF0C;&#x82E5;&#x662F;0&#xFF0C;1&#xFF0C;2&#x5219;&#x662F;&#x5185;&#x6838;&#x6001;&#x3002;</li>
+<li>D&#xFF1A;Dirty&#x4F4D;&#x662F;&#x786C;&#x4EF6;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#x7684;&#x3002;&#x4E3B;&#x8981;&#x662F;&#x5F53;&#x5185;&#x5B58;&#x6EE1;&#x4E86;&#xFF0C;&#x6839;&#x636E;&#x8BE5;&#x4F4D;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5C06;&#x8FD9;&#x4E2A;&#x9875;&#x9762;&#x91CD;&#x65B0;&#x5199;&#x5165;&#x786C;&#x76D8;&#x4E2D;&#x3002;&#x82E5;&#x4E3A;1&#x5219;&#x80AF;&#x5B9A;&#x9700;&#x8981;&#x5C06;&#x5176;&#x5199;&#x5165;&#x5230;&#x786C;&#x76D8;&#x4E2D;&#x7684;&#x3002;</li>
+</ul>
+<p>Page Translation Cache</p>
+<p>&#x4E3A;&#x4E86;&#x52A0;&#x901F;&#x4E0A;&#x9762;&#x7684;&#x865A;&#x62DF;&#x5730;&#x5740;&#x7684;&#x6620;&#x5C04;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x7CFB;&#x7EDF;&#x4F1A;&#x5C06;&#x5176;&#x653E;&#x5165;&#x5230;&#x9AD8;&#x901F;&#x7F13;&#x5B58;&#x4E2D;&#xFF0C;&#x6BCF;&#x5F53;&#x8FD9;&#x4E9B;&#x8868;&#x6709;&#x53D8;&#x5316;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x8981;&#x624B;&#x52A8;&#x7684;&#x8FDB;&#x884C;&#x5237;&#x65B0;&#xFF0C;&#x5237;&#x65B0;&#x7684;&#x65B9;&#x6CD5;&#x6709;&#x4E0B;&#x9762;&#x7684;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<ol>
+<li>&#x7528;EAX&#x66F4;&#x65B0;CR3</li>
+<li>&#x8FDB;&#x7A0B;&#x7A7A;&#x95F4;&#x5207;&#x6362;&#x7684;&#x65F6;&#x5019;&#x4E5F;&#x4F1A;&#x8FDB;&#x884C;&#x8FD9;&#x6837;&#x7684;&#x64CD;&#x4F5C;&#x3002;</li>
+</ol>
+<p>&#x6700;&#x540E;&#x5BF9;&#x5E94;&#x5230;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x4F4D;&#x7684;&#x8BBE;&#x7F6E;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">// Page table/directory entry flags.</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PTE_P        0x001    <span class="hljs-comment">// Present</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PTE_W        0x002    <span class="hljs-comment">// Writeable</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PTE_U        0x004    <span class="hljs-comment">// User</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PTE_PWT        0x008    <span class="hljs-comment">// Write-Through</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PTE_PCD        0x010    <span class="hljs-comment">// Cache-Disable</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PTE_A        0x020    <span class="hljs-comment">// Accessed</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PTE_D        0x040    <span class="hljs-comment">// Dirty</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PTE_PS        0x080    <span class="hljs-comment">// Page Size</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PTE_G        0x100    <span class="hljs-comment">// Global</span></span>
+</code></pre>
+<h4 id="exercise-3">exercise 3</h4>
+<blockquote>
+<p>Ctrl+a c &#x8FDB;&#x5165;qemu&#x7684;&#x8C03;&#x8BD5;&#x6A21;&#x5F0F;&#xFF0C;&#x4F7F;&#x7528;xp/Nx address&#x67E5;&#x770B;&#x7269;&#x7406;&#x5185;&#x5B58;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5728;GDB&#x4E2D;&#x67E5;&#x770B;&#x865A;&#x62DF;&#x5730;&#x5740;&#x7684;&#x5185;&#x5B58;&#x5185;&#x5BB9;&#x3002;</p>
+<p>info mem</p>
+<p>info pg: &#x53EF;&#x67E5;&#x770B;&#x9875;&#x76EE;&#x5F55;&#x548C;&#x9875;&#x8868;&#x7684;&#x6620;&#x5C04;</p>
+</blockquote>
+<p><code>info pg</code>&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x9875;&#x76EE;&#x5F55;&#x548C;&#x6BCF;&#x4E00;&#x9879;&#x9875;&#x76EE;&#x5F55;&#x4E0B;&#x5BF9;&#x5E94;&#x9875;&#x8868;&#x4E0B;&#x5185;&#x5BB9;&#xFF0C;&#x5982;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="lab2-Memory Management/infoPG.png" alt=""></p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x521D;&#x59CB;&#x5316;&#x7684;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x4EC5;&#x521D;&#x59CB;&#x5316;&#x4E86;&#x7B2C;0x0&#x548C;&#x7B2C;0x3c0(960)&#x9875;&#x76EE;&#x5F55;&#x9879;&#x3002;&#x4E0E;<code>entrypgdir.c</code>&#x91CC;&#x9762;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x662F;&#x4E00;&#x81F4;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-c">__attribute__((__aligned__(PGSIZE)))
+<span class="hljs-keyword">pde_t</span> entry_pgdir[NPDENTRIES] = {
+    <span class="hljs-comment">// Map VA&apos;s [0, 4MB) to PA&apos;s [0, 4MB)</span>
+    [<span class="hljs-number">0</span>]
+        = ((<span class="hljs-keyword">uintptr_t</span>)entry_pgtable - KERNBASE) + PTE_P,
+    <span class="hljs-comment">// Map VA&apos;s [KERNBASE, KERNBASE+4MB) to PA&apos;s [0, 4MB)</span>
+    [KERNBASE&gt;&gt;PDXSHIFT]
+        = ((<span class="hljs-keyword">uintptr_t</span>)entry_pgtable - KERNBASE) + PTE_P + PTE_W
+};
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x4E5F;&#x89C2;&#x5BDF;&#x5230;&#x4E86;960&#x9879;&#x591A;&#x4E86;&#x4E00;&#x4E2A;PTE_W&#x7684;&#x6743;&#x9650;&#xFF0C;&#x4E5F;&#x662F;&#x80FD;&#x591F;&#x5728;&#x622A;&#x56FE;&#x4E2D;&#x4F53;&#x73B0;&#x7684;&#x3002;</p>
+<p>&#x4F46;&#x662F;&#xFF0C;&#x53D1;&#x73B0;&#x6743;&#x9650;&#x4F4D;&#x591A;&#x4E86;&#x5F88;&#x591A;&#x7684;<code>D</code>&#x548C;<code>A</code>&#x7684;&#x6743;&#x9650;&#xFF0C;&#x600E;&#x4E48;&#x56DE;&#x4E8B;&#x5462;&#xFF1F;</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x67E5;&#x9605;&#x76F8;&#x5173;&#x7684;<a href="https://pdos.csail.mit.edu/6.828/2018/readings/i386/s11_02.htm" target="_blank">&#x8D44;&#x6599;</a>&#xFF0C;&#x53D1;&#x73B0;&#x4E3B;&#x8981;&#x662F;&#x7528;&#x5728;&#x591A;&#x6838;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x7CFB;&#x7EDF;&#x5728;&#x8BFB;&#x6216;&#x8005;&#x662F;&#x5199;&#x65F6;&#xFF0C;&#x4F1A;&#x4E3B;&#x52A8;&#x7684;&#x66F4;&#x65B0;&#x8FD9;&#x4E9B;&#x4F4D;&#xFF0C;&#x5F53;&#x8FD9;&#x4E9B;&#x9875;&#x9762;&#x9700;&#x8981;&#x7F6E;&#x6362;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x90A3;&#x4E48;&#x9700;&#x8981;&#x5C06;&#x7F6E;&#x6709;<code>D</code>&#x7684;page&#x5199;&#x56DE;&#x5230;&#x786C;&#x76D8;&#x4E2D;&#x3002;</p>
+<pre><code class="lang-c">(qemu) info mem
+<span class="hljs-number">0000000000000000</span><span class="hljs-number">-0000000000400000</span> <span class="hljs-number">0000000000400000</span> -r-
+<span class="hljs-number">00000000f</span>0000000<span class="hljs-number">-00000000</span>f0400000 <span class="hljs-number">0000000000400000</span> -rw
+</code></pre>
+<p>&#x5176;&#x5B9E;&#x6709;&#x5DEE;&#x5F02;&#x4E5F;&#x662F;&#x4E0A;&#x9762;&#x7684;&#x521D;&#x59CB;&#x5316;&#x4EE3;&#x7801;&#x6709;&#x5173;&#x7684;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x9875;&#x76EE;&#x5F55;&#x9879;0&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x6743;&#x9650;+<code>PTE_W</code>&#xFF0C;&#x7F16;&#x8BD1;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x4E3A;&#xFF1A;</p>
+<p><img src="lab2-Memory Management/infoMEM.png" alt=""></p>
+<p>&#x786E;&#x5B9E;&#x662F;&#x4ECE;&#x8FD9;&#x91CC;&#x8FDB;&#x884C;&#x6743;&#x9650;&#x7684;&#x63A7;&#x5236;&#x7684;&#x3002;&#x4ECE;&#x8FD9;&#x4E2A;&#x89D2;&#x5EA6;&#x6765;&#x770B;&#xFF0C;&#x5185;&#x5B58;&#x8BFB;&#x53D6;&#x6743;&#x9650;&#x662F;4MB&#xFF08;&#x4E00;&#x4E2A;&#x9875;&#x76EE;&#x5F55;&#x9879;&#x7BA1;&#x7406;&#x7684;&#x5185;&#x5B58;&#x5927;&#x5C0F;&#xFF09;&#x6765;&#x8FDB;&#x884C;&#x7BA1;&#x7406;&#x7684;&#x3002;&#x7136;&#x800C;&#x5B9E;&#x9645;&#x4E0A;&#x5E94;&#x8BE5;&#x662F;&#x4EE5;4KB&#x5927;&#x5C0F;&#x8FDB;&#x884C;&#x7BA1;&#x7406;&#x7684;&#x3002;</p>
+<p>&#x4E00;&#x65E6;&#x7CFB;&#x7EDF;&#x8FDB;&#x5165;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x6307;&#x9488;&#x90FD;&#x662F;&#x865A;&#x62DF;&#x5730;&#x5740;&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x5728;&#x5185;&#x6838;&#x521D;&#x59CB;&#x5316;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x6709;&#x7684;&#x65F6;&#x5019;&#x65E2;&#x9700;&#x8981;&#x64CD;&#x7EB5;&#x865A;&#x62DF;&#x5730;&#x5740;&#xFF0C;&#x6709;&#x65F6;&#x5019;&#x4E5F;&#x9700;&#x8981;&#x64CD;&#x7EB5;&#x7269;&#x7406;&#x5730;&#x5740;&#x3002;</p>
+<p>&#x5C3D;&#x7BA1;&#x6211;&#x4EEC;&#x5728;&#x7A0B;&#x5E8F;&#x4E2D;&#x53EA;&#x80FD;&#x4F7F;&#x7528;&#x865A;&#x62DF;&#x5730;&#x5740;&#xFF0C;&#x4F46;&#x662F;&#x4E3A;&#x4E86;&#x8868;&#x793A;&#x7684;&#x65B9;&#x4FBF;&#x6027;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E86;<code>uintptr_t</code> &#x548C;<code>physaddr_t</code>&#x6765;&#x533A;&#x5206;&#x865A;&#x62DF;&#x5730;&#x5740;&#x548C;&#x7269;&#x7406;&#x5730;&#x5740;&#xFF0C;&#x5C3D;&#x7BA1;&#x5B83;&#x4EEC;&#x7684;&#x6570;&#x503C;&#x7C7B;&#x578B;&#x4E00;&#x81F4;&#x3002;</p>
+<p>Q: &#x4E00;&#x4E0B;&#x4EE3;&#x7801;x&#x7C7B;&#x578B;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-keyword">mystery_t</span> x;
+<span class="hljs-keyword">char</span>* value = return_a_pointer();
+*value = <span class="hljs-number">10</span>;
+x = (<span class="hljs-keyword">mystery_t</span>) value;
+</code></pre>
+<p>&#x662F;&#x865A;&#x62DF;&#x5730;&#x5740;&#x3002;</p>
+<p>&#x865A;&#x62DF;&#x5730;&#x5740;&#x8F6C;&#x7269;&#x7406;&#x5730;&#x5740;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x597D;&#x8BF4;&#x7684;&#xFF0C;&#x6709;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5C06;&#x7269;&#x7406;&#x5730;&#x5740;&#x8F6C;&#x53D1;&#x4E3A;&#x865A;&#x62DF;&#x5730;&#x5740;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">struct</span> PageInfo *
+<span class="hljs-title">page_alloc</span><span class="hljs-params">(<span class="hljs-keyword">int</span> alloc_flags)</span>
+</span>{
+    <span class="hljs-comment">// Fill this function in</span>
+    <span class="hljs-keyword">struct</span> PageInfo *temp;
+    <span class="hljs-keyword">if</span>(page_free_list == <span class="hljs-literal">NULL</span>){
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+    }
+    temp = page_free_list;
+    page_free_list = temp-&gt;pp_link;
+    temp-&gt;pp_link = <span class="hljs-literal">NULL</span>;
+    <span class="hljs-keyword">if</span> (alloc_flags &amp; ALLOC_ZERO)
+        <span class="hljs-built_in">memset</span>(page2kva(temp), <span class="hljs-number">0</span>, PGSIZE);
+    <span class="hljs-keyword">return</span> temp;
+}
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x5206;&#x914D;&#x4E00;&#x4E2A;page&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x80FD;&#x591F;&#x77E5;&#x9053;&#x5176;&#x7269;&#x7406;&#x5730;&#x5740;&#xFF0C;&#x4F46;&#x662F;&#x56E0;&#x4E3A;&#x53EA;&#x80FD;&#x64CD;&#x7EB5;&#x865A;&#x62DF;&#x5730;&#x5740;&#xFF0C;&#x4E8E;&#x662F;&#x6211;&#x4EEC;&#x6211;&#x4EEC;&#x53C8;&#x901A;&#x8FC7;<code>page2kva()</code>&#x5C06;&#x5176;&#x8F6C;&#x5316;&#x4E3A;&#x865A;&#x62DF;&#x5730;&#x5740;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x3002;</p>
+<h4 id="reference-counting">Reference counting</h4>
+<p>&#x4E3B;&#x8981;&#x662F;&#x7EF4;&#x62A4;&#x4E00;&#x4E2A;page&#x88AB;&#x865A;&#x62DF;&#x5730;&#x5740;&#x4F7F;&#x7528;&#x7684;&#x6B21;&#x6570;&#x3002;&#x5728;&#x540E;&#x9762;&#x7684;&#x5B9E;&#x9A8C;&#x4E2D;&#xFF0C;&#x540C;&#x4E00;&#x4E2A;&#x7269;&#x7406;&#x5730;&#x5740;(page)&#x80FD;&#x591F;&#x88AB;&#x591A;&#x4E2A;&#x865A;&#x62DF;&#x5730;&#x5740;&#x540C;&#x65F6;&#x6620;&#x5C04;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x591A;&#x4E2A;&#x7528;&#x6237;&#x6001;&#x4E0B;&#x7684;&#x5730;&#x5740;&#x7A7A;&#x95F4;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x7ED9;&#x51FA;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x4ECE;<code>check_page()</code>&#x4E2D;&#x6458;&#x9009;&#x7684;&#x7247;&#x6BB5;&#x8FDB;&#x884C;&#x8BF4;&#x660E;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-keyword">struct</span> PageInfo *pp0, *pp1;
+assert((pp0 = page_alloc(<span class="hljs-number">0</span>)));
+assert((pp1 = page_alloc(<span class="hljs-number">0</span>)));
+
+assert(page_insert(kern_pgdir, pp1, <span class="hljs-number">0x0</span>, PTE_W) == <span class="hljs-number">0</span>);
+assert(page_insert(kern_pgdir, pp1, (<span class="hljs-keyword">void</span>*) PGSIZE, PTE_W) == <span class="hljs-number">0</span>);
+
+assert(check_va2pa(kern_pgdir, <span class="hljs-number">0</span>) == page2pa(pp1));
+assert(check_va2pa(kern_pgdir, PGSIZE) == page2pa(pp1));
+assert(pp1-&gt;pp_ref == <span class="hljs-number">2</span>);
+</code></pre>
+<p>&#x7B2C;&#x4E00;&#x90E8;&#x5206;&#x662F;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x7B2C;&#x4E8C;&#x90E8;&#x5206;&#x5206;&#x522B;&#x662F;&#x5C06;0x0&#x548C;0x400&#x5206;&#x522B;&#x6620;&#x5C04;&#x5230;&#x4E86;pp1&#x3002;&#x6700;&#x540E;pp1&#x88AB;&#x5F15;&#x7528;&#x7684;&#x6B21;&#x6570;&#x5C31;&#x662F;2&#x3002;</p>
+<p><img src="lab2-Memory Management/multi.png" alt=""></p>
+<p>&#x6700;&#x540E;&#x6211;&#x4EEC;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x8FDB;&#x884C;&#x68C0;&#x67E5;&#xFF0C;&#x53D1;&#x73B0;&#x786E;&#x5B9E;&#x5982;&#x6B64;&#xFF1A;</p>
+<p><img src="lab2-Memory Management/diferentVir_samePage.png" alt=""></p>
+<p>0x3ff000&#x662F;pp0&#x9875;&#x9762;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x91CC;&#x9762;&#x5B58;&#x653E;&#x7684;&#x524D;&#x4E24;&#x9879;&#x5C31;&#x662F;pp1|PERM&#x7684;&#x503C;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x8BA8;&#x8BBA;&#x4E00;&#x4E0B;&#x9875;&#x5F15;&#x7528;+1&#x7684;&#x64CD;&#x4F5C;&#x90FD;&#x5728;&#x54EA;&#x4E9B;&#x5730;&#x65B9;&#xFF1A;</p>
+<ul>
+<li>pg directory entry&#x82E5;&#x4E4B;&#x524D;&#x6CA1;&#x6709;&#x5206;&#x914D;&#x4E00;&#x4E2A;page&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4F1A;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x9875;&#xFF0C;&#x8FD9;&#x4E2A;pg directory entry&#x5C31;&#x4F1A;&#x8BB0;&#x5F55;&#x8FD9;&#x4E2A;page&#x7684;&#x5730;&#x5740;&#x3002;</li>
+</ul>
+<pre><code class="lang-c">*pgdir_entry = (page2pa(new_page) | PTE_P | PTE_W | PTE_U);
+            ++new_page-&gt;pp_ref;
+</code></pre>
+<ul>
+<li>&#x6BCF;&#x5F53;&#x865A;&#x62DF;&#x5730;&#x5740;&#x548C;&#x76F8;&#x5173;&#x7684;&#x9875;&#x8FDB;&#x884C;&#x6620;&#x5C04;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x4E2A;&#x9875;&#x7684;&#x5F15;&#x7528;&#x503C;&#x4F1A;+1&#x3002;</li>
+</ul>
+<pre><code class="lang-c">page_insert(<span class="hljs-keyword">pde_t</span> *pgdir, <span class="hljs-keyword">struct</span> PageInfo *pp, <span class="hljs-keyword">void</span> *va, <span class="hljs-keyword">int</span> perm){
+    ++pp-&gt;pp_ref;
+}
+</code></pre>
+<h4 id="page-table-management">Page Table Management</h4>
+<h4 id="exercise-4">exercise 4</h4>
+<blockquote>
+<p>&#x5EFA;&#x7ACB;&#x865A;&#x62DF;&#x5730;&#x5740;&#x548C;&#x7269;&#x7406;&#x9875;&#x4E4B;&#x95F4;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x3002;</p>
+<p>&#x4F9D;&#x6B21;&#x5B8C;&#x6210;&#x4E0B;&#x9762;&#x7684;&#x51FD;&#x6570;&#xFF1A;</p>
+<p>pgdir_walk() // 
+boot_map_region()
+page_lookup()
+page_remove()
+page_insert()</p>
+</blockquote>
+<p>&#x524D;&#x9762;&#x6211;&#x4EEC;&#x4E3B;&#x8981;&#x7EF4;&#x62A4;&#x4E86;&#x9875;&#x7684;&#x5143;&#x6570;&#x636E;PageInfo&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x7269;&#x7406;&#x7684;&#x9875;&#x8FDE;&#x63A5;&#x5230;&#x4E86;&#x4E00;&#x8D77;&#x3002;&#x4E0B;&#x9762;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x9700;&#x8981;&#x5C06;&#x865A;&#x62DF;&#x5185;&#x5B58;&#x548C;&#x7269;&#x7406;&#x5185;&#x5B58;&#x5EFA;&#x7ACB;&#x8054;&#x7CFB;&#x3002;</p>
+<ul>
+<li><code>pgdir_walk(pde_t *pgdir, const void *va, int create)</code>:  &#x901A;&#x8FC7;va&#x9AD8;10&#x4F4D;&#x627E;&#x5230;pg directory entry&#xFF0C;&#x82E5;&#x6B64;&#x65F6;dir entry&#x6CA1;&#x6709;&#x88AB;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5219;&#x901A;&#x8FC7;<code>create</code>&#x6765;&#x5224;&#x65AD;&#x662F;&#x5426;&#x65B0;&#x5EFA;&#x9875;&#x3002;&#x5E76;&#x4E14;&#x6700;&#x540E;&#x8FD4;&#x56DE;pg table entry&#x3002;</li>
+</ul>
+<pre><code class="lang-c"><span class="hljs-keyword">pte_t</span> *
+pgdir_walk(<span class="hljs-keyword">pde_t</span> *pgdir, <span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *va, <span class="hljs-keyword">int</span> create)
+{
+    <span class="hljs-comment">// Fill this function in</span>
+    <span class="hljs-keyword">pde_t</span> *pgdir_entry = pgdir + PDX(va);
+    <span class="hljs-keyword">if</span> (!(*pgdir_entry &amp; PTE_P)) {
+        <span class="hljs-keyword">if</span> (!create)
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">struct</span> PageInfo *new_page = page_alloc(<span class="hljs-number">1</span>);
+            <span class="hljs-keyword">if</span> (!new_page)
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+            *pgdir_entry = (page2pa(new_page) | PTE_P | PTE_W | PTE_U);
+            ++new_page-&gt;pp_ref;
+        }
+    }
+    <span class="hljs-keyword">return</span> (<span class="hljs-keyword">pte_t</span> *)(KADDR(PTE_ADDR(*pgdir_entry))) + PTX(va);
+}
+</code></pre>
+<ul>
+<li><code>boot_map_region(kern_pgdir, &#x865A;&#x62DF;&#x5730;&#x5740;&#x5F00;&#x59CB;, &#x5927;&#x5C0F;, &#x7269;&#x7406;&#x5730;&#x5740;, &#x8BFB;&#x53D6;&#x6743;&#x9650;);</code>&#xFF1A;&#x4E3B;&#x8981;&#x662F;&#x901A;&#x8FC7;&#x5730;&#x5740;&#x533A;&#x95F4;&#xFF0C;&#x5C06;&#x865A;&#x62DF;&#x5730;&#x5740;&#x548C;&#x7269;&#x7406;&#x5730;&#x5740;&#x8FDB;&#x884C;&#x6620;&#x5C04;&#x3002;</li>
+</ul>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span>
+<span class="hljs-title">boot_map_region</span><span class="hljs-params">(pde_t *pgdir, uintptr_t va, size_t size, physaddr_t pa, <span class="hljs-keyword">int</span> perm)</span>
+</span>{
+    <span class="hljs-comment">// Fill this function in</span>
+    <span class="hljs-keyword">int</span> offset;
+    <span class="hljs-keyword">pte_t</span> *pgtable_entry;
+    <span class="hljs-keyword">for</span> (offset = <span class="hljs-number">0</span>; offset &lt; size; offset += PGSIZE, va += PGSIZE, pa += PGSIZE) {
+        pgtable_entry = pgdir_walk(pgdir, (<span class="hljs-keyword">void</span> *)va, <span class="hljs-number">1</span>);
+        <span class="hljs-comment">//pgtable_entry&#x4E2D;&#x5B58;&#x7740;&#x4E00;&#x6761;&#x7269;&#x7406;&#x5730;&#x5740;&#xFF0C;&#x6307;&#x5411;&#x4E00;&#x4E2A;page&#x3002;&#x8FD9;&#x4E2A;page&#x91CC;&#x9762;&#x6307;&#x5411;&#x5177;&#x4F53;&#x7684;&#x6240;&#x6709;&#x865A;&#x62DF;&#x5730;&#x5740;&#x4E0E;&#x7269;&#x7406;&#x5730;&#x5740;&#x7684;&#x6620;&#x5C04;&#x3002;&#x9700;&#x8981;&#x7684;&#x5927;&#x5C0F;&#x4F4D;1024*4KB = 4MB&#x5C31;&#x80FD;&#x7BA1;&#x7406;&#x5168;&#x90E8;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x3002;</span>
+        *pgtable_entry = (pa | perm | PTE_P);
+    }
+}
+</code></pre>
+<ul>
+<li><code>page_lookup()</code>: &#x627E;&#x5230;&#x865A;&#x62DF;&#x5730;&#x5740;&#x5BF9;&#x5E94;&#x7684;&#x9875;&#x5730;&#x5740;&#x3002;</li>
+</ul>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">struct</span> PageInfo *
+<span class="hljs-title">page_lookup</span><span class="hljs-params">(pde_t *pgdir, <span class="hljs-keyword">void</span> *va, pte_t **pte_store)</span>
+</span>{
+    <span class="hljs-comment">// Fill this function in</span>
+     <span class="hljs-keyword">pte_t</span> *pgtable_entry = pgdir_walk(pgdir, va, <span class="hljs-number">0</span>);
+    <span class="hljs-keyword">if</span> (!pgtable_entry || !(*pgtable_entry &amp; PTE_P))
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+    <span class="hljs-keyword">if</span> (pte_store)
+        *pte_store = pgtable_entry;
+    <span class="hljs-keyword">return</span> pa2page(PTE_ADDR(*pgtable_entry));
+
+}
+</code></pre>
+<ul>
+<li><code>page_remove()</code>: &#x5C06;&#x865A;&#x62DF;&#x5730;&#x5740;&#x5EFA;&#x7ACB;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x53D6;&#x6D88;&#x3002;</li>
+</ul>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">void</span>
+<span class="hljs-title">page_remove</span><span class="hljs-params">(pde_t *pgdir, <span class="hljs-keyword">void</span> *va)</span>
+</span>{
+    <span class="hljs-comment">// Fill this function in</span>
+     <span class="hljs-keyword">pte_t</span> *pgtable_entry;
+    <span class="hljs-keyword">struct</span> PageInfo *page = page_lookup(pgdir, va, &amp;pgtable_entry);
+    <span class="hljs-keyword">if</span> (!page)
+        <span class="hljs-keyword">return</span>;
+    page_decref(page);
+    tlb_invalidate(pgdir, va);
+    *pgtable_entry = <span class="hljs-number">0</span>;
+}
+</code></pre>
+<ul>
+<li><code>page_insert(pde_t *pgdir, struct PageInfo *pp, void *va, int perm)</code>:</li>
+</ul>
+<p>&#x82E5;&#x8BE5;&#x865A;&#x62DF;&#x5730;&#x5740;&#x4E4B;&#x524D;&#x5DF2;&#x7ECF;&#x5EFA;&#x7ACB;&#x6620;&#x5C04;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x53D6;&#x6D88;&#x539F;&#x6765;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#xFF08;&#x5373;&#x5C06;&#x539F;&#x6765;&#x7684;pg table entry&#x5185;&#x5BB9;&#x79FB;&#x9664;&#xFF09;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x65B0;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x8BB0;&#x5F55;&#x4E0B;&#x6765;&#x3002;</p>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">int</span>
+<span class="hljs-title">page_insert</span><span class="hljs-params">(pde_t *pgdir, <span class="hljs-keyword">struct</span> PageInfo *pp, <span class="hljs-keyword">void</span> *va, <span class="hljs-keyword">int</span> perm)</span>
+</span>{
+    <span class="hljs-comment">// Fill this function in</span>
+     <span class="hljs-keyword">pte_t</span> *pgtable_entry = pgdir_walk(pgdir, va, <span class="hljs-number">1</span>);
+    <span class="hljs-keyword">if</span> (!pgtable_entry)
+        <span class="hljs-keyword">return</span> -E_NO_MEM;
+    ++pp-&gt;pp_ref;
+    <span class="hljs-keyword">if</span> ((*pgtable_entry) &amp; PTE_P) {
+        tlb_invalidate(pgdir, va);
+        page_remove(pgdir, va);
+    }
+    *pgtable_entry = (page2pa(pp) | perm | PTE_P);
+    *(pgdir + PDX(va)) |= perm;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h3 id="part-3-kernel-address-space">Part 3: Kernel Address Space</h3>
+<p>JOS&#x5C06;32&#x4F4D;&#x7684;&#x7EBF;&#x6027;&#x5730;&#x5740;&#x7A7A;&#x95F4;&#x5212;&#x5206;&#x6210;&#x4E86;&#x4E24;&#x4E2A;&#x90E8;&#x5206;&#xFF1A;&#x7528;&#x6237;&#x73AF;&#x5883;&#x548C;&#x7CFB;&#x7EDF;&#x73AF;&#x5883;&#x3002;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x5212;&#x5206;&#x754C;&#x9650;&#x4E3A;<code>ULIM</code>&#x3002;&#x5E76;&#x4E14;JOS&#x4E3A;&#x5185;&#x6838;&#x4FDD;&#x5B58;&#x4E86;256MB&#x5927;&#x5C0F;&#x7684;&#x7A7A;&#x95F4;&#xFF08;0xf0000000-0xffffffff=256MB&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x8BF4;&#x5185;&#x6838;&#x7684;&#x7A7A;&#x95F4;&#x4E86;&#x3002;&#x6CE8;&#x610F;&#x4E0D;&#x8981;&#x548C;&#x7269;&#x7406;&#x5185;&#x5B58;&#x5927;&#x5C0F;&#x641E;&#x6DF7;&#x4E86;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x8FD9;&#x4E2A;&#x5B9E;&#x9A8C;&#x7269;&#x7406;&#x5185;&#x5B58;&#x7531;QEMU&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#x7684;&#xFF0C;&#x4E0E;JOS&#x65E0;&#x5173;&#xFF0C;&#x4E3A;128MB&#x5927;&#x5C0F;&#xFF09;&#x3002;</p>
+<h4 id="permissions-and-fault-isolation">Permissions and Fault Isolation</h4>
+<p>[ULIM, ): &#x53EA;&#x6709;&#x5185;&#x6838;&#x80FD;&#x591F;&#x8BBF;&#x95EE;</p>
+<p>[UTOP,ULIM): &#x90FD;&#x80FD;&#x591F;&#x8BFB;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x591F;write&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x5185;&#x6838;&#x5411;&#x7528;&#x6237;&#x6001;&#x4E3B;&#x52A8;&#x66B4;&#x9732;&#x4E00;&#x4E9B;&#x7CFB;&#x7EDF;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x65B9;&#x4FBF;&#x7528;&#x6237;&#x6001;&#x8FDB;&#x884C;&#x8BFB;&#x53D6;&#x548C;&#x8C03;&#x7528;&#x3002;</p>
+<p>[0, UTOP): &#x7528;&#x6237;&#x6001;&#x53EF;&#x4EE5;&#x81EA;&#x7531;&#x7684;&#x8FDB;&#x884C;&#x6743;&#x9650;&#x7684;&#x63A7;&#x5236;&#x3002;</p>
+<h4 id="initializing-the-kernel-address-space">Initializing the Kernel Address Space</h4>
+<h4 id="exercise-5">exercise 5</h4>
+<blockquote>
+<p>&#x5B8C;&#x6210;<code>mem_init()</code> &#x91CC;&#x9762;&#x51FD;&#x6570;&#x529F;&#x80FD;&#xFF0C;&#x4F7F;&#x5F97;&#x80FD;&#x591F;&#x901A;&#x8FC7; <code>check_kern_pgdir()</code> &#x548C;<code>check_page_installed_pgdir()</code> &#x3002;</p>
+</blockquote>
+<p>&#x6839;&#x636E;<code>memlayout.h</code>&#x91CC;&#x9762;&#x7684;&#x865A;&#x62DF;&#x5185;&#x5B58;&#x7684;&#x5206;&#x5E03;&#xFF0C;&#x8FDB;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x6620;&#x5C04;&#x3002;</p>
+<p>&#x6839;&#x636E;&#x6CE8;&#x91CA;&#xFF0C;&#x6211;&#x4EEC;&#x8FDB;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x4ECE;&#x865A;&#x62DF;&#x5730;&#x5740;&#x5230;&#x7269;&#x7406;&#x5730;&#x5740;&#x7684;&#x6620;&#x5C04;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<pre><code class="lang-c">boot_map_region(kern_pgdir, UPAGES, PTSIZE, PADDR(pages), PTE_U);
+boot_map_region(kern_pgdir, KSTACKTOP - KSTKSIZE, KSTKSIZE, PADDR(bootstack), PTE_W);
+boot_map_region(kern_pgdir, KERNBASE, (<span class="hljs-number">0xffffffff</span>-KERNBASE), <span class="hljs-number">0</span>, PTE_W);
+</code></pre>
+<p>Q2&#xFF1A;page directory &#x91CC;&#x9762;&#x7684;1024&#x9879;&#x54EA;&#x4E9B;&#x88AB;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x4E86;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x540E;&#x7684;&#x503C;&#x5206;&#x522B;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<p>UVPT = 0xef400000 = 957&#x9879;</p>
+<p>UPAGE = 0xef000000 = 956&#x9879;</p>
+<p>KSTACKTOP - KSTKSIZE =  0xefff 8000 = 959&#x9879;</p>
+<p>KERNBASE = 0xf0000000 = 960&#x9879;</p>
+<p>&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x521D;&#x59CB;&#x4E86;&#x4E0A;&#x9762;&#x7684;&#x82E5;&#x5E72;&#x9879;&#xFF0C;&#x5F97;&#x5230;&#x4E0B;&#x9762;&#x65B0;&#x7684;page directory&#x8868;&#x683C;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Entry</th>
+<th style="text-align:center">Virtual Address</th>
+<th style="text-align:center">Points to (logically)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1023</td>
+<td style="text-align:center">0xffc00000</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">...</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">960</td>
+<td style="text-align:center">0xf0000000</td>
+<td style="text-align:center">KERNBASE</td>
+</tr>
+<tr>
+<td style="text-align:center">959</td>
+<td style="text-align:center">0xefff 8000</td>
+<td style="text-align:center">Kernel stack</td>
+</tr>
+<tr>
+<td style="text-align:center">957</td>
+<td style="text-align:center">0xef400000</td>
+<td style="text-align:center">Page directory</td>
+</tr>
+<tr>
+<td style="text-align:center">956</td>
+<td style="text-align:center">0xef000000</td>
+<td style="text-align:center">PageInfo array</td>
+</tr>
+<tr>
+<td style="text-align:center">...</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0x00000000</td>
+<td style="text-align:center">NULL</td>
+</tr>
+</tbody>
+</table>
+<p>Q3: &#x6211;&#x4EEC;&#x5C06;&#x5185;&#x6838;&#x548C;&#x7528;&#x6237;&#x6001;&#x653E;&#x5728;&#x4E86;&#x540C;&#x4E00;&#x4E2A;&#x5730;&#x5740;&#x7A7A;&#x95F4;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x7528;&#x6237;&#x6001;&#x4E0D;&#x80FD;&#x8BFB;&#x6216;&#x8005;&#x5199;&#x5185;&#x6838;&#x7684;&#x5185;&#x5B58;&#xFF1F;&#x662F;&#x4EC0;&#x4E48;&#x673A;&#x5236;&#x4FDD;&#x8BC1;&#x4E86;&#x80FD;&#x591F;&#x8FD9;&#x6837;&#x505A;&#xFF1F;</p>
+<p>&#x7528;&#x6237;&#x6001;&#x7684;&#x7A0B;&#x5E8F;&#x4E0D;&#x80FD;&#x591F;&#x8BBF;&#x95EE;&#x4E0D;&#x5E26;&#x6709;<code>PTE_U</code>&#x6807;&#x5FD7;&#x7684;&#x9875;&#x3002;&#x8FD9;&#x4E9B;&#x6743;&#x9650;&#x8BBF;&#x95EE;&#x7684;&#x6807;&#x5FD7;&#x4F4D;&#x5728;page table&#x4E2D;&#x3002;</p>
+<p>Q4: &#x6700;&#x5927;&#x652F;&#x6301;&#x591A;&#x5927;&#x7684;&#x7269;&#x7406;&#x5185;&#x5B58;&#xFF1F;&#x600E;&#x4E48;&#x7B97;&#x7684;&#xFF1F;</p>
+<p>&#x524D;&#x9762;&#x591A;&#x6B21;&#x63D0;&#x5230;&#xFF0C;&#x6700;&#x5927;&#x4E3A;4GB&#x3002;</p>
+<p>Q5: &#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E86;&#x591A;&#x5C11;&#x7684;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x6765;&#x7BA1;&#x7406;&#x5185;&#x5B58;&#xFF1F;&#x8FDB;&#x884C;&#x5177;&#x4F53;&#x7684;&#x8BF4;&#x660E;&#x3002;</p>
+<p>1 page direstory+1024pages+0x100000 PageInfo = 4KB+4*1024KB+8192KB = 12292KB = 12MB&#x5DE6;&#x53F3;</p>
+<p>Q6: &#x4ECE;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x5F00;&#x59CB;EIP&#x4ECE;&#x4F4E;&#x5730;&#x5740;(1MB)&#x8F6C;&#x5411;&#x9AD8;&#x5730;&#x5740;(KERNBASE)&#xFF1F;&#x4EC0;&#x4E48;&#x4F7F;&#x5F97;EIP&#x65E2;&#x80FD;&#x591F;&#x5728;&#x4F4E;&#x5730;&#x5740;&#x8FD0;&#x884C;&#xFF0C;&#x53C8;&#x80FD;&#x591F;&#x5728;&#x9AD8;&#x5730;&#x5740;&#x8FD0;&#x884C;&#xFF1F;&#x4E3A;&#x4EC0;&#x4E48;&#x8FD9;&#x4E2A;&#x8F6C;&#x5316;&#x662F;&#x5FC5;&#x8981;&#x7684;&#xFF1F;</p>
+<p>&#x6267;&#x884C;&#x4E86;&#x8FD9;&#x4E2A;&#x8BED;&#x53E5;&#x4E4B;&#x540E;&#xFF1A;</p>
+<pre><code class="lang-c">mov    $relocated, %eax
+f0100028:    b8 <span class="hljs-number">2f</span> <span class="hljs-number">00</span> <span class="hljs-number">10</span> f0           mov    $<span class="hljs-number">0xf010002f</span>,%eax
+    jmp    *%eax
+f010002d:    ff e0                    jmp    *%eax
+</code></pre>
+<p>&#x8FD9;&#x4E00;&#x70B9;&#x5728;lab1 exercise 7&#x4E5F;&#x505A;&#x4E86;&#x8BE6;&#x7EC6;&#x7684;&#x8BF4;&#x660E;&#x3002;</p>
+<p>&#x4E4B;&#x6240;&#x4EE5;&#x65E2;&#x80FD;&#x591F;&#x5728;&#x9AD8;&#x5730;&#x5740;&#x4E5F;&#x80FD;&#x591F;&#x5728;&#x4F4E;&#x5730;&#x5740;&#x6267;&#x884C;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#x9AD8;&#x5730;&#x5740;&#x548C;&#x4F4E;&#x5730;&#x5740;&#x90FD;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x8868;(lab1 &#x4E2D;&#x63D0;&#x5230;&#x4E86;)&#x6620;&#x5C04;&#x5230;&#x4E86;[0, 4MB)&#x4E2D;&#x3002;&#x56E0;&#x4E3A;&#x5185;&#x6838;&#x7684;&#x4EE3;&#x7801;&#x90FD;&#x662F;&#x5728;&#x9AD8;&#x5730;&#x5740;&#x8FDB;&#x884C;&#x7684;&#xFF0C;&#x8FD9;&#x6837;&#x80FD;&#x591F;&#x7559;&#x4E0B;&#x66F4;&#x591A;&#x7684;&#x7A7A;&#x95F4;&#x7ED9;&#x7528;&#x6237;&#x6001;&#x3002;</p>
+<h4 id="address-space-layout-alternatives">Address Space Layout Alternatives</h4>
+<p>&#x672C;&#x90E8;&#x5206;&#x5B8C;&#x5168;&#x662F;&#x62D3;&#x5C55;&#x90E8;&#x5206;&#xFF0C;&#x600E;&#x6837;&#x4E0D;&#x4F7F;&#x7528;&#x5185;&#x6838;&#x4EE3;&#x7801;&#x5728;&#x9AD8;&#x5730;&#x5740;&#xFF0C;&#x7528;&#x6237;&#x7A0B;&#x5E8F;&#x5728;&#x4F4E;&#x5730;&#x5740;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x751A;&#x81F3;&#x5185;&#x6838;&#x7A7A;&#x95F4;&#x662F;&#x4E0D;&#x56FA;&#x5B9A;&#x7684;&#xFF1F;&#x6709;&#x5F85;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x53BB;&#x5B66;&#x4E60;&#x6316;&#x6398;&#x3002;</p>
+<h3 id="&#x7ED3;&#x679C;">&#x7ED3;&#x679C;</h3>
+<p><img src="lab2-Memory Management/result.png" alt=""></p>
+<h3 id="&#x9057;&#x7559;&#x95EE;&#x9898;">&#x9057;&#x7559;&#x95EE;&#x9898;</h3>
+<p>Q&#xFF1A;&#x4E0D;&#x540C;&#x865A;&#x62DF;&#x5730;&#x5740;&#x80FD;&#x591F;&#x6620;&#x5C04;&#x5230;&#x540C;&#x4E00;&#x7269;&#x7406;&#x5730;&#x5740;&#xFF1F;</p>
+<p>&#x53EF;&#x4EE5;&#x3002;&#x4E0A;&#x9762;&#x5DF2;&#x7ECF;&#x7ED9;&#x51FA;&#x5177;&#x4F53;&#x7684;&#x4F8B;&#x5B50;&#x3002;&#x65B0;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x7CFB;&#x7EDF;&#x662F;&#x600E;&#x4E48;&#x77E5;&#x9053;&#x8FDB;&#x884C;&#x5185;&#x5BB9;&#x7684;&#x66FF;&#x6362;&#x7684;&#xFF0C;&#x7528;&#x5B8C;&#x540E;&#x8FD8;&#x80FD;&#x591F;&#x66FF;&#x6362;&#x56DE;&#x6765;&#xFF1F;</p>
+<p>&#x5982;&#x679C;&#x8FDB;&#x884C;&#x8BBF;&#x5B58;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5982;&#x679C;&#x6B64;&#x523B;&#x865A;&#x62DF;&#x5730;&#x5740;&#x6307;&#x5411;&#x7684;&#x7269;&#x7406;&#x5730;&#x5740;&#x4E0D;&#x662F;&#x60F3;&#x8981;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x8FDB;&#x884C;&#x5237;&#x76D8;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5426;&#x5219;&#x5C31;&#x80FD;&#x591F;&#x8FDB;&#x884C;&#x76F4;&#x63A5;&#x8BFB;&#x53D6;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<pre><code class="lang-c"><span class="hljs-comment">/*
+ * Virtual memory map:                                Permissions
+ *                                                    kernel/user
+ *
+ *    4 Gig --------&gt;  +------------------------------+
+ *                     |                              | RW/--
+ *                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *                     :              .               :
+ *                     :              .               :
+ *                     :              .               :
+ *                     |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| RW/--
+ *                     |                              | RW/--
+ *                     |   Remapped Physical Memory   | RW/--
+ *                     |                              | RW/--
+ *    KERNBASE, ----&gt;  +------------------------------+ 0xf0000000      --+
+ *    KSTACKTOP        |     CPU0&apos;s Kernel Stack      | RW/--  KSTKSIZE   |
+ *                     | - - - - - - - - - - - - - - -|                   |
+ *                     |      Invalid Memory (*)      | --/--  KSTKGAP    |
+ *                     +------------------------------+                   |
+ *                     |     CPU1&apos;s Kernel Stack      | RW/--  KSTKSIZE   |
+ *                     | - - - - - - - - - - - - - - -|                 PTSIZE
+ *                     |      Invalid Memory (*)      | --/--  KSTKGAP    |
+ *                     +------------------------------+                   |
+ *                     :              .               :                   |
+ *                     :              .               :                   |
+ *    MMIOLIM ------&gt;  +------------------------------+ 0xefc00000      --+ = 0xf0000000-4096*1024
+ *                     |       Memory-mapped I/O      | RW/--  PTSIZE
+ * ULIM, MMIOBASE --&gt;  +------------------------------+ 0xef800000
+ *                     |  Cur. Page Table (User R-)   | R-/R-  PTSIZE
+ *    UVPT      ----&gt;  +------------------------------+ 0xef400000
+ *                     |          RO PAGES            | R-/R-  PTSIZE
+ *    UPAGES    ----&gt;  +------------------------------+ 0xef000000
+ *                     |           RO ENVS            | R-/R-  PTSIZE
+ * UTOP,UENVS ------&gt;  +------------------------------+ 0xeec00000
+ * UXSTACKTOP -/       |     User Exception Stack     | RW/RW  PGSIZE
+ *                     +------------------------------+ 0xeebff000
+ *                     |       Empty Memory (*)       | --/--  PGSIZE
+ *    USTACKTOP  ---&gt;  +------------------------------+ 0xeebfe000
+ *                     |      Normal User Stack       | RW/RW  PGSIZE
+ *                     +------------------------------+ 0xeebfd000
+ *                     |                              |
+ *                     |                              |
+ *                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *                     .                              .
+ *                     .                              .
+ *                     .                              .
+ *                     |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+ *                     |     Program Data &amp; Heap      |
+ *    UTEXT --------&gt;  +------------------------------+ 0x00800000
+ *    PFTEMP -------&gt;  |       Empty Memory (*)       |        PTSIZE
+ *                     |                              |
+ *    UTEMP --------&gt;  +------------------------------+ 0x00400000      --+
+ *                     |       Empty Memory (*)       |                   |
+ *                     | - - - - - - - - - - - - - - -|                   |
+ *                     |  User STAB Data (optional)   |                 PTSIZE
+ *    USTABDATA ----&gt;  +------------------------------+ 0x00200000        |
+ *                     |       Empty Memory (*)       |                   |
+ *    0 ------------&gt;  +------------------------------+                 --+
+ *
+ * (*) Note: The kernel ensures that &quot;Invalid Memory&quot; is *never* mapped.
+ *     &quot;Empty Memory&quot; is normally unmapped, but user programs may map pages
+ *     there if desired.  JOS user programs map pages temporarily at UTEMP.
+ */</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="lab1-Booting a PC.html" class="navigation navigation-prev " aria-label="Previous page: Lab1: Booting a PC">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Lab3-User Environments.html" class="navigation navigation-next " aria-label="Next page: Lab3: User Environments">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"lab2: Memory Management","level":"1.4","depth":1,"next":{"title":"Lab3: User Environments","level":"1.5","depth":1,"path":"Lab3-User Environments.md","ref":"./Lab3-User Environments.md","articles":[]},"previous":{"title":"Lab1: Booting a PC","level":"1.3","depth":1,"path":"lab1-Booting a PC.md","ref":"./lab1-Booting a PC.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["callouts@git+https://github.com/Simran-B/gitbook-plugin-callouts.git","intopic-toc","theme-comscore","-lunr","-search","search-pro","github","splitter","-sharing","mathjax-pro"],"pluginsConfig":{"callouts":{"showTypeInHeader":true},"github":{"url":"https://github.com/KnowledgeHive/ddia"},"intopic-toc":{"isCollapsed":false,"isScrollspyActive":true,"label":{"de":"导航","en":"导航","ch":"导航"},"maxDepth":6,"mode":"nested","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4, .markdown-section h5, .markdown-section h6","visible":true},"splitter":{},"search-pro":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"mathjax-pro":{"forceSVG":false,"version":"2.7.7"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"lab2-Memory Management.md","mtime":"2021-02-19T16:32:10.042Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-19T16:39:19.156Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-intopic-toc/anchor.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-intopic-toc/gumshoe.polyfills.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-intopic-toc/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-mathjax-pro/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
